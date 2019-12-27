@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutWithoutHeaderFooter.cshtml";
+    ViewBag.Title = "Qeydiyyat";
+
+}
+
+<!-- Main Content -->
+
+<section class="pageWrapperForIndex notheader">
+    <div id="AccountBox">
+        <div class="row">
+            <div class="col-md-12 mb-4 mt-4">
+                <h3>Qeydiyyat</h3>
+                <hr>
+            </div>
+            <div class="col-md-12">
+                <form action="#" method="#">
+                    <div class="inputBox mb-3">
+                        <i class="fas fa-envelope mr-3"></i>
+                        <input placeholder="Email" type="email">
+                    </div>
+
+                    <div class="inputBox ">
+                        <i class="fas fa-id-card mr-3"></i>
+                        <div class="userInfoGroup">
+                            <div class=" mb-3">
+                                <input placeholder="Ad" type="text">
+                            </div>
+                            <div class=" mb-3">
+                                <input placeholder="Soyad" type="text">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="inputBox">
+                        <i class="fas fa-lock mr-3"></i>
+
+                        <div class="userPassGroup">
+                            <div class=" mb-3">
+                                <input placeholder="Şifrə" type="password">
+                            </div>
+                            <div class=" mb-3">
+                                <input placeholder="Təkrar şifrə" type="password">
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="inputBox submitBox mt-3 mb-3">
+                        <input type="submit" value="Qeydiyyat keç">
+                        <a href="/Account/Login"><input type="button" value="Hesabınız var ?"></a>
+                    </div>
+                    <div class="inputBox submitBox">
+                        <a href="/Home/Index"><input class="forgotBtn" type="button" value="Geri"></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Main Content -->

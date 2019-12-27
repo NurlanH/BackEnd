@@ -8,24 +8,39 @@ namespace DevFormAz.Controllers
 {
     public class HomeController : Controller
     {
+
+        //Home page
         public ActionResult Index()
         {
             return View();
         }
 
 
-        public ActionResult About()
+        //Form page
+        public ActionResult FormPage()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
+        //Tag page
+        public ActionResult TagPage()
+        {
             return View();
         }
+
+
+        //Users page
+        public ActionResult UsersInspectPage()
+        {
+            return View();
+        }
+
+        //UserPanel page
+        public ActionResult UserPanel()
+        {
+            return View();
+        }
+
     }
 }

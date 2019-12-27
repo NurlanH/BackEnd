@@ -1,0 +1,158 @@
+﻿  <!-- Main Content -->
+<section class="pageWrapperForIndex mt-3 mb-3">
+    <div class="container">
+
+        <div id="mainFormContent">
+            <div class="row">
+                <!-- Left side -->
+                <div class="col-md-12 col-lg-2 col-12  col-sm-12">
+                    <div class="devNavs">
+                        <div class="navs">
+                            <ul>
+                                <li>
+                                    <a href="/Home/TagPage">Taglar</a>
+                                </li>
+                                <li>
+                                    <a href="/Home/UsersInspectPage">İstifadəçilər</a>
+                                </li>
+                                <li>
+                                    <a href="#">Proyektlər</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Main form -->
+                <div class="col-md-12 col-lg-8 col-12 col-sm-12">
+                    <div class="mainForm">
+                        <div class="forms">
+                            <div class="postShareSec">
+                                <button id="formOpenBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Post Paylaş</button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Yeni Post</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="#" action="#" enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="col-form-label">Başlıq</label>
+                                                        <input type="text" class="form-control" id="recipient-name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="col-form-label">Mesaj</label>
+                                                        <textarea class="form-control" id="message-text"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="upload-file" class="col-form-label">Şəkil yüklə</label>
+                                                        <input type="file" class="form-control fileinput" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="col-form-label">Tag əlavə et</label>
+                                                        <div class="tags-input form-control" data-name="tags-input">
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ləğv et</button>
+                                                <button id="sharebtn" type="button" class="btn btn-primary">Paylaş</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <br>
+                            <div class="formlist">
+                                <div class="postBox">
+                                    <div class="postUserInfo">
+                                        <div class="boxOfInfo">
+                                            <div class="imageBox">
+                                                <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/unnamed.jpg" alt="">
+                                            </div>
+                                            <div class="postUserName">
+                                                <p>Nurlan Hüseynov</p>
+                                                <span>27.12.2019</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="postUserContent">
+                                        <div class="boxOfContent">
+                                            <div class="posthead">
+                                                <h4>Təcili kömək lazımdır</h4>
+                                            </div>
+                                            <div class="postContent">
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ipsam.</p>
+                                            </div>
+                                            <div class="postreadmore">
+                                                <a href="#">Davamı</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="postGrades">
+                                        <div class="boxOfGrades">
+                                            <div class="gradePlus">
+                                                <h3>0</h3>
+                                            </div>
+                                            <div class="LikeDisslike">
+                                                <div class="likebtn">
+                                                    <a href=""><i class="fas fa-caret-up"></i></a>
+
+                                                </div>
+                                                <div class="disslikebtn">
+                                                    <a href=""><i class="fas fa-caret-down"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="gradeMinus">
+                                                <h3>0</h3>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div class="paginationSec d-flex justify-content-center">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Rightside -->
+                <div class="col-md-12 col-lg-2 col-12 col-sm-12">
+                    <div class="tagsUsers">
+                        <div class="tags">
+                            <div class="tagHead">
+                                <h5>Populyar taglar</h5>
+                                <hr>
+                            </div>
+                            <div class="taglists">
+                                <a href="#">Html <span>×1500</span></a>
+                                <a href="#">Css <span>×1500</span></a>
+                                <a href="#">Javascript <span>×1500</span></a>
+                                <a href="#">C# <span>×1500</span></a>
+                                <a href="#">Python <span>×1500</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Main Content -->
