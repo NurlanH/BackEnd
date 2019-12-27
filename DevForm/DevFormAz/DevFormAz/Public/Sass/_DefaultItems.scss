@@ -1,0 +1,20 @@
+.dvBtn{
+    border-bottom: 1px solid $BorderColor;
+    transition: all 0.1s ease-in-out;
+}
+
+
+
+
+.headerFixed{
+    position: fixed;
+    top: 0;
+    box-shadow: 0 0px 3px $BorderColor;
+}
+
+
+.tagBox{
+    padding: 5px;
+    background-color: $MainColor;
+    color: $WhiteFontColor;
+}

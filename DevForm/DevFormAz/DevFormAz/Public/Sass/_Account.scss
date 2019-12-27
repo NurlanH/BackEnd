@@ -1,0 +1,100 @@
+// Box defaults
+#AccountBox{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    height: auto;
+    min-height: 330px;
+    background-color: $MainColor;
+    overflow: hidden;
+    padding: 10px;
+
+    .logWithOtherSocial{
+        display: flex;
+        justify-content: center;
+
+        .socialBox{
+            border: 1px solid $BorderColor;
+            padding: 10px 20px;
+            color: $WhiteFontColor;
+            transition: all 0.1s ease-in-out;
+
+            &:hover{
+                background-color: $HoverColor;
+                color: $DarkFontColor;
+            }
+        }
+    }
+
+    h3{
+        text-align: center;
+        color: $WhiteFontColor;
+        margin: 0;
+    }
+
+    hr{
+        width: 50%;
+        border-color: #ffffff;
+    }
+
+
+    .inputBox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i{
+            font-size: 1.3em;
+            color: $WhiteFontColor;
+        }
+
+        input{
+            background:transparent;
+            border:none;
+            color: $WhiteFontColor;
+            border-bottom: 1px solid $BorderColor;
+            outline: none;
+            padding: 3px;
+
+            &::placeholder{
+                color: white;
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .submitBox{
+        input:not(:last-child){
+            margin-right: 20px;
+        }
+
+        .forgotBtn{
+            border:none;
+        }
+    }
+}
+
+#AccountBox.forForgot{
+    min-height: 250px;
+}
+
+//responsive
+
+@media only screen and (min-width:0px) and (max-width:767px){
+    #AccountBox{
+        width: 100%;
+       
+    
+        hr{
+            width: 100%;
+            border-color: #ffffff;
+        }
+    
+    
+    }
+    
+    
+}
+
+    

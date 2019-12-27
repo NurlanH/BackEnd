@@ -1,0 +1,1280 @@
+#mainFormContent{
+    width: 100%;
+    height: auto;
+    min-height: 800px;
+    margin-top: 80px;
+    .devNavs{
+        width: 100%;
+        min-height: 300px;
+        height: auto;
+        padding-top: 20px;
+
+        .navs{
+            width: 100%;
+            height: auto;
+            min-height: 200px;
+            margin-bottom: 20px;
+            background-color: rgba(204, 204, 204, 0.699);
+            display: flex;
+            border-radius: 3px;
+            align-items: center;
+            justify-content: center;
+            ul{
+                padding:0;
+                margin:0;
+
+                li:not(:last-child){
+                    margin-bottom: 25px;
+
+                }
+                li{
+                    list-style: none;
+                    text-align: center;
+                    a{
+                        text-decoration: none;
+                        font-weight: 700;
+                        padding: 10px;
+                        color: $MainColor;
+                        border-radius: 3px;
+                        transition: all 0.1s ease-in-out;
+                        &:hover{
+                            color: $WhiteFontColor;
+                            background-color: $MainColor;
+                        }  
+                    }
+
+                    
+                }
+            }
+        }
+    }
+
+
+
+    .mainForm{
+        width: 100%;
+        height: auto;
+        min-height: 700px;
+        margin-top: 20px;
+
+        .forms{
+            min-height: 680px;
+            width: 100%;
+
+
+            .tags-input {
+                padding: 0.175rem .75rem;
+                height: auto;
+                .tag{
+                    padding: 0.25em 0.75em; 
+                    background-color: $MainColorExLight;
+                    color: $WhiteFontColor;
+                    margin-right: 4px;
+                    transition: all 0.1s ease-in-out;
+                    display: inline-block;
+                    align-items: center;
+                    cursor: pointer;
+                    margin-bottom: 3px;
+                    &:hover{
+                        background-color: #ccc;
+                        color: $DarkFontColor;
+
+                        
+                    }
+
+                    .close{
+                       
+                        &::after{
+                            content: "×";
+                            font-weight: 700;
+                            display: inline-block;
+                            margin-left: 0.25em;
+                            color: white;
+                        }
+                        &:hover{
+
+                            &::after{
+                                color: red;
+                            }
+                        }
+                    }
+
+                    
+
+
+                    
+                }  
+                
+                .main-input{
+                    border: none;
+                    outline: none;
+                }
+
+
+            }
+
+            #formOpenBtn{
+                background-color: $MainColor;
+                border: 1px solid $MainColor;
+                outline: none;
+
+                &:hover{
+                    background-color: $MainColorWhite;
+                    color: $DarkFontColor;
+                }
+            }
+            .modal-footer #sharebtn{
+                background-color: $MainColor;
+                border: 1px solid $MainColor;
+                outline: none;
+
+                &:hover{
+                    background-color: $MainColorWhite;
+                    color: $DarkFontColor;
+                }
+            }
+        }
+
+        .formlist{
+            .postBox{
+                width: 100%;
+                height: auto;
+                min-height: 150px;
+                border-radius: 3px;
+                margin-bottom: 10px;
+                background: #00000014;
+                display: flex;
+                justify-content: space-between;
+
+                .postUserInfo{
+                    width: 40%;
+                    padding: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .imageBox{
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                    .postUserName{
+                        text-align: center;
+
+                        p{
+                            margin-bottom: 1px;
+                        }
+                        span{
+                            display: block;
+                            font-size: 0.7em;
+                        }
+                    }
+                }
+
+                .postUserContent{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    p{
+                        width: 476px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .postreadmore{
+                        a{
+                            text-decoration: none;
+                            padding:5px 10px;
+                            background-color: $MainColor;
+                            color: $WhiteFontColor;
+                            border-radius: 3px;
+                            border: 1px solid $MainColor;
+                            transition: all 0.2s ease-in-out;
+                            cursor: pointer;
+
+                            &:hover{
+                                background-color: $MainColorWhite;
+                                color: $MainColor;
+                            }
+                        }
+                    }
+                }
+
+                .postGrades{
+                    width: 25%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+
+                    h3{
+                        margin-bottom: 0;
+                    }
+                    .LikeDisslike{
+                        i{
+                            font-size: 2em;
+                            cursor: pointer;
+                            color:$MainColor;
+                            transition: all 0.1s ease-in-out;
+                            &:hover{
+                                color: $MainColorExLight;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .tagsUsers{
+        width: 100%;
+        height: auto;
+        min-height: 700px;
+        padding-top: 20px;
+        
+        .tags{
+            width: 100%;
+            height: auto;
+            min-height: 200px;
+            background-color: rgba(204, 204, 204, 0.699);
+            border-radius: 3px;
+            margin-bottom: 20px;
+            padding: 10px 0;
+
+            .tagHead{
+                h5{
+                    margin:0;
+                    text-align: center;
+                    font-size: 1.1em;
+                    font-weight: 700;
+                    color: $DarkFontColor;
+                }
+            }
+
+            .taglists{
+                a{
+                    text-decoration: none;
+                    color: $MainColor;
+                    font-weight: 700;
+                    display: block;
+                    text-align: center;
+                    transition: all 0.1s ease-in-out;
+
+                    span{
+                        font-size: 0.7em;
+                    }
+
+                    &:hover{
+                        color: $MainColorExLight;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@media only screen and (min-width: 0px) and (max-width: 399px){
+    #mainFormContent{
+        width: 100%;
+        .devNavs{
+            min-height: 245px;
+            padding-top: 20px;
+    
+            .navs{
+                min-height: 200px;
+                margin-bottom: 20px;
+                ul{
+    
+                    li:not(:last-child){
+                        margin-bottom: 25px;
+    
+                    }
+                }
+            }
+        }
+    
+    
+    
+        .mainForm{
+            width: 100%;
+            height: auto;
+            min-height: 700px;
+            .forms{
+                min-height: 680px;
+                width: 100%;
+            
+               
+    
+                .tags-input {
+                    padding: 0.175rem .75rem;
+                    height: auto;
+                    .tag{
+                        padding: 0.25em 0.75em; 
+                        background-color: $MainColorExLight;
+                        color: $WhiteFontColor;
+                        margin-right: 4px;
+                        transition: all 0.1s ease-in-out;
+                        display: inline-block;
+                        align-items: center;
+                        cursor: pointer;
+                        margin-bottom: 3px;
+                        &:hover{
+                            background-color: #ccc;
+                            color: $DarkFontColor;
+    
+                            
+                        }
+    
+                        .close{
+                           
+                            &::after{
+                                content: "×";
+                                font-weight: 700;
+                                display: inline-block;
+                                margin-left: 0.25em;
+                                color: white;
+                            }
+                            &:hover{
+    
+                                &::after{
+                                    color: red;
+                                }
+                            }
+                        }
+    
+                        
+    
+    
+                        
+                    }  
+                    
+                    .main-input{
+                        border: none;
+                        outline: none;
+                    }
+    
+    
+                }
+    
+                #formOpenBtn{
+                    background-color: $MainColor;
+                    border: 1px solid $MainColor;
+                    outline: none;
+    
+                    &:hover{
+                        background-color: $MainColorWhite;
+                        color: $DarkFontColor;
+                    }
+                }
+                .modal-footer #sharebtn{
+                    background-color: $MainColor;
+                    border: 1px solid $MainColor;
+                    outline: none;
+    
+                    &:hover{
+                        background-color: $MainColorWhite;
+                        color: $DarkFontColor;
+                    }
+                }
+            }
+    
+            .formlist{
+                .postBox{
+                    width: 100%;
+                    height: auto;
+                    min-height: 150px;
+                    border-radius: 3px;
+                    margin-bottom: 10px;
+                    background: #00000014;
+                    display: flex;
+                    justify-content: space-between;
+    
+                    .postUserInfo{
+                        width: 89%;
+                        padding: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .imageBox{
+                            display: flex;
+                            justify-content: center;
+                        }
+    
+                        .postUserName{
+                            text-align: center;
+    
+                            p{
+                                margin-bottom: 1px;
+                                font-size: 0.8em;
+                            }
+                            span{
+                                display: block;
+                                font-size: 0.6em;
+                            }
+                        }
+                    }
+    
+                    .postUserContent{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+    
+                        h4{
+                            font-size: 1.2em;
+                        }
+                        p{
+                            width: 90px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+    
+                        .postreadmore{
+                            a{
+                                text-decoration: none;
+                                padding:5px 10px;
+                                background-color: $MainColor;
+                                color: $WhiteFontColor;
+                                border-radius: 3px;
+                                border: 1px solid $MainColor;
+                                transition: all 0.2s ease-in-out;
+                                cursor: pointer;
+                                font-size: 0.8em;
+                                &:hover{
+                                    background-color: $MainColorWhite;
+                                    color: $MainColor;
+                                }
+                            }
+                        }
+                    }
+    
+                    .postGrades{
+                        width: 25%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+    
+                        h3{
+                            margin-bottom: 0;
+                            font-size: 1em;
+                        }
+                        .LikeDisslike{
+                            i{
+                                font-size: 1.5em;
+                                cursor: pointer;
+                                color:$MainColor;
+                                transition: all 0.1s ease-in-out;
+                                &:hover{
+                                    color: $MainColorExLight;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+    
+        .tagsUsers{
+            min-height: 300px;
+    
+            .tags{
+                width: 100%;
+                height: auto;
+                min-height: 200px;
+                margin-bottom: 20px;
+
+                .tagHead{
+                    h5{
+                        margin:0;
+                        text-align: center;
+                        font-size: 1.1em;
+                        font-weight: 700;
+                        color: $DarkFontColor;
+                    }
+                }
+    
+                .taglists{
+                    a{
+                        text-decoration: none;
+                        color: $MainColor;
+                        font-weight: 700;
+                        display: block;
+                        text-align: center;
+                        transition: all 0.1s ease-in-out;
+    
+                        span{
+                            font-size: 0.7em;
+                        }
+    
+                        &:hover{
+                            color: $MainColorExLight;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 767px){
+    #mainFormContent{
+        width: 100%;
+        .devNavs{
+            min-height: 245px;
+            padding-top: 20px;
+    
+            .navs{
+                min-height: 200px;
+                margin-bottom: 20px;
+                ul{
+    
+                    li:not(:last-child){
+                        margin-bottom: 25px;
+    
+                    }
+                }
+            }
+        }
+    
+    
+    
+        .mainForm{
+            width: 100%;
+            height: auto;
+            min-height: 700px;
+            .forms{
+                min-height: 680px;
+                width: 100%;
+            
+               
+    
+                .tags-input {
+                    padding: 0.175rem .75rem;
+                    height: auto;
+                    .tag{
+                        padding: 0.25em 0.75em; 
+                        background-color: $MainColorExLight;
+                        color: $WhiteFontColor;
+                        margin-right: 4px;
+                        transition: all 0.1s ease-in-out;
+                        display: inline-block;
+                        align-items: center;
+                        cursor: pointer;
+                        margin-bottom: 3px;
+                        &:hover{
+                            background-color: #ccc;
+                            color: $DarkFontColor;
+    
+                            
+                        }
+    
+                        .close{
+                           
+                            &::after{
+                                content: "×";
+                                font-weight: 700;
+                                display: inline-block;
+                                margin-left: 0.25em;
+                                color: white;
+                            }
+                            &:hover{
+    
+                                &::after{
+                                    color: red;
+                                }
+                            }
+                        }
+    
+                        
+    
+    
+                        
+                    }  
+                    
+                    .main-input{
+                        border: none;
+                        outline: none;
+                    }
+    
+    
+                }
+    
+                #formOpenBtn{
+                    background-color: $MainColor;
+                    border: 1px solid $MainColor;
+                    outline: none;
+    
+                    &:hover{
+                        background-color: $MainColorWhite;
+                        color: $DarkFontColor;
+                    }
+                }
+                .modal-footer #sharebtn{
+                    background-color: $MainColor;
+                    border: 1px solid $MainColor;
+                    outline: none;
+    
+                    &:hover{
+                        background-color: $MainColorWhite;
+                        color: $DarkFontColor;
+                    }
+                }
+            }
+    
+            .formlist{
+                .postBox{
+                    width: 100%;
+                    height: auto;
+                    min-height: 150px;
+                    border-radius: 3px;
+                    margin-bottom: 10px;
+                    background: #00000014;
+                    display: flex;
+                    justify-content: space-between;
+    
+                    .postUserInfo{
+                        width: 39%;
+                        padding: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .imageBox{
+                            display: flex;
+                            justify-content: center;
+                        }
+    
+                        .postUserName{
+                            text-align: center;
+    
+                            p{
+                                margin-bottom: 1px;
+                                font-size: 0.8em;
+                            }
+                            span{
+                                display: block;
+                                font-size: 0.6em;
+                            }
+                        }
+                    }
+    
+                    .postUserContent{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+    
+                        h4{
+                            font-size: 1.2em;
+                        }
+                        p{
+                            width: 262px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+    
+                        .postreadmore{
+                            a{
+                                text-decoration: none;
+                                padding:5px 10px;
+                                background-color: $MainColor;
+                                color: $WhiteFontColor;
+                                border-radius: 3px;
+                                border: 1px solid $MainColor;
+                                transition: all 0.2s ease-in-out;
+                                cursor: pointer;
+                                font-size: 0.8em;
+                                &:hover{
+                                    background-color: $MainColorWhite;
+                                    color: $MainColor;
+                                }
+                            }
+                        }
+                    }
+    
+                    .postGrades{
+                        width: 25%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+    
+                        h3{
+                            margin-bottom: 0;
+                            font-size: 1em;
+                        }
+                        .LikeDisslike{
+                            i{
+                                font-size: 1.5em;
+                                cursor: pointer;
+                                color:$MainColor;
+                                transition: all 0.1s ease-in-out;
+                                &:hover{
+                                    color: $MainColorExLight;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+    
+        .tagsUsers{
+            min-height: 300px;
+    
+            .tags{
+                width: 100%;
+                height: auto;
+                min-height: 200px;
+                margin-bottom: 20px;
+
+                .tagHead{
+                    h5{
+                        margin:0;
+                        text-align: center;
+                        font-size: 1.1em;
+                        font-weight: 700;
+                        color: $DarkFontColor;
+                    }
+                }
+    
+                .taglists{
+                    a{
+                        text-decoration: none;
+                        color: $MainColor;
+                        font-weight: 700;
+                        display: block;
+                        text-align: center;
+                        transition: all 0.1s ease-in-out;
+    
+                        span{
+                            font-size: 0.7em;
+                        }
+    
+                        &:hover{
+                            color: $MainColorExLight;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    #mainFormContent{
+        width: 100%;
+        .devNavs{
+            min-height: 245px;
+            padding-top: 20px;
+    
+            .navs{
+                min-height: 200px;
+                margin-bottom: 20px;
+                ul{
+    
+                    li:not(:last-child){
+                        margin-bottom: 25px;
+    
+                    }
+
+                    li{
+                        a{
+                            font-size: 1.1em;
+                        }
+                    }
+                }
+            }
+        }
+    
+    
+    
+        .mainForm{
+            width: 100%;
+            height: auto;
+            min-height: 700px;
+            .forms{
+                min-height: 680px;
+                width: 100%;
+            
+                .fileinput{
+                    padding: 0.275em 0.75em; 
+                }
+    
+                .tags-input {
+                    padding: 0.175rem .75rem;
+                    height: auto;
+                    .tag{
+                        padding: 0.25em 0.75em; 
+                        background-color: $MainColorExLight;
+                        color: $WhiteFontColor;
+                        margin-right: 4px;
+                        transition: all 0.1s ease-in-out;
+                        display: inline-block;
+                        align-items: center;
+                        cursor: pointer;
+                        margin-bottom: 3px;
+                        &:hover{
+                            background-color: #ccc;
+                            color: $DarkFontColor;
+    
+                            
+                        }
+    
+                        .close{
+                           
+                            &::after{
+                                content: "×";
+                                font-weight: 700;
+                                display: inline-block;
+                                margin-left: 0.25em;
+                                color: white;
+                            }
+                            &:hover{
+    
+                                &::after{
+                                    color: red;
+                                }
+                            }
+                        }
+    
+                        
+    
+    
+                        
+                    }  
+                    
+                    .main-input{
+                        border: none;
+                        outline: none;
+                    }
+    
+    
+                }
+    
+                #formOpenBtn{
+                    background-color: $MainColor;
+                    border: 1px solid $MainColor;
+                    outline: none;
+    
+                    &:hover{
+                        background-color: $MainColorWhite;
+                        color: $DarkFontColor;
+                    }
+                }
+                .modal-footer #sharebtn{
+                    background-color: $MainColor;
+                    border: 1px solid $MainColor;
+                    outline: none;
+    
+                    &:hover{
+                        background-color: $MainColorWhite;
+                        color: $DarkFontColor;
+                    }
+                }
+            }
+    
+            .formlist{
+                .postBox{
+                    width: 100%;
+                    height: auto;
+                    min-height: 150px;
+                    border-radius: 3px;
+                    margin-bottom: 10px;
+                    background: #00000014;
+                    display: flex;
+                    justify-content: space-between;
+    
+                    .postUserInfo{
+                        width: 39%;
+                        padding: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .imageBox{
+                            display: flex;
+                            justify-content: center;
+                        }
+    
+                        .postUserName{
+                            text-align: center;
+    
+                            p{
+                                margin-bottom: 1px;
+                                font-size: 0.8em;
+                            }
+                            span{
+                                display: block;
+                                font-size: 0.6em;
+                            }
+                        }
+                    }
+    
+                    .postUserContent{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+    
+                        h4{
+                            font-size: 1.2em;
+                        }
+                        p{
+                            width: 387px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+    
+                        .postreadmore{
+                            a{
+                                text-decoration: none;
+                                padding:5px 10px;
+                                background-color: $MainColor;
+                                color: $WhiteFontColor;
+                                border-radius: 3px;
+                                border: 1px solid $MainColor;
+                                transition: all 0.2s ease-in-out;
+                                cursor: pointer;
+                                font-size: 0.8em;
+                                &:hover{
+                                    background-color: $MainColorWhite;
+                                    color: $MainColor;
+                                }
+                            }
+                        }
+                    }
+    
+                    .postGrades{
+                        width: 25%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+    
+                        h3{
+                            margin-bottom: 0;
+                            font-size: 1em;
+                        }
+                        .LikeDisslike{
+                            i{
+                                font-size: 1.5em;
+                                cursor: pointer;
+                                color:$MainColor;
+                                transition: all 0.1s ease-in-out;
+                                &:hover{
+                                    color: $MainColorExLight;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+    
+        .tagsUsers{
+            min-height: 300px;
+    
+            .tags{
+                width: 100%;
+                height: auto;
+                min-height: 200px;
+                margin-bottom: 20px;
+
+                .tagHead{
+                    h5{
+                        margin:0;
+                        text-align: center;
+                        font-size: 0.8em;
+                        font-weight: 700;
+                        color: $DarkFontColor;
+                    }
+                }
+    
+                .taglists{
+                    a{
+                        text-decoration: none;
+                        color: $MainColor;
+                        font-weight: 700;
+                        display: block;
+                        text-align: center;
+                        transition: all 0.1s ease-in-out;
+                        font-size: 1.1em;
+                        span{
+                            font-size: 0.8em;
+                        }
+    
+                        &:hover{
+                            color: $MainColorExLight;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px){
+    #mainFormContent{
+        width: 100%;
+        .devNavs{
+            min-height: 245px;
+            padding-top: 20px;
+    
+            .navs{
+                min-height: 200px;
+                margin-bottom: 20px;
+                ul{
+    
+                    li:not(:last-child){
+                        margin-bottom: 25px;
+    
+                    }
+
+                    li{
+                        a{
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+        }
+    
+    
+    
+        .mainForm{
+            width: 100%;
+            height: auto;
+            min-height: 700px;
+            .forms{
+                min-height: 680px;
+                width: 100%;
+            
+               
+    
+                .tags-input {
+                    padding: 0.175rem .75rem;
+                    height: auto;
+                    .tag{
+                        padding: 0.25em 0.75em; 
+                        background-color: $MainColorExLight;
+                        color: $WhiteFontColor;
+                        margin-right: 4px;
+                        transition: all 0.1s ease-in-out;
+                        display: inline-block;
+                        align-items: center;
+                        cursor: pointer;
+                        margin-bottom: 3px;
+                        &:hover{
+                            background-color: #ccc;
+                            color: $DarkFontColor;
+    
+                            
+                        }
+    
+                        .close{
+                           
+                            &::after{
+                                content: "×";
+                                font-weight: 700;
+                                display: inline-block;
+                                margin-left: 0.25em;
+                                color: white;
+                            }
+                            &:hover{
+    
+                                &::after{
+                                    color: red;
+                                }
+                            }
+                        }
+    
+                        
+    
+    
+                        
+                    }  
+                    
+                    .main-input{
+                        border: none;
+                        outline: none;
+                    }
+    
+    
+                }
+    
+                #formOpenBtn{
+                    background-color: $MainColor;
+                    border: 1px solid $MainColor;
+                    outline: none;
+    
+                    &:hover{
+                        background-color: $MainColorWhite;
+                        color: $DarkFontColor;
+                    }
+                }
+                .modal-footer #sharebtn{
+                    background-color: $MainColor;
+                    border: 1px solid $MainColor;
+                    outline: none;
+    
+                    &:hover{
+                        background-color: $MainColorWhite;
+                        color: $DarkFontColor;
+                    }
+                }
+            }
+    
+            .formlist{
+                .postBox{
+                    width: 100%;
+                    height: auto;
+                    min-height: 150px;
+                    border-radius: 3px;
+                    margin-bottom: 10px;
+                    background: #00000014;
+                    display: flex;
+                    justify-content: space-between;
+    
+                    .postUserInfo{
+                        width: 39%;
+                        padding: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .imageBox{
+                            display: flex;
+                            justify-content: center;
+                        }
+    
+                        .postUserName{
+                            text-align: center;
+    
+                            p{
+                                margin-bottom: 1px;
+                                font-size:1em;
+                            }
+                            span{
+                                display: block;
+                                font-size: 0.6em;
+                            }
+                        }
+                    }
+    
+                    .postUserContent{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+    
+                        h4{
+                            font-size: 1.2em;
+                        }
+                        p{
+                            width: 329px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+    
+                        .postreadmore{
+                            a{
+                                text-decoration: none;
+                                padding:5px 10px;
+                                background-color: $MainColor;
+                                color: $WhiteFontColor;
+                                border-radius: 3px;
+                                border: 1px solid $MainColor;
+                                transition: all 0.2s ease-in-out;
+                                cursor: pointer;
+                                font-size: 0.8em;
+                                &:hover{
+                                    background-color: $MainColorWhite;
+                                    color: $MainColor;
+                                }
+                            }
+                        }
+                    }
+    
+                    .postGrades{
+                        width: 25%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+    
+                        h3{
+                            margin-bottom: 0;
+                            font-size: 1em;
+                        }
+                        .LikeDisslike{
+                            i{
+                                font-size: 1.5em;
+                                cursor: pointer;
+                                color:$MainColor;
+                                transition: all 0.1s ease-in-out;
+                                &:hover{
+                                    color: $MainColorExLight;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+    
+        .tagsUsers{
+            min-height: 300px;
+    
+            .tags{
+                width: 100%;
+                height: auto;
+                min-height: 200px;
+                margin-bottom: 20px;
+
+                .tagHead{
+                    h5{
+                        margin:0;
+                        text-align: center;
+                        font-size: 0.9em;
+                        font-weight: 700;
+                        color: $DarkFontColor;
+                    }
+                }
+    
+                .taglists{
+                    a{
+                        text-decoration: none;
+                        color: $MainColor;
+                        font-weight: 700;
+                        display: block;
+                        text-align: center;
+                        transition: all 0.1s ease-in-out;
+                        font-size: 1em;
+                        span{
+                            font-size: 0.7em;
+                        }
+    
+                        &:hover{
+                            color: $MainColorExLight;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,2761 @@
+@charset "UTF-8";
+.resNavLayout {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: #303F9F;
+  z-index: 50;
+  display: none;
+}
+
+.resNavLayout .closeSec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.resNavLayout .closeSec .closeNav {
+  width: 40px;
+  height: 40px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.resNavLayout .closeSec .closeNav:hover {
+  background-color: #ffffff;
+}
+
+.resNavLayout .closeSec .closeNav:hover i {
+  color: #212121;
+}
+
+.resNavLayout .resnavSec {
+  margin-top: 50px;
+}
+
+.resNavLayout .resnavSec ul {
+  padding: 0;
+}
+
+.resNavLayout .resnavSec ul li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.resNavLayout .resnavSec ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.resNavLayout .resnavSec ul li:hover {
+  background-color: #ffffff;
+}
+
+.resNavLayout .resnavSec ul li:hover a {
+  color: #212121;
+}
+
+.resNavLayout .resnavSec ul li:hover i {
+  color: #212121;
+}
+
+.resNavLayout .resnavSec ul #resProfile a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.resNavLayout .resnavSec ul #resProfile a img {
+  margin-left: 5px;
+}
+
+.resNavLayout .resnavSec ul .resLangBox {
+  padding: 10px;
+}
+
+.resNavLayout .resnavSec ul .resLangBox select#langSelect {
+  width: 100%;
+  background: #303F9F !important;
+  color: #ffffff;
+  padding: 10px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  background-color: #303F9F;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+header .brand {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px;
+}
+
+header .brand a {
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+header .brand a img {
+  width: 136px;
+}
+
+header .navSecControl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header .navSecControl .navSection ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .navSecControl .navSection ul .navForm {
+  padding: 5px 0;
+}
+
+header .navSecControl .navSection ul .navForm i {
+  color: #ffffff;
+}
+
+header .navSecControl .navSection ul .navForm a {
+  color: #ffffff;
+}
+
+header .navSecControl .navSection ul li {
+  list-style: none;
+  margin-right: 20px;
+  background-color: #303F9F;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+header .navSecControl .navSection ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-weight: 700;
+}
+
+header .navSecControl .navSection ul li a::-moz-selection {
+  background: none;
+}
+
+header .navSecControl .navSection ul li a::selection {
+  background: none;
+}
+
+header .navSecControl .navSection ul li:hover {
+  background-color: #ffffff;
+}
+
+header .navSecControl .navSection ul li:hover a {
+  color: #212121;
+}
+
+header .navSecControl .navSection ul li:hover i {
+  color: #212121;
+}
+
+header .navSecControl .navSection ul li:last-child {
+  margin-right: 0;
+}
+
+header .navSecControl .navSection ul .logBtn {
+  padding: 5px 10px;
+}
+
+header .navSecControl .navSection ul select#langSelect {
+  background: #303F9F !important;
+  color: #ffffff;
+  padding: 10px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  border-radius: 4px;
+}
+
+header .navSecControl .navSection ul select#langSelect:hover {
+  background: #ffffff !important;
+  color: #212121;
+}
+
+header .navSecControl .respNav {
+  display: none;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  header {
+    height: 80px;
+  }
+  header .brand a img {
+    width: 123px;
+  }
+  header .navSecControl .navSection {
+    display: none;
+  }
+  header .navSecControl .navSection ul {
+    padding-left: 10px;
+  }
+  header .navSecControl .navSection ul li:not(:last-child) {
+    margin-right: 12px;
+  }
+  header .navSecControl .navSection ul .navForm, header .navSecControl .navSection ul .logBtn {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header .navSecControl .navSection ul .navForm i, header .navSecControl .navSection ul .logBtn i {
+    font-size: 0.7em;
+  }
+  header .navSecControl .navSection ul .navForm a, header .navSecControl .navSection ul .logBtn a {
+    font-size: 0.7em;
+    padding: 3px 4px;
+  }
+  header .navSecControl .navSection ul select#langSelect {
+    background: #303F9F !important;
+    color: #ffffff;
+    padding: 7px 6px;
+    font-weight: 700;
+    font-size: 0.8em;
+    outline: none;
+  }
+  header .navSecControl .respNav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: #303F9F;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  header .navSecControl .respNav i {
+    color: #ffffff;
+  }
+  header .navSecControl .respNav:hover {
+    background-color: #ffffff;
+  }
+  header .navSecControl .respNav:hover i {
+    color: #212121;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  header .navSecControl .navSection ul {
+    padding-left: 0;
+  }
+  header .navSecControl .navSection ul li {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header .navSecControl .navSection ul li a {
+    padding: 5px 3px;
+  }
+  header .navSecControl .navSection ul #forProfile {
+    padding: 5px 0 !important;
+  }
+  header .navSecControl .navSection ul #forProfile a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header .navSecControl .navSection ul #forProfile a img {
+    margin-left: 5px;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 2560px) {
+  header .navSecControl .navSection ul li {
+    padding: 10px 0 !important;
+  }
+  header .navSecControl .navSection ul li a {
+    padding: 10px 10px;
+  }
+  header .navSecControl .navSection ul #forProfile {
+    padding: 0 !important;
+  }
+  header .navSecControl .navSection ul #forProfile a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header .navSecControl .navSection ul #forProfile a img {
+    margin-left: 5px;
+  }
+}
+
+.dvBtn {
+  border-bottom: 1px solid #ffffff;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.headerFixed {
+  position: fixed;
+  top: 0;
+  -webkit-box-shadow: 0 0px 3px #ffffff;
+          box-shadow: 0 0px 3px #ffffff;
+}
+
+.tagBox {
+  padding: 5px;
+  background-color: #303F9F;
+  color: #ffffff;
+}
+
+.mainSlider {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  background-color: #303F9F;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+}
+
+.mainSlider .sliderRow {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: auto;
+  min-height: 500px;
+}
+
+.mainSlider .sliderRow .sliderWord {
+  width: auto;
+  height: auto;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.mainSlider .sliderRow .sliderWord h1 {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.mainSlider .sliderRow .sliderWord p {
+  color: #ffffff;
+}
+
+.mainSlider .sliderRow .sliderWord hr {
+  border-color: #ffffff;
+}
+
+.mainSlider .sliderRow .sliderWord a {
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  border-radius: 3px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  font-weight: 700;
+}
+
+.mainSlider .sliderRow .sliderWord a:hover {
+  background-color: #ffffff;
+  color: #212121;
+}
+
+.mainSlider .sliderRow .sliderImg {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-image: url("../Images/OtherImages/helping.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-box-shadow: 0 0 10px #000000;
+          box-shadow: 0 0 10px #000000;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.mainSlider .sliderRow .sliderImg:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.stepTutorial {
+  width: 100%;
+  min-height: 300px;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.stepTutorial .stepRow {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.stepTutorial hr {
+  width: 90%;
+  border-color: #BDBDBD;
+}
+
+.stepTutorial .stepBox {
+  padding: 50px 0;
+  -webkit-box-shadow: 0 0 5px #000000;
+          box-shadow: 0 0 5px #000000;
+  border-radius: 3px;
+}
+
+.stepTutorial .stepWord h4 {
+  color: #212121;
+  text-align: center;
+}
+
+.stepTutorial .stepIcon {
+  text-align: center;
+}
+
+.stepTutorial .stepIcon .circleForIcon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #536DFE;
+  -webkit-box-shadow: 0 0 5px #000000;
+          box-shadow: 0 0 5px #000000;
+  cursor: pointer;
+}
+
+.stepTutorial .stepIcon .circleForIcon i {
+  font-size: 2.5em;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.stepTutorial .stepIcon .circleForIcon:hover i {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .mainSlider .sliderRow .sliderWord h1 {
+    font-size: 1.5em;
+  }
+  .mainSlider .sliderRow .sliderWord p {
+    font-size: 0.9em;
+  }
+  .mainSlider .sliderRow .sliderWord a {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+  .mainSlider .sliderRow .sliderImg {
+    height: 250px;
+  }
+  .mainSlider .sliderRow .sliderImg:hover {
+    -webkit-transform: scale(1.01);
+            transform: scale(1.01);
+  }
+  .stepTutorial {
+    padding: 17px;
+  }
+  .stepTutorial hr {
+    width: 50%;
+  }
+  .stepTutorial .stepWord h4 {
+    color: #212121;
+    text-align: center;
+    font-size: 0.7em;
+  }
+  .stepTutorial .stepIcon .circleForIcon {
+    width: 50px;
+    height: 50px;
+  }
+  .stepTutorial .stepIcon .circleForIcon i {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .mainSlider .sliderRow .sliderWord h1 {
+    font-size: 1.8em;
+  }
+  .mainSlider .sliderRow .sliderWord p {
+    font-size: 1.1em;
+  }
+  .mainSlider .sliderRow .sliderWord a {
+    padding: 10px;
+    font-size: 1em;
+  }
+  .mainSlider .sliderRow .sliderImg {
+    height: 250px;
+  }
+  .mainSlider .sliderRow .sliderImg:hover {
+    -webkit-transform: scale(1.01);
+            transform: scale(1.01);
+  }
+  .stepTutorial {
+    padding: 10px;
+    min-height: 380px;
+  }
+  .stepTutorial hr {
+    width: 50%;
+  }
+  .stepTutorial .stepWord h4 {
+    color: #212121;
+    text-align: center;
+    font-size: 1em;
+  }
+  .stepTutorial .stepIcon .circleForIcon {
+    width: 70px;
+    height: 70px;
+  }
+  .stepTutorial .stepIcon .circleForIcon i {
+    font-size: 1.7em;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .mainSlider .sliderRow .sliderImg {
+    height: 300px;
+  }
+  .mainSlider .sliderRow .sliderImg:hover {
+    -webkit-transform: scale(1.02);
+            transform: scale(1.02);
+  }
+  .stepTutorial {
+    padding: 10px;
+    min-height: 380px;
+  }
+  .stepTutorial hr {
+    width: 50%;
+  }
+  .stepTutorial .stepWord h4 {
+    color: #212121;
+    text-align: center;
+    font-size: 1.4em;
+  }
+  .stepTutorial .stepIcon .circleForIcon {
+    width: 80px;
+    height: 80px;
+  }
+  .stepTutorial .stepIcon .circleForIcon i {
+    font-size: 2.5em;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 2560px) {
+  .mainSlider .sliderRow .sliderImg {
+    height: 300px;
+  }
+  .mainSlider .sliderRow .sliderImg:hover {
+    -webkit-transform: scale(1.02);
+            transform: scale(1.02);
+  }
+  .mainSlider .sliderRow .sliderWord p {
+    font-size: 1em;
+  }
+  .mainSlider .sliderRow .sliderWord a {
+    padding: 15px;
+    font-size: 1.2em;
+  }
+  .stepTutorial {
+    padding: 10px;
+    min-height: 380px;
+  }
+  .stepTutorial hr {
+    width: 50%;
+  }
+  .stepTutorial .stepWord h4 {
+    color: #212121;
+    text-align: center;
+    font-size: 1.4em;
+  }
+  .stepTutorial .stepIcon .circleForIcon {
+    width: 80px;
+    height: 80px;
+  }
+  .stepTutorial .stepIcon .circleForIcon i {
+    font-size: 2.5em;
+  }
+}
+
+footer {
+  width: 100%;
+  height: 8vh;
+  background-color: #303F9F;
+  line-height: 8vh;
+  position: relative;
+  bottom: 0;
+}
+
+footer p {
+  text-align: center;
+  color: White;
+  font-weight: bold;
+  margin-bottom: 0;
+  cursor: default;
+}
+
+footer p::-moz-selection {
+  background: none;
+}
+
+footer p::selection {
+  background: none;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  footer p {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  footer p {
+    font-size: 1em;
+  }
+}
+
+#AccountBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 500px;
+  height: auto;
+  min-height: 330px;
+  background-color: #303F9F;
+  overflow: hidden;
+  padding: 10px;
+}
+
+#AccountBox .logWithOtherSocial {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#AccountBox .logWithOtherSocial .socialBox {
+  border: 1px solid #ffffff;
+  padding: 10px 20px;
+  color: #ffffff;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+#AccountBox .logWithOtherSocial .socialBox:hover {
+  background-color: #ffffff;
+  color: #212121;
+}
+
+#AccountBox h3 {
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+}
+
+#AccountBox hr {
+  width: 50%;
+  border-color: #ffffff;
+}
+
+#AccountBox .inputBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#AccountBox .inputBox i {
+  font-size: 1.3em;
+  color: #ffffff;
+}
+
+#AccountBox .inputBox input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  outline: none;
+  padding: 3px;
+}
+
+#AccountBox .inputBox input::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#AccountBox .inputBox input:-ms-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#AccountBox .inputBox input::-ms-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#AccountBox .inputBox input::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#AccountBox .submitBox input:not(:last-child) {
+  margin-right: 20px;
+}
+
+#AccountBox .submitBox .forgotBtn {
+  border: none;
+}
+
+#AccountBox.forForgot {
+  min-height: 250px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  #AccountBox {
+    width: 100%;
+  }
+  #AccountBox hr {
+    width: 100%;
+    border-color: #ffffff;
+  }
+}
+
+.profileBox {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  padding: 20px;
+  margin-top: 75px;
+}
+
+.profileBox .profileInfo .profilePic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.profileBox .profileInfo .profilePic img {
+  width: 250px;
+  height: 250px;
+}
+
+.profileBox .profileInfo .userInfo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.profileBox .profileInfo .userInfo h4 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.profileBox .profileInfo .userInfo p {
+  text-align: center;
+}
+
+.profileBox .profileInfo .profileActivity {
+  padding: 20px 0 0 0;
+}
+
+.profileBox .profileInfo .profileActivity a {
+  text-decoration: none;
+  color: #212121;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.profileBox .profileInfo .profileActivity a:hover {
+  color: #303F9F;
+}
+
+.profileBox .profileInfo .userSetting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profileBox .profileInfo .userSetting .settingBtn {
+  display: inline-block;
+  background-color: #303F9F;
+  border-radius: 3px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #303F9F;
+}
+
+.profileBox .profileInfo .userSetting .settingBtn a {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 8px 15px;
+  font-weight: 700;
+}
+
+.profileBox .profileInfo .userSetting .settingBtn:hover {
+  background-color: #ffffff;
+  border: 1px solid #303F9F;
+}
+
+.profileBox .profileInfo .userSetting .settingBtn:hover a {
+  color: #212121;
+}
+
+.profileBox .profileInfo .userDetail {
+  margin-top: 15px;
+}
+
+.profileBox .profileInfo .userDetail p {
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.profileBox .profileInfo .userDetail i {
+  color: #303F9F;
+}
+
+.profileBox .profileInfo .userDetail .usersocialLinks {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profileBox .profileInfo .userDetail .usersocialLinks a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #303F9F;
+  padding: 10px;
+  border-radius: 3px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.profileBox .profileInfo .userDetail .usersocialLinks a:hover {
+  background-color: #303F9F;
+  color: #ffffff;
+}
+
+.profileBox .profileInfo .userDetail .usersocialLinks a:hover i {
+  color: #ffffff;
+}
+
+.profileBox .userActivity .activityTabs li.targetActive {
+  border-bottom: 2px solid #303F9F;
+}
+
+.profileBox .userActivity .activityTabs ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+}
+
+.profileBox .userActivity .activityTabs ul li {
+  list-style: none;
+  margin-right: 10px;
+  color: #212121;
+  font-weight: 700;
+  font-size: 1.3em;
+  cursor: pointer;
+  padding: 5px 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 2px solid transparent;
+}
+
+.profileBox .userActivity .activityTabs ul li:hover {
+  background-color: #303F9F;
+  color: #ffffff;
+}
+
+.profileBox .userActivity [data-tab-content] {
+  display: none;
+}
+
+.profileBox .userActivity .active[data-tab-content] {
+  display: block;
+}
+
+.profileBox .userActivity .userBio .bioHeader h2 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.profileBox .userActivity .userBio .bioHeader hr {
+  border-color: #ccc;
+}
+
+.profileBox .userActivity .userBio .bioContent {
+  padding: 0px 10px;
+}
+
+.profileBox .userActivity .userBio .bioContent p {
+  text-align: center;
+}
+
+.profileBox .userActivity .userSkills .skillheader h2 {
+  font-weight: 700;
+  text-align: center;
+}
+
+.profileBox .userActivity .userSkills .skillheader hr {
+  border-color: #ccc;
+}
+
+.profileBox .userActivity .userSkills .skillContent {
+  padding: 0 10px;
+}
+
+.profileBox .userActivity .userSkills .skillContent ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding-left: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profileBox .userActivity .userSkills .skillContent ul li {
+  list-style-type: none;
+  padding: 10px 15px;
+  font-weight: bold;
+  border: 1px solid #303F9F;
+  color: #212121;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+.profileBox .userActivity .userSkills .skillContent ul li:hover {
+  background-color: #303F9F;
+  color: #ffffff;
+}
+
+.profileBox .userActivity .experience .experienceHeader h2 {
+  font-weight: 700;
+  text-align: center;
+}
+
+.profileBox .userActivity .experience .experienceHeader hr {
+  border-color: #ccc;
+}
+
+.profileBox .userActivity .experience .exp {
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+.profileBox .userActivity #myPosts .mypostHeader h2 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  background: #00000014;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postUserInfo {
+  width: 30%;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postUserInfo .imageBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postUserInfo .postUserName {
+  text-align: center;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postUserInfo .postUserName p {
+  margin-bottom: 1px;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postUserInfo .postUserName span {
+  display: block;
+  font-size: 0.7em;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent p {
+  width: 361px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent .postreadmore a {
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #303F9F;
+  color: #ffffff;
+  border-radius: 3px;
+  border: 1px solid #303F9F;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent .postreadmore a:hover {
+  background-color: #ffffff;
+  color: #303F9F;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postGrades {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postGrades h3 {
+  margin-bottom: 0;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postGrades .LikeDisslike i {
+  font-size: 2em;
+  cursor: pointer;
+  color: #303F9F;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.profileBox .userActivity #myPosts .mypostContent .postBox .postGrades .LikeDisslike i:hover {
+  color: #536DFE;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .profileBox {
+    padding: 5px;
+    margin-top: 110px;
+  }
+  .profileBox .profileInfo .profilePic img {
+    width: 200px;
+    height: 200px;
+  }
+  .profileBox .profileInfo .userSetting .settingBtn a {
+    padding: 5px 12px;
+  }
+  .profileBox .profileInfo .userDetail .usersocialLinks {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .profileBox .userActivity .activityTabs ul li {
+    font-size: 1em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent h4 {
+    font-size: 1.2em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent p {
+    width: 150px;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent .postreadmore a {
+    padding: 5px 10px;
+    font-size: 0.8em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades {
+    width: 20%;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades h3 {
+    margin-bottom: 0;
+    font-size: 1.1em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades .LikeDisslike i {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #303F9F;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades .LikeDisslike i:hover {
+    color: #536DFE;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .profileBox {
+    padding: 5px;
+    margin-top: 110px;
+  }
+  .profileBox .profileInfo .profilePic img {
+    width: 200px;
+    height: 200px;
+  }
+  .profileBox .profileInfo .userSetting .settingBtn a {
+    padding: 5px 12px;
+  }
+  .profileBox .userActivity .activityTabs ul li {
+    font-size: 1em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserInfo {
+    width: 53%;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent h4 {
+    font-size: 1.2em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent p {
+    width: 225px;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent .postreadmore a {
+    padding: 5px 10px;
+    font-size: 0.8em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades {
+    width: 20%;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades h3 {
+    margin-bottom: 0;
+    font-size: 1.1em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades .LikeDisslike i {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #303F9F;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades .LikeDisslike i:hover {
+    color: #536DFE;
+  }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 2560px) {
+  .profileBox {
+    padding: 5px;
+    margin-top: 110px;
+  }
+  .profileBox .profileInfo .profilePic img {
+    width: 250px;
+    height: 250px;
+  }
+  .profileBox .profileInfo .userSetting .settingBtn a {
+    padding: 5px 12px;
+  }
+  .profileBox .userActivity .activityTabs ul li {
+    font-size: 1.3em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserInfo {
+    width: 40%;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent h4 {
+    font-size: 1.5em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent p {
+    width: 400px;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent .postreadmore a {
+    padding: 5px 10px;
+    font-size: 1.1em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades {
+    width: 20%;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades h3 {
+    margin-bottom: 0;
+    font-size: 1.4em;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades .LikeDisslike i {
+    font-size: 2em;
+    cursor: pointer;
+    color: #303F9F;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  .profileBox .userActivity #myPosts .mypostContent .postBox .postGrades .LikeDisslike i:hover {
+    color: #536DFE;
+  }
+}
+
+#mainFormContent {
+  width: 100%;
+  height: auto;
+  min-height: 800px;
+  margin-top: 80px;
+}
+
+#mainFormContent .devNavs {
+  width: 100%;
+  min-height: 300px;
+  height: auto;
+  padding-top: 20px;
+}
+
+#mainFormContent .devNavs .navs {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  margin-bottom: 20px;
+  background-color: rgba(204, 204, 204, 0.699);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 3px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#mainFormContent .devNavs .navs ul {
+  padding: 0;
+  margin: 0;
+}
+
+#mainFormContent .devNavs .navs ul li:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+#mainFormContent .devNavs .navs ul li {
+  list-style: none;
+  text-align: center;
+}
+
+#mainFormContent .devNavs .navs ul li a {
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px;
+  color: #303F9F;
+  border-radius: 3px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+#mainFormContent .devNavs .navs ul li a:hover {
+  color: #ffffff;
+  background-color: #303F9F;
+}
+
+#mainFormContent .mainForm {
+  width: 100%;
+  height: auto;
+  min-height: 700px;
+  margin-top: 20px;
+}
+
+#mainFormContent .mainForm .forms {
+  min-height: 680px;
+  width: 100%;
+}
+
+#mainFormContent .mainForm .forms .tags-input {
+  padding: 0.175rem .75rem;
+  height: auto;
+}
+
+#mainFormContent .mainForm .forms .tags-input .tag {
+  padding: 0.25em 0.75em;
+  background-color: #536DFE;
+  color: #ffffff;
+  margin-right: 4px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  display: inline-block;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  margin-bottom: 3px;
+}
+
+#mainFormContent .mainForm .forms .tags-input .tag:hover {
+  background-color: #ccc;
+  color: #212121;
+}
+
+#mainFormContent .mainForm .forms .tags-input .tag .close::after {
+  content: "×";
+  font-weight: 700;
+  display: inline-block;
+  margin-left: 0.25em;
+  color: white;
+}
+
+#mainFormContent .mainForm .forms .tags-input .tag .close:hover::after {
+  color: red;
+}
+
+#mainFormContent .mainForm .forms .tags-input .main-input {
+  border: none;
+  outline: none;
+}
+
+#mainFormContent .mainForm .forms #formOpenBtn {
+  background-color: #303F9F;
+  border: 1px solid #303F9F;
+  outline: none;
+}
+
+#mainFormContent .mainForm .forms #formOpenBtn:hover {
+  background-color: #ffffff;
+  color: #212121;
+}
+
+#mainFormContent .mainForm .forms .modal-footer #sharebtn {
+  background-color: #303F9F;
+  border: 1px solid #303F9F;
+  outline: none;
+}
+
+#mainFormContent .mainForm .forms .modal-footer #sharebtn:hover {
+  background-color: #ffffff;
+  color: #212121;
+}
+
+#mainFormContent .mainForm .formlist .postBox {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  background: #00000014;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postUserInfo {
+  width: 40%;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postUserInfo .imageBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName {
+  text-align: center;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName p {
+  margin-bottom: 1px;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName span {
+  display: block;
+  font-size: 0.7em;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postUserContent {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postUserContent p {
+  width: 476px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a {
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #303F9F;
+  color: #ffffff;
+  border-radius: 3px;
+  border: 1px solid #303F9F;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a:hover {
+  background-color: #ffffff;
+  color: #303F9F;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postGrades {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postGrades h3 {
+  margin-bottom: 0;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i {
+  font-size: 2em;
+  cursor: pointer;
+  color: #303F9F;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+#mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i:hover {
+  color: #536DFE;
+}
+
+#mainFormContent .tagsUsers {
+  width: 100%;
+  height: auto;
+  min-height: 700px;
+  padding-top: 20px;
+}
+
+#mainFormContent .tagsUsers .tags {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  background-color: rgba(204, 204, 204, 0.699);
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+#mainFormContent .tagsUsers .tags .tagHead h5 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #212121;
+}
+
+#mainFormContent .tagsUsers .tags .taglists a {
+  text-decoration: none;
+  color: #303F9F;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+#mainFormContent .tagsUsers .tags .taglists a span {
+  font-size: 0.7em;
+}
+
+#mainFormContent .tagsUsers .tags .taglists a:hover {
+  color: #536DFE;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 399px) {
+  #mainFormContent {
+    width: 100%;
+  }
+  #mainFormContent .devNavs {
+    min-height: 245px;
+    padding-top: 20px;
+  }
+  #mainFormContent .devNavs .navs {
+    min-height: 200px;
+    margin-bottom: 20px;
+  }
+  #mainFormContent .devNavs .navs ul li:not(:last-child) {
+    margin-bottom: 25px;
+  }
+  #mainFormContent .mainForm {
+    width: 100%;
+    height: auto;
+    min-height: 700px;
+  }
+  #mainFormContent .mainForm .forms {
+    min-height: 680px;
+    width: 100%;
+  }
+  #mainFormContent .mainForm .forms .tags-input {
+    padding: 0.175rem .75rem;
+    height: auto;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag {
+    padding: 0.25em 0.75em;
+    background-color: #536DFE;
+    color: #ffffff;
+    margin-right: 4px;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    display: inline-block;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+    margin-bottom: 3px;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag:hover {
+    background-color: #ccc;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag .close::after {
+    content: "×";
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 0.25em;
+    color: white;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag .close:hover::after {
+    color: red;
+  }
+  #mainFormContent .mainForm .forms .tags-input .main-input {
+    border: none;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms #formOpenBtn {
+    background-color: #303F9F;
+    border: 1px solid #303F9F;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms #formOpenBtn:hover {
+    background-color: #ffffff;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .forms .modal-footer #sharebtn {
+    background-color: #303F9F;
+    border: 1px solid #303F9F;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms .modal-footer #sharebtn:hover {
+    background-color: #ffffff;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .formlist .postBox {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: #00000014;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo {
+    width: 89%;
+    padding: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .imageBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName {
+    text-align: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName p {
+    margin-bottom: 1px;
+    font-size: 0.8em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName span {
+    display: block;
+    font-size: 0.6em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent h4 {
+    font-size: 1.2em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent p {
+    width: 90px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #303F9F;
+    color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #303F9F;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-size: 0.8em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a:hover {
+    background-color: #ffffff;
+    color: #303F9F;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades {
+    width: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades h3 {
+    margin-bottom: 0;
+    font-size: 1em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #303F9F;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i:hover {
+    color: #536DFE;
+  }
+  #mainFormContent .tagsUsers {
+    min-height: 300px;
+  }
+  #mainFormContent .tagsUsers .tags {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    margin-bottom: 20px;
+  }
+  #mainFormContent .tagsUsers .tags .tagHead h5 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #212121;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a {
+    text-decoration: none;
+    color: #303F9F;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a span {
+    font-size: 0.7em;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a:hover {
+    color: #536DFE;
+  }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 767px) {
+  #mainFormContent {
+    width: 100%;
+  }
+  #mainFormContent .devNavs {
+    min-height: 245px;
+    padding-top: 20px;
+  }
+  #mainFormContent .devNavs .navs {
+    min-height: 200px;
+    margin-bottom: 20px;
+  }
+  #mainFormContent .devNavs .navs ul li:not(:last-child) {
+    margin-bottom: 25px;
+  }
+  #mainFormContent .mainForm {
+    width: 100%;
+    height: auto;
+    min-height: 700px;
+  }
+  #mainFormContent .mainForm .forms {
+    min-height: 680px;
+    width: 100%;
+  }
+  #mainFormContent .mainForm .forms .tags-input {
+    padding: 0.175rem .75rem;
+    height: auto;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag {
+    padding: 0.25em 0.75em;
+    background-color: #536DFE;
+    color: #ffffff;
+    margin-right: 4px;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    display: inline-block;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+    margin-bottom: 3px;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag:hover {
+    background-color: #ccc;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag .close::after {
+    content: "×";
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 0.25em;
+    color: white;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag .close:hover::after {
+    color: red;
+  }
+  #mainFormContent .mainForm .forms .tags-input .main-input {
+    border: none;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms #formOpenBtn {
+    background-color: #303F9F;
+    border: 1px solid #303F9F;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms #formOpenBtn:hover {
+    background-color: #ffffff;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .forms .modal-footer #sharebtn {
+    background-color: #303F9F;
+    border: 1px solid #303F9F;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms .modal-footer #sharebtn:hover {
+    background-color: #ffffff;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .formlist .postBox {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: #00000014;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo {
+    width: 39%;
+    padding: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .imageBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName {
+    text-align: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName p {
+    margin-bottom: 1px;
+    font-size: 0.8em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName span {
+    display: block;
+    font-size: 0.6em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent h4 {
+    font-size: 1.2em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent p {
+    width: 262px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #303F9F;
+    color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #303F9F;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-size: 0.8em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a:hover {
+    background-color: #ffffff;
+    color: #303F9F;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades {
+    width: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades h3 {
+    margin-bottom: 0;
+    font-size: 1em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #303F9F;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i:hover {
+    color: #536DFE;
+  }
+  #mainFormContent .tagsUsers {
+    min-height: 300px;
+  }
+  #mainFormContent .tagsUsers .tags {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    margin-bottom: 20px;
+  }
+  #mainFormContent .tagsUsers .tags .tagHead h5 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #212121;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a {
+    text-decoration: none;
+    color: #303F9F;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a span {
+    font-size: 0.7em;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a:hover {
+    color: #536DFE;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #mainFormContent {
+    width: 100%;
+  }
+  #mainFormContent .devNavs {
+    min-height: 245px;
+    padding-top: 20px;
+  }
+  #mainFormContent .devNavs .navs {
+    min-height: 200px;
+    margin-bottom: 20px;
+  }
+  #mainFormContent .devNavs .navs ul li:not(:last-child) {
+    margin-bottom: 25px;
+  }
+  #mainFormContent .devNavs .navs ul li a {
+    font-size: 1.1em;
+  }
+  #mainFormContent .mainForm {
+    width: 100%;
+    height: auto;
+    min-height: 700px;
+  }
+  #mainFormContent .mainForm .forms {
+    min-height: 680px;
+    width: 100%;
+  }
+  #mainFormContent .mainForm .forms .fileinput {
+    padding: 0.275em 0.75em;
+  }
+  #mainFormContent .mainForm .forms .tags-input {
+    padding: 0.175rem .75rem;
+    height: auto;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag {
+    padding: 0.25em 0.75em;
+    background-color: #536DFE;
+    color: #ffffff;
+    margin-right: 4px;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    display: inline-block;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+    margin-bottom: 3px;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag:hover {
+    background-color: #ccc;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag .close::after {
+    content: "×";
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 0.25em;
+    color: white;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag .close:hover::after {
+    color: red;
+  }
+  #mainFormContent .mainForm .forms .tags-input .main-input {
+    border: none;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms #formOpenBtn {
+    background-color: #303F9F;
+    border: 1px solid #303F9F;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms #formOpenBtn:hover {
+    background-color: #ffffff;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .forms .modal-footer #sharebtn {
+    background-color: #303F9F;
+    border: 1px solid #303F9F;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms .modal-footer #sharebtn:hover {
+    background-color: #ffffff;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .formlist .postBox {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: #00000014;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo {
+    width: 39%;
+    padding: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .imageBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName {
+    text-align: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName p {
+    margin-bottom: 1px;
+    font-size: 0.8em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName span {
+    display: block;
+    font-size: 0.6em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent h4 {
+    font-size: 1.2em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent p {
+    width: 387px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #303F9F;
+    color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #303F9F;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-size: 0.8em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a:hover {
+    background-color: #ffffff;
+    color: #303F9F;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades {
+    width: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades h3 {
+    margin-bottom: 0;
+    font-size: 1em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #303F9F;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i:hover {
+    color: #536DFE;
+  }
+  #mainFormContent .tagsUsers {
+    min-height: 300px;
+  }
+  #mainFormContent .tagsUsers .tags {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    margin-bottom: 20px;
+  }
+  #mainFormContent .tagsUsers .tags .tagHead h5 {
+    margin: 0;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #212121;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a {
+    text-decoration: none;
+    color: #303F9F;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    font-size: 1.1em;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a span {
+    font-size: 0.8em;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a:hover {
+    color: #536DFE;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  #mainFormContent {
+    width: 100%;
+  }
+  #mainFormContent .devNavs {
+    min-height: 245px;
+    padding-top: 20px;
+  }
+  #mainFormContent .devNavs .navs {
+    min-height: 200px;
+    margin-bottom: 20px;
+  }
+  #mainFormContent .devNavs .navs ul li:not(:last-child) {
+    margin-bottom: 25px;
+  }
+  #mainFormContent .devNavs .navs ul li a {
+    font-size: 1em;
+  }
+  #mainFormContent .mainForm {
+    width: 100%;
+    height: auto;
+    min-height: 700px;
+  }
+  #mainFormContent .mainForm .forms {
+    min-height: 680px;
+    width: 100%;
+  }
+  #mainFormContent .mainForm .forms .tags-input {
+    padding: 0.175rem .75rem;
+    height: auto;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag {
+    padding: 0.25em 0.75em;
+    background-color: #536DFE;
+    color: #ffffff;
+    margin-right: 4px;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    display: inline-block;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+    margin-bottom: 3px;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag:hover {
+    background-color: #ccc;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag .close::after {
+    content: "×";
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 0.25em;
+    color: white;
+  }
+  #mainFormContent .mainForm .forms .tags-input .tag .close:hover::after {
+    color: red;
+  }
+  #mainFormContent .mainForm .forms .tags-input .main-input {
+    border: none;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms #formOpenBtn {
+    background-color: #303F9F;
+    border: 1px solid #303F9F;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms #formOpenBtn:hover {
+    background-color: #ffffff;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .forms .modal-footer #sharebtn {
+    background-color: #303F9F;
+    border: 1px solid #303F9F;
+    outline: none;
+  }
+  #mainFormContent .mainForm .forms .modal-footer #sharebtn:hover {
+    background-color: #ffffff;
+    color: #212121;
+  }
+  #mainFormContent .mainForm .formlist .postBox {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: #00000014;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo {
+    width: 39%;
+    padding: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .imageBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName {
+    text-align: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName p {
+    margin-bottom: 1px;
+    font-size: 1em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserInfo .postUserName span {
+    display: block;
+    font-size: 0.6em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent h4 {
+    font-size: 1.2em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent p {
+    width: 329px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #303F9F;
+    color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #303F9F;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-size: 0.8em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postUserContent .postreadmore a:hover {
+    background-color: #ffffff;
+    color: #303F9F;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades {
+    width: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades h3 {
+    margin-bottom: 0;
+    font-size: 1em;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #303F9F;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  #mainFormContent .mainForm .formlist .postBox .postGrades .LikeDisslike i:hover {
+    color: #536DFE;
+  }
+  #mainFormContent .tagsUsers {
+    min-height: 300px;
+  }
+  #mainFormContent .tagsUsers .tags {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    margin-bottom: 20px;
+  }
+  #mainFormContent .tagsUsers .tags .tagHead h5 {
+    margin: 0;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #212121;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a {
+    text-decoration: none;
+    color: #303F9F;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    font-size: 1em;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a span {
+    font-size: 0.7em;
+  }
+  #mainFormContent .tagsUsers .tags .taglists a:hover {
+    color: #536DFE;
+  }
+}
+
+.UserSettingPanel {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  margin-top: 100px;
+}
+
+.UserSettingPanel .settingHead h2 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.UserSettingPanel .settingHead hr {
+  background-color: #CCC;
+}
+
+.UserSettingPanel .userSettings {
+  min-height: 400px;
+  height: auto;
+  padding: 10px;
+}
+
+#tagLists {
+  margin-top: 90px;
+}
+
+#tagLists .tagSearch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 15px;
+}
+
+#tagLists .tagbox {
+  width: 100%;
+  height: auto;
+  min-height: 120px;
+  background-color: #cccccca9;
+  border-radius: 3px;
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+
+#tagLists .tagbox .taghead h5 {
+  text-align: center;
+}
+
+#tagLists .tagbox .taghead h5 a {
+  text-decoration: none;
+  color: #303F9F;
+  font-weight: 700;
+}
+
+#tagLists .tagbox .tagcontent {
+  padding: 10px;
+}
+
+#tagLists .tagbox .tagcontent p {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#tagLists .tagbox .dailyWeeklyUse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.8em;
+}
+
+#tagLists .tagbox .dailyWeeklyUse p {
+  margin: 0;
+  font-weight: 700;
+}
+
+#usersList {
+  margin-top: 90px;
+}
+
+#usersList .userSearch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+#usersList .userBox {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  padding: 10px;
+  background-color: #cccccca9;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+#usersList .userBox .userHead {
+  text-align: center;
+}
+
+#usersList .userBox .userHead img {
+  margin-bottom: 5px;
+}
+
+#usersList .userBox .userHead h5 a {
+  text-decoration: none;
+  color: #303F9F;
+}
+
+#usersList .userBox .userJob p {
+  text-align: center;
+}
+
+#usersList .userBox .userPopularity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#usersList .userBox .userPopularity p {
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
+}
+
+* {
+  font-family: 'Maven Pro', sans-serif;
+  font-weight: 400;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-image: url("../Images/Preloader/loading.svg");
+  background-repeat: no-repeat;
+  background-color: #FFF;
+  background-position: center;
+  background-size: 20%;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 2560px) {
+  .preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-image: url("../Images/Preloader/loading.svg");
+    background-repeat: no-repeat;
+    background-color: #FFF;
+    background-position: center;
+    background-size: 10%;
+  }
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #ecedf500;
+}
+
+#devformcontent {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+.pageWrapperForIndex {
+  min-height: 100%;
+  position: relative;
+  margin-top: 67px;
+}
+
+.notheader {
+  margin: 0;
+}
+
+#particle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.2;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  background-color: #303F9F;
+}
+/*# sourceMappingURL=MainStyle.css.map */

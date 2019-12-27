@@ -1,0 +1,55 @@
+
+#tagLists{
+    margin-top: 90px;
+
+    .tagSearch{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    .tagbox{
+        width: 100%;
+        height: auto;
+        min-height: 120px;
+        background-color: #cccccca9;
+        border-radius: 3px;
+        padding: 10px 0;
+        margin-bottom: 15px;
+        .taghead{
+            h5{
+                text-align: center;
+                a{
+                    text-decoration: none;
+                    color: $MainColor;
+                    font-weight: 700;
+                }
+            }
+            
+        }
+
+        .tagcontent{
+            padding: 10px;
+            p{
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .dailyWeeklyUse{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 0.8em;
+            p{
+                margin: 0;
+                font-weight: 700;
+
+            }
+        }
+    }
+}
+
+

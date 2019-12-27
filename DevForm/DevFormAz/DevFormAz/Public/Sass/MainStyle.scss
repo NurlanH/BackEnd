@@ -1,0 +1,97 @@
+// Import other scss files
+@import "_ColorControl.scss";
+@import "_Header.scss";
+@import "_DefaultItems.scss";
+@import "_indexContent.scss";
+@import "_Footer.scss";
+@import "_Account.scss";
+@import "_ProfilPage.scss";
+@import "_FormPage.scss";
+@import "_UserSettings.scss";
+@import "_tagpage.scss";
+@import "_usersPage.scss";
+
+// My Controls
+*{
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+//Preloader
+.preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-image: url('../Images/Preloader/loading.svg');
+    background-repeat: no-repeat; 
+    background-color: #FFF;
+    background-position: center;
+    background-size: 20%;
+ }
+
+
+ @media only screen and (min-width: 768px) and (max-width:2560px){
+    .preloader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background-image: url('../Images/Preloader/loading.svg');
+        background-repeat: no-repeat; 
+        background-color: #FFF;
+        background-position: center;
+        background-size: 10%;
+     }
+    
+}
+
+//end preloader
+
+
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: $WebBackGround;
+}
+
+//Dev form content
+#devformcontent{
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+}
+
+//Page Main Content
+.pageWrapperForIndex{
+    min-height: 100%;   
+    position: relative;
+    margin-top: 67px;
+}
+
+.notheader{
+    margin: 0;
+}
+
+
+//particle
+#particle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.2;
+}
+
+
+
+.box{
+    width:100%;
+    height: 100%;
+    background-color: $MainColor;
+}

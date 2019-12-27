@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="~/Public/OwlCarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Public/OwlCarousel/owl.theme.default.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/Public/Bootstrap/css/bootstrap.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="~/Public/FontAwesome/css/all.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/Public/Css/MainStyle.css">
+    <!-- Animations -->
+    <link rel="stylesheet" href="~/Public/Animation/animate.css">
+    <!-- My font -->
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700,800&display=swap" rel="stylesheet">
+    <title>Ana Səhifə</title>
+</head>
+
+<body>
+    <div class="preloader"></div>
+
+
+    <!-- Devform content -->
+    <section id="devformcontent">
+        <!-- Responsive Nav menu Bar -->
+        <div class="resNavLayout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 closeSec">
+                        <div class="closeNav">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-12 resnavSec">
+                        <ul>
+                            <li class="dvBtn">
+                                <a href="FormPage.html">
+                                    Forumlar
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                            </li>
+
+                            <li class="dvBtn">
+                                <a href="Login.html">Giriş</a>
+                            </li>
+                            <li id="resProfile" class="dvBtn">
+                                <a href="Profile.html">
+                                    Hesabım
+                                    <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Responsive Nav menu Bar -->
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-6 brandControl">
+                        <div class="brand">
+                            <a href="index.html">
+                                <img src="~/Public/Images/Brand/BrandWhite.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-6 navSecControl">
+                        <div id="resNavMenu" class="respNav">
+                            <i class="fas fa-bars"></i>
+
+                        </div>
+                        <div class="navSection">
+                            <nav>
+                                <ul>
+                                    <li class="navForm dvBtn">
+                                        <a href="FormPage.html">
+                                            Forumlar
+                                            <i class="fas fa-globe"></i>
+                                        </a>
+                                    </li>
+                                    <li id="forProfile" class="dvBtn dvBtnProfile">
+                                        <a href="Profile.html">
+                                            Hesabım
+                                            <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="logBtn dvBtn">
+                                        <a href="Login.html">Giriş</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+        @RenderBody()
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>DevForm.az ©</p>
+            </div>
+        </footer>
+        <!-- End Footer -->
+    </section>
+
+
+
+
+    <!-- Scripts Section -->
+    <script src="~/Public/Jquery/jquery-3.4.1.min.js"></script>
+    <script src="~/Public/Particle/jquery.particleground.min.js"></script>
+    <script src="~/Public/OwlCarousel/owl.carousel.min.js"></script>
+    <script src="~/Public/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Public/Script/MainScript.js"></script>
+    <!-- End Scripts Section -->
+</body>
+
+</html>
+
+

@@ -1,0 +1,49 @@
+#usersList{
+    margin-top: 90px;
+
+    .userSearch{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .userBox{
+        width: 100%;
+        height: auto;
+        min-height: 150px;
+        padding: 10px;
+        background-color: #cccccca9;
+        border-radius: 3px;
+        margin-bottom: 15px;
+        .userHead{
+           text-align: center;
+           img{
+               margin-bottom: 5px;
+           }
+            h5{
+                a{
+                    text-decoration: none;
+                    color: $MainColor;
+                }
+            }
+        }
+
+        .userJob{
+            p{
+                text-align: center;
+            }
+        }
+
+        .userPopularity{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            p{
+                text-align: center;
+                font-weight: 700;
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,643 @@
+.profileBox{
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    padding: 20px;
+    margin-top: 75px;
+
+    .profileInfo{
+        .profilePic{
+            display:flex;
+            justify-content: center;
+            overflow: hidden;
+            img{
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        .userInfo{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            h4{
+                text-align: center;
+                font-weight: 700;
+                margin-bottom: 5px;
+            }
+            p{
+                text-align: center;
+            }
+        }
+
+        .profileActivity{
+            padding: 20px 0 0 0;
+
+            a{
+                text-decoration: none;
+                color:$DarkFontColor;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    color: $MainColor;
+                }
+            }
+        }
+
+        .userSetting{
+            display: flex;
+            justify-content: center;
+
+           .settingBtn{
+               display: inline-block;
+               background-color: $MainColor;
+               border-radius: 3px;
+               transition: all 0.2s ease-in-out;
+               border: 1px solid $MainColor;
+                a{
+                    display: block;
+                    text-decoration: none;
+                    color: $WhiteFontColor;
+                    padding: 8px 15px;
+                    font-weight: 700;
+
+                }
+
+                &:hover{
+                    background-color: $MainColorWhite;
+                    border: 1px solid $MainColor;
+                    a{
+                        color: $DarkFontColor;
+                    }
+                }
+            }
+           
+        }
+
+        .userDetail{
+            margin-top: 15px;
+
+            p{
+                text-align: center;
+                margin-bottom: 3px;
+            }
+
+            i{
+                color: $MainColor;
+            }
+
+            .usersocialLinks{
+                text-align: center;
+                margin-top: 20px;
+                a{
+                    text-decoration: none;
+                    font-weight: 700;
+                    color: $MainColor;
+                    padding: 10px;
+                    border-radius: 3px;
+                    transition: all 0.2s ease-in-out;
+                    &:hover{
+                        background-color: $MainColor;
+                        color: $WhiteFontColor;
+                        i{
+                            color: $WhiteFontColor;
+                        }
+                    }
+                }
+            }
+           
+        }
+    }
+
+    .userActivity{
+        .activityTabs{
+
+            
+            li.targetActive{
+                border-bottom: 2px solid $MainColor;
+            }
+
+            ul{
+                display: flex;
+                justify-content: center;
+                padding: 0;
+
+                li{
+                    list-style: none;
+                    margin-right: 10px;
+                    color: $DarkFontColor;
+                    font-weight: 700;
+                    font-size: 1.3em;
+                    cursor: pointer;
+                    padding: 5px 10px;
+                    transition: all 0.2s ease-in-out;
+                    border-bottom: 2px solid transparent;
+                    &:hover{
+                        background-color:$MainColor;
+                        color:$WhiteFontColor;
+                    }
+                }
+            }
+        }
+
+        [data-tab-content]{
+            display: none;
+        }
+
+        .active[data-tab-content]{
+            display: block;
+        }
+
+
+
+        .userBio{
+            .bioHeader{
+                    h2{
+                        text-align: center;
+                        font-weight: 700;
+                    }
+                    hr{
+                        border-color: #ccc;
+                    }
+            }
+           
+            .bioContent{
+                padding: 0px 10px;
+                p{
+                    text-align: center;
+                }
+            }
+        }
+
+
+        .userSkills{
+            .skillheader{
+                h2{
+                    font-weight: 700;
+                    text-align: center;
+                }
+
+                hr{
+                    border-color: #ccc;
+                }
+            }
+                
+                
+                
+           
+
+            .skillContent{
+                padding: 0 10px;
+                   ul{
+                       display: flex;
+                       justify-content: space-evenly;
+                       padding-left: 0;
+                        flex-wrap: wrap;
+                       li{
+                        list-style-type: none;
+                        padding: 10px 15px;
+                        font-weight: bold;
+                        border: 1px solid $MainColor;
+                        color: $DarkFontColor;
+                        transition: all 0.2s ease-in-out;
+                        margin-bottom: 5px;
+                        border-radius: 3px;
+                        margin-left: 5px;
+                        margin-right: 2px;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: $MainColor;
+                            color: $WhiteFontColor;
+                        }
+                       }
+                   }
+            }
+           
+        }
+
+
+
+        .experience{
+            .experienceHeader{
+                h2{
+                    font-weight: 700;
+                    text-align: center;
+                }
+                hr{
+                    border-color: #ccc;
+                }
+            }
+
+            .exp{
+                padding: 5px;
+                text-align: center;
+                margin-bottom: 5px;
+                border-radius: 3px;
+            }
+        }
+
+
+        #myPosts{
+            .mypostHeader{
+                h2{
+                    text-align: center;
+                    font-weight: 700;
+                }
+            }
+
+            .mypostContent{
+                .postBox{
+                    width: 100%;
+                    height: auto;
+                    min-height: 150px;
+                    border-radius: 3px;
+                    margin-bottom: 10px;
+                    background: #00000014;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .postUserInfo{
+                        width: 30%;
+                        padding: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .imageBox{
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        .postUserName{
+                            text-align: center;
+
+                            p{
+                                margin-bottom: 1px;
+                            }
+                            span{
+                                display: block;
+                                font-size: 0.7em;
+                            }
+                        }
+                    }
+
+                    .postUserContent{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        p{
+                            width: 361px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        .postreadmore{
+                            a{
+                                text-decoration: none;
+                                padding:5px 10px;
+                                background-color: $MainColor;
+                                color: $WhiteFontColor;
+                                border-radius: 3px;
+                                border: 1px solid $MainColor;
+                                transition: all 0.2s ease-in-out;
+                                cursor: pointer;
+
+                                &:hover{
+                                    background-color: $MainColorWhite;
+                                    color: $MainColor;
+                                }
+                            }
+                        }
+                    }
+
+                    .postGrades{
+                        width: 20%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+
+                        h3{
+                            margin-bottom: 0;
+                        }
+                        .LikeDisslike{
+                            i{
+                                font-size: 2em;
+                                cursor: pointer;
+                                color:$MainColor;
+                                transition: all 0.1s ease-in-out;
+                                &:hover{
+                                    color: $MainColorExLight;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
+
+}
+
+
+
+
+
+@media only screen and (min-width: 0px) and (max-width: 767px){
+   
+    .profileBox{
+        padding: 5px;
+        margin-top: 110px;
+    
+        .profileInfo{
+            .profilePic{
+              
+                img{
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+
+            .userSetting{
+               .settingBtn{
+                  
+                    a{
+                        padding: 5px 12px;
+    
+                    }
+                }
+               
+            }
+    
+            .userDetail{
+    
+    
+                .usersocialLinks{
+                    text-align: center;
+                    margin-top: 20px;
+                    
+                }
+               
+            }
+        }
+
+        .userActivity{
+            .activityTabs{
+                ul{
+                    li{
+                        font-size: 1em;
+                    }
+                }
+            }
+
+
+            #myPosts{
+                
+                .mypostContent{
+                    .postBox{
+                        
+                        
+    
+                        .postUserContent{
+                           
+                            h4{
+                                font-size: 1.2em;
+                            }
+    
+                            p{
+                                width: 150px;
+                               
+                            }
+    
+                            .postreadmore{
+                                a{
+                                 
+                                    padding:5px 10px;
+                                    font-size: 0.8em;
+                                }
+                            }
+                        }
+    
+                        .postGrades{
+                            width: 20%;
+    
+                            h3{
+                                margin-bottom: 0;
+                                font-size: 1.1em;
+                            }
+                            .LikeDisslike{
+                                i{
+                                    font-size: 1.5em;
+                                    cursor: pointer;
+                                    color:$MainColor;
+                                    transition: all 0.1s ease-in-out;
+                                    &:hover{
+                                        color: $MainColorExLight;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+    }  
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px){
+    .profileBox{
+        padding: 5px;
+        margin-top: 110px;
+    
+        .profileInfo{
+            .profilePic{
+              
+                img{
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+
+            .userSetting{
+               .settingBtn{
+                  
+                    a{
+                        padding: 5px 12px;
+    
+                    }
+                }
+               
+            }
+    
+        }
+
+
+        .userActivity{
+            .activityTabs{
+                ul{
+                    li{
+                        font-size: 1em;
+                    }
+                }
+            }
+
+
+            #myPosts{
+                
+                .mypostContent{
+                    .postBox{
+                        
+                        .postUserInfo{
+                            width: 53%;
+                        }
+    
+                        .postUserContent{
+                           
+                            h4{
+                                font-size: 1.2em;
+                            }
+    
+                            p{
+                                width: 225px;
+                               
+                            }
+    
+                            .postreadmore{
+                                a{
+                                 
+                                    padding:5px 10px;
+                                    font-size: 0.8em;
+                                }
+                            }
+                        }
+    
+                        .postGrades{
+                            width: 20%;
+    
+                            h3{
+                                margin-bottom: 0;
+                                font-size: 1.1em;
+                            }
+                            .LikeDisslike{
+                                i{
+                                    font-size: 1.5em;
+                                    cursor: pointer;
+                                    color:$MainColor;
+                                    transition: all 0.1s ease-in-out;
+                                    &:hover{
+                                        color: $MainColorExLight;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    
+    }  
+}
+
+
+@media only screen and (min-width: 993px) and (max-width: 2560px){
+    .profileBox{
+        padding: 5px;
+        margin-top: 110px;
+    
+        .profileInfo{
+            .profilePic{
+              
+                img{
+                    width: 250px;
+                    height: 250px;
+                }
+            }
+
+            .userSetting{
+               .settingBtn{
+                  
+                    a{
+                        padding: 5px 12px;
+    
+                    }
+                }
+               
+            }
+    
+        }
+
+
+        .userActivity{
+            .activityTabs{
+                ul{
+                    li{
+                        font-size: 1.3em;
+                    }
+                }
+            }
+
+
+            #myPosts{
+                
+                .mypostContent{
+                    .postBox{
+                        
+                        .postUserInfo{
+                            width: 40%;
+                        }
+    
+                        .postUserContent{
+                           
+                            h4{
+                                font-size: 1.5em;
+                            }
+    
+                            p{
+                                width: 400px;
+                               
+                            }
+    
+                            .postreadmore{
+                                a{
+                                 
+                                    padding:5px 10px;
+                                    font-size:1.1em;
+                                }
+                            }
+                        }
+    
+                        .postGrades{
+                            width: 20%;
+    
+                            h3{
+                                margin-bottom: 0;
+                                font-size: 1.4em;
+                            }
+                            .LikeDisslike{
+                                i{
+                                    font-size: 2em;
+                                    cursor: pointer;
+                                    color:$MainColor;
+                                    transition: all 0.1s ease-in-out;
+                                    &:hover{
+                                        color: $MainColorExLight;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    
+    }    
+}
+
+
+
+
