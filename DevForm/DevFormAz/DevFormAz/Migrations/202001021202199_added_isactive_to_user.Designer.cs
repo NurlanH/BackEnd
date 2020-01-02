@@ -7,13 +7,13 @@ namespace DevFormAz.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class added_userDetails : IMigrationMetadata
+    public sealed partial class added_isactive_to_user : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(added_userDetails));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(added_isactive_to_user));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912271005066_added_userDetails"; }
+            get { return "202001021202199_added_isactive_to_user"; }
         }
         
         string IMigrationMetadata.Source

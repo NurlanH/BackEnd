@@ -131,13 +131,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912270937147_added_User.cs" />
-    <Compile Include="Migrations\201912270937147_added_User.Designer.cs">
-      <DependentUpon>201912270937147_added_User.cs</DependentUpon>
+    <Compile Include="Helper\DevAuth.cs" />
+    <Compile Include="Migrations\202001011300531_new.cs" />
+    <Compile Include="Migrations\202001011300531_new.Designer.cs">
+      <DependentUpon>202001011300531_new.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912271005066_added_userDetails.cs" />
-    <Compile Include="Migrations\201912271005066_added_userDetails.Designer.cs">
-      <DependentUpon>201912271005066_added_userDetails.cs</DependentUpon>
+    <Compile Include="Migrations\202001011308479_Added_User_UserControl_Prop.cs" />
+    <Compile Include="Migrations\202001011308479_Added_User_UserControl_Prop.Designer.cs">
+      <DependentUpon>202001011308479_Added_User_UserControl_Prop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001021202199_added_isactive_to_user.cs" />
+    <Compile Include="Migrations\202001021202199_added_isactive_to_user.Designer.cs">
+      <DependentUpon>202001021202199_added_isactive_to_user.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\User.cs" />
@@ -1758,6 +1763,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Extentions\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -1811,11 +1817,14 @@
     <Content Include="Views\Home\UserPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912270937147_added_User.resx">
-      <DependentUpon>201912270937147_added_User.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001011300531_new.resx">
+      <DependentUpon>202001011300531_new.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912271005066_added_userDetails.resx">
-      <DependentUpon>201912271005066_added_userDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001011308479_Added_User_UserControl_Prop.resx">
+      <DependentUpon>202001011308479_Added_User_UserControl_Prop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001021202199_added_isactive_to_user.resx">
+      <DependentUpon>202001021202199_added_isactive_to_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

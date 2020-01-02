@@ -46,15 +46,26 @@
                                 </a>
                             </li>
 
-                            <li class="dvBtn">
-                                <a href="/Account/Login">Giriş</a>
-                            </li>
-                            <li id="resProfile" class="dvBtn">
-                                <a href="Profile.html">
-                                    Hesabım
-                                    <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
-                                </a>
-                            </li>
+                            @if ((int?)Session["UserId"] != null)
+                            {
+                                <li id="resProfile" class="dvBtn">
+                                    <a href="Profile.html">
+                                        Hesabım
+                                        <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                    </a>
+                                </li>
+                                <li class="dvBtn">
+                                    <a href="/Account/LogOut">Çıxış</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="dvBtn">
+                                    <a href="/Account/Login">Giriş</a>
+                                </li>
+                            }
+
+
                         </ul>
                     </div>
                 </div>
@@ -87,15 +98,25 @@
                                             <i class="fas fa-globe"></i>
                                         </a>
                                     </li>
-                                    <li id="forProfile" class="dvBtn dvBtnProfile">
-                                        <a href="/Home/UserPanel">
-                                            Hesabım
-                                            <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
-                                        </a>
-                                    </li>
-                                    <li class="logBtn dvBtn">
-                                        <a href="/Account/Login">Giriş</a>
-                                    </li>
+                                 
+                                    @if ((int?)Session["UserId"] != null)
+                                    {
+                                        <li id="forProfile" class="dvBtn">
+                                            <a href="/Home/UserPanel">
+                                                Hesabım
+                                                <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                            </a>
+                                        </li>
+                                        <li class="dvBtn">
+                                            <a href="/Account/LogOut">Çıxış</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="dvBtn">
+                                            <a href="/Account/Login">Giriş</a>
+                                        </li>
+                                    }
                                 </ul>
                             </nav>
                         </div>

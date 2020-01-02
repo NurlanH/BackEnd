@@ -3,7 +3,7 @@ namespace DevFormAz.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class added_userDetails : DbMigration
+    public partial class _new : DbMigration
     {
         public override void Up()
         {
@@ -24,12 +24,25 @@ namespace DevFormAz.Migrations
                 .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Email = c.String(nullable: false),
+                        FirstName = c.String(nullable: false),
+                        Lastname = c.String(nullable: false),
+                        Password = c.String(nullable: false, maxLength: 255),
+                    })
+                .PrimaryKey(t => t.Id);
+            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.UserDetails", "UserId", "dbo.Users");
             DropIndex("dbo.UserDetails", new[] { "UserId" });
+            DropTable("dbo.Users");
             DropTable("dbo.UserDetails");
         }
     }

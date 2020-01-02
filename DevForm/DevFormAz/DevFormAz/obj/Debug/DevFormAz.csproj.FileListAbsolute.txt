@@ -158,6 +158,7 @@ C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\bin\EntityFramewo
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\bin\EntityFramework.SqlServer.dll
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\bin\EntityFramework.xml
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\bin\EntityFramework.SqlServer.xml
-C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_User.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations._new.resources
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.csproj.GenerateResource.cache
-C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_userDetails.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.Added_User_UserControl_Prop.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_isactive_to_user.resources

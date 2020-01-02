@@ -7,13 +7,13 @@ namespace DevFormAz.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class added_User : IMigrationMetadata
+    public sealed partial class Added_User_UserControl_Prop : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(added_User));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Added_User_UserControl_Prop));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912270937147_added_User"; }
+            get { return "202001011308479_Added_User_UserControl_Prop"; }
         }
         
         string IMigrationMetadata.Source
