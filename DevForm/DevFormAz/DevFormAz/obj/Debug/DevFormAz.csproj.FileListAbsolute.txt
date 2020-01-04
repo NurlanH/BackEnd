@@ -160,5 +160,9 @@ C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\bin\EntityFramewo
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\bin\EntityFramework.SqlServer.xml
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations._new.resources
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.csproj.GenerateResource.cache
-C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.Added_User_UserControl_Prop.resources
-C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_isactive_to_user.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_in_UserDetail_virtual_Jobs.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.updated_userdetail_table_skills_list_to_array.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_skill_table.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.changed_virtual_user_to_list_user.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations._null.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.removed_virtual_property_jobSkillTag.resources

@@ -128,25 +128,48 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DevFormData\DevFormAzDataBase.cs" />
+    <Compile Include="Extentions\İmageControl.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\DevAuth.cs" />
-    <Compile Include="Migrations\202001011300531_new.cs" />
-    <Compile Include="Migrations\202001011300531_new.Designer.cs">
-      <DependentUpon>202001011300531_new.cs</DependentUpon>
+    <Compile Include="Migrations\202001031402092_new.cs" />
+    <Compile Include="Migrations\202001031402092_new.Designer.cs">
+      <DependentUpon>202001031402092_new.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001011308479_Added_User_UserControl_Prop.cs" />
-    <Compile Include="Migrations\202001011308479_Added_User_UserControl_Prop.Designer.cs">
-      <DependentUpon>202001011308479_Added_User_UserControl_Prop.cs</DependentUpon>
+    <Compile Include="Migrations\202001040909464_added_in_UserDetail_virtual_Jobs.cs" />
+    <Compile Include="Migrations\202001040909464_added_in_UserDetail_virtual_Jobs.Designer.cs">
+      <DependentUpon>202001040909464_added_in_UserDetail_virtual_Jobs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001021202199_added_isactive_to_user.cs" />
-    <Compile Include="Migrations\202001021202199_added_isactive_to_user.Designer.cs">
-      <DependentUpon>202001021202199_added_isactive_to_user.cs</DependentUpon>
+    <Compile Include="Migrations\202001041201148_updated_userdetail_table_skills_list_to_array.cs" />
+    <Compile Include="Migrations\202001041201148_updated_userdetail_table_skills_list_to_array.Designer.cs">
+      <DependentUpon>202001041201148_updated_userdetail_table_skills_list_to_array.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001041208090_added_skill_table.cs" />
+    <Compile Include="Migrations\202001041208090_added_skill_table.Designer.cs">
+      <DependentUpon>202001041208090_added_skill_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001041227249_changed_virtual_user_to_list_user.cs" />
+    <Compile Include="Migrations\202001041227249_changed_virtual_user_to_list_user.Designer.cs">
+      <DependentUpon>202001041227249_changed_virtual_user_to_list_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001041236534_null.cs" />
+    <Compile Include="Migrations\202001041236534_null.Designer.cs">
+      <DependentUpon>202001041236534_null.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001041243118_removed_virtual_property_jobSkillTag.cs" />
+    <Compile Include="Migrations\202001041243118_removed_virtual_property_jobSkillTag.Designer.cs">
+      <DependentUpon>202001041243118_removed_virtual_property_jobSkillTag.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Form.cs" />
+    <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\TagList.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserDetail.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1763,7 +1786,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Extentions\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -1815,16 +1837,29 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Forgot.cshtml" />
     <Content Include="Views\Home\UserPanel.cshtml" />
+    <Content Include="Views\Home\ProfilePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001011300531_new.resx">
-      <DependentUpon>202001011300531_new.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001031402092_new.resx">
+      <DependentUpon>202001031402092_new.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001011308479_Added_User_UserControl_Prop.resx">
-      <DependentUpon>202001011308479_Added_User_UserControl_Prop.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001040909464_added_in_UserDetail_virtual_Jobs.resx">
+      <DependentUpon>202001040909464_added_in_UserDetail_virtual_Jobs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001021202199_added_isactive_to_user.resx">
-      <DependentUpon>202001021202199_added_isactive_to_user.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001041201148_updated_userdetail_table_skills_list_to_array.resx">
+      <DependentUpon>202001041201148_updated_userdetail_table_skills_list_to_array.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001041208090_added_skill_table.resx">
+      <DependentUpon>202001041208090_added_skill_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001041227249_changed_virtual_user_to_list_user.resx">
+      <DependentUpon>202001041227249_changed_virtual_user_to_list_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001041236534_null.resx">
+      <DependentUpon>202001041236534_null.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001041243118_removed_virtual_property_jobSkillTag.resx">
+      <DependentUpon>202001041243118_removed_virtual_property_jobSkillTag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

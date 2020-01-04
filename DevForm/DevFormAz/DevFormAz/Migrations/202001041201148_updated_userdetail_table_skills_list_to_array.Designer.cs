@@ -7,13 +7,13 @@ namespace DevFormAz.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class Added_User_UserControl_Prop : IMigrationMetadata
+    public sealed partial class updated_userdetail_table_skills_list_to_array : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Added_User_UserControl_Prop));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updated_userdetail_table_skills_list_to_array));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001011308479_Added_User_UserControl_Prop"; }
+            get { return "202001041201148_updated_userdetail_table_skills_list_to_array"; }
         }
         
         string IMigrationMetadata.Source

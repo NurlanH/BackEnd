@@ -31,14 +31,22 @@ namespace DevFormAz.Controllers
                 if(reqUser != null)
                 {
                     var secureUser = Crypto.VerifyHashedPassword(reqUser.Password, password);
-                    if (secureUser == true && reqUser.IsActive == true)
+                    if (secureUser == true)
                     {
-                        Session["UserId"] = reqUser.Id;
-                        return RedirectToAction("FormPage","Home");
+                        if(reqUser.IsActive == true)
+                        {
+                            Session["UserId"] = reqUser.Id;
+                            return RedirectToAction("FormPage", "Home");
+                        }
+                        else
+                        {
+                            ViewBag.LoginMsg = "Hesabınız aktiv edilməyib. Zəhmət olmasa mailinizə nəzər yetirin (Qeyd: Əgər DevForm`dan hər hansı bir mail gəlməyibsə zəhmət olmasa spam bölümünə nəzər yetirin)";
+                        }
+                       
                     }
                     else
                     {
-                        ViewBag.LoginMsg = "Hesabınız aktiv edilməyib. Xahiş olunur mailinizi yoxlayasınız!";
+                        ViewBag.LoginMsg = "Şifrə yalnışdır";
                     }
                 }
                 else
@@ -70,7 +78,6 @@ namespace DevFormAz.Controllers
                 if (!haveUser && user.Password == rePassword)
                 {
 
-                    user.Password = Crypto.HashPassword(user.Password);
                     db.Users.Add(user);
                     UserDetail UDetail = new UserDetail();
                     UDetail.UserId = user.Id;
@@ -111,12 +118,12 @@ namespace DevFormAz.Controllers
                 msg.To.Add(address);
                 msg.From = new MailAddress("developerformaz@gmail.com");
                 client.Send(msg);
-                ViewBag.LoginMsg = "Hesabını aktiv etmək üçün sizə mail göndərdik!";
-                return RedirectToAction("Login", "Account");
+                ViewBag.EmailMsg = "Hesabını aktiv etmək üçün sizə mail göndərdik!";
+                return View("Login");
             }
             catch
             {
-                ViewBag.LoginMsg = "Səhv baş verdi!";
+                ViewBag.EmailMsg = "Səhv baş verdi!";
                 return View("Login");
             }
                 
@@ -130,15 +137,18 @@ namespace DevFormAz.Controllers
                 var verifyUser = db.Users.Where(i => i.UserControlPoint == token).SingleOrDefault();
                 if(verifyUser != null)
                 {
+                    var userPass = verifyUser.Password;
+                    verifyUser.Password = Crypto.HashPassword(verifyUser.Password);
                     verifyUser.UserControlPoint = Guid.NewGuid();
                     verifyUser.IsActive = true;
                     db.SaveChanges();
-                    ViewBag.LoginMsg = "Hesabınız uğurla aktiv edildi";
-                    return RedirectToAction("Login", "Account");
+                    ViewBag.EmailMsg = "Hesabınız uğurla aktiv edildi";
+                    Login(verifyUser.Email, userPass);
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ViewBag.LoginMsg = "Əməliyyat zamanı səhv baş verdi. Zəhmət olmasa bir daha cəhd edin";
+                    ViewBag.EmailMsg = "Əməliyyat zamanı səhv baş verdi. Zəhmət olmasa bir daha cəhd edin";
                     return View("Login");
                 }
                

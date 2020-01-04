@@ -7,13 +7,13 @@ namespace DevFormAz.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class _new : IMigrationMetadata
+    public sealed partial class changed_virtual_user_to_list_user : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_new));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changed_virtual_user_to_list_user));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001011300531_new"; }
+            get { return "202001041227249_changed_virtual_user_to_list_user"; }
         }
         
         string IMigrationMetadata.Source

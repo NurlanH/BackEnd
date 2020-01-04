@@ -13,11 +13,12 @@ namespace DevFormAz.Models
         public string GithubLink { get; set; }
         public string LinkedinLink { get; set; }
         public string  Biography { get; set; }
-        public List<string> Skills { get; set; }
         public string Image { get; set; }
         public int UserId { get; set; }
 
         public virtual User User { get; set; }
+        public virtual List<Job> Jobs { get; set; }
+        public virtual List<Skill> Skills { get; set; }
 
     }
 }

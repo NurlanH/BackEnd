@@ -18,6 +18,7 @@
                 <form id="devRegForm" action="/Account/Register" method="post">
                     @Html.AntiForgeryToken()
 
+                    
                     <div id="devRegFormValidate"  class="alert alert-primary" role="alert">
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger d-block" })
                         @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger d-block" })
@@ -73,10 +74,19 @@
 
 @section scripts{
     <script>
-        $(document.onload)
-        $("#devRegForm .inputBox input").keydown(function () {
-            console.log("Salam")
+        $(document).ready(function () {
+            if ($("#devRegFormValidate span").text() === null || $("#devRegFormValidate span").text() === "") {
+                $("#devRegFormValidate").css({ "display": "none" });
+            } else {
+                 $("#devRegFormValidate").css({ "display": "block" });
+               $("#devRegForm .inputBox input").keydown(function () {
             $("#devRegFormValidate").text(null).css({"display":"none"});
+            })
+            }
         })
+       
+         
+        
+       
     </script>    
 }

@@ -11,5 +11,11 @@ namespace DevFormAz.DevFormData
     {
         public DbSet<User> Users { get; set; }
         public DbSet<UserDetail> UserDetails { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<TagList> TagLists { get; set; }
+        public DbSet<Form> Forms { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+
     }
 }

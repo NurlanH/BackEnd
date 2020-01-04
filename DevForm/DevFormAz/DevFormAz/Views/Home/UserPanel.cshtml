@@ -1,4 +1,4 @@
-﻿
+﻿@model DevFormAz.Models.UserDetail
 @{
     ViewBag.Title = "İstifadəçi Paneli";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,39 +13,39 @@
                 <hr>
             </div>
             <div class="userSettings">
-                <form method="#" action="#">
+                <form method="post" action="/Home/UserPanel" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="row">
                                 <div class="col-md-6 mb-1">
-                                    <input type="text" class="form-control" placeholder="Ad">
+                                    <input type="text" class="form-control" placeholder="Ad" value="@Model.User.FirstName" name="firstname">
                                 </div>
                                 <div class="col-md-6 mb-1">
-                                    <input type="text" class="form-control" placeholder="SoyAd">
+                                    <input type="text" class="form-control" placeholder="SoyAd" value="@Model.User.Lastname" name="lastname">
                                 </div>
                                 <div class="col-md-12 mb-1">
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    <input type="email" class="form-control" placeholder="Email" value="@Model.User.Email" name="email">
                                 </div>
                                 <div class="col-md-6 mb-1">
-                                    <input type="password" class="form-control" placeholder="Yeni şifrə">
+                                    <input type="password" class="form-control" placeholder="Yeni şifrə" name="password">
                                 </div>
                                 <div class="col-md-6 mb-1">
-                                    <input type="password" class="form-control" placeholder="Şifrənin təkrarı">
+                                    <input type="password" class="form-control" placeholder="Şifrənin təkrarı" name="repassword">
                                 </div>
                                 <div class="col-md-6 mb-1">
-                                    <input type="text" class="form-control" placeholder="İxtisas">
+                                    <input type="text" class="form-control" placeholder="İxtisas" name="specialty">
                                 </div>
                                 <div class="col-md-6 mb-1">
-                                    <input type="text" class="form-control" placeholder="Ölkə">
+                                    <input type="text" class="form-control" placeholder="Ölkə" name="country">
                                 </div>
                                 <div class="col-md-12 mb-1">
-                                    <input type="text" class="form-control" placeholder="Github link">
+                                    <input type="text" class="form-control" placeholder="Github link" name="githublink">
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <input type="text" class="form-control" placeholder="Linkedİn link">
+                                    <input type="text" class="form-control" placeholder="Linkedİn link" name="linkedinlink">
                                 </div>
                                 <div class="col-md-12 mb-1">
-                                    <input type="file" id="myFileBtn" class="form-control-file">
+                                    <input type="file" id="myFileBtn" class="form-control-file" name="image">
                                 </div>
                             </div>
                         </div>
@@ -53,11 +53,11 @@
                             <div class="row">
                                 <div class="col-md-12 mb-1">
                                     <textarea class="form-control" placeholder="Biografiya"
-                                              id="exampleFormControlTextarea1" rows="3"></textarea>
+                                              id="exampleFormControlTextarea1" rows="3" name="biography"></textarea>
                                 </div>
                                 <div class="col-md-12 mb-1">
                                     <input type="text" class="form-control"
-                                           placeholder="Bacarıqlar məs: Javascript Css">
+                                           placeholder="Bacarıqlar məs: Javascript Css" name="skills">
                                 </div>
                                 <div class="col-md-12 mb-1">
                                     <input type="text" class="form-control" placeholder="İş yerinin adı">

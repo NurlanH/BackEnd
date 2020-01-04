@@ -7,13 +7,13 @@ namespace DevFormAz.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class added_isactive_to_user : IMigrationMetadata
+    public sealed partial class removed_virtual_property_jobSkillTag : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(added_isactive_to_user));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(removed_virtual_property_jobSkillTag));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001021202199_added_isactive_to_user"; }
+            get { return "202001041243118_removed_virtual_property_jobSkillTag"; }
         }
         
         string IMigrationMetadata.Source

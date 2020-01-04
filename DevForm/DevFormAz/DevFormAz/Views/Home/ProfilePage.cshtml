@@ -1,0 +1,241 @@
+﻿@model DevFormAz.Models.UserViewModel
+@{
+    ViewBag.Title = "ProfilePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Main Content -->
+<section class="pageWrapperForIndex mt-3 mb-3">
+    <div class="container">
+        <div class="profileBox">
+            <div class="row">
+                <div class="col-md-4 col-12 mb-5">
+                    <div class="profileInfo">
+                        <div class="profilePic">
+                            @if (@Model.GetUserDetail.Image != null)
+                            {
+                                <img src="~/Public/images/UsersFolder/ProfilePic/@Model.GetUserDetail.Image" alt="">
+                            }
+                            else
+                            {
+                                <img src="~/Public/images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                            }
+                        </div>
+                        <div class="userInfo">
+                            <h4>@Model.GetUserDetail.User.FirstName @Model.GetUserDetail.User.Lastname</h4>
+                        </div>
+
+                        <div class="profileActivity mt-1">
+                            <div class="userSocialDetail">
+                                <div class="row">
+
+                                    <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
+                                        <div class="postCount">
+                                            <a href=""><i class="fas fa-bullhorn mr-2"></i>0</a>
+                                            <p>Postlar</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
+                                        <div class="followersBox">
+                                            <a href=""><i class="fas fa-users mr-2"></i>0</a>
+                                            <p>Izləyici</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
+                                        <div class="followingBox">
+                                            <a href=""><i class="fas fa-user mr-2"></i>0</a>
+                                            <p>İzləyir</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="userSetting">
+                            <div class="settingBtn">
+                                <a href="/Home/UserPanel">Düzəliş et <i class="fas fa-pen ml-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="userDetail">
+                            <div class="userPosition">
+                                @if (Model.GetUserDetail.Specialty != null)
+                                {
+                                    <p><i class="fas fa-user-tie mr-1"></i>@Model.GetUserDetail.Specialty</p>
+                                }
+
+                            </div>
+                            <div class="userlocation">
+                                @if (Model.GetUserDetail.Country != null)
+                                {
+                                    <p><i class="fas fa-map-marker-alt mr-1"></i>@Model.GetUserDetail.Country</p>
+                                }
+                            </div>
+                            <div class="usersocialLinks">
+                                @if (Model.GetUserDetail.GithubLink != null)
+                                {
+                                    <a href="@Model.GetUserDetail.GithubLink"><i class="fab fa-github mr-1"></i>Github</a>
+                                }
+                                else if (Model.GetUserDetail.LinkedinLink != null)
+                                {
+                                    <a href="@Model.GetUserDetail.LinkedinLink"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-12  userActivity mb-5">
+                    <div class="activityTabs">
+                        <ul>
+                            <li data-tab-target="#UserInformation" class="targetActive">
+                                Məlumatlar
+                            </li>
+                            <li data-tab-target="#myPosts">
+                                Postlarım
+                            </li>
+                            <li data-tab-target="#mySaves">
+                                Qeydlər
+                            </li>
+                        </ul>
+                        <hr>
+                    </div>
+
+                    <div id="UserInformation" data-tab-content class="active">
+                        <div class="userBio">
+                            <div class="bioHeader">
+                                <h2>Biografiya</h2>
+                            </div>
+                            <div class="bioContent">
+
+                                @if (Model.GetUserDetail.Biography != null)
+                                {
+                                    <p>
+                                        @Model.GetUserDetail.Biography
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p>Burada heç bir məlumat qeyd etməmisiniz</p>
+                                }
+
+
+                            </div>
+                        </div>
+
+                        <div class="userSkills mb-3">
+                            <div class="skillheader">
+                                <h2>Bacarıqlar</h2>
+
+                            </div>
+
+                            <div class="skillContent">
+                                <ul>
+                                    @if (Model.GetUserDetail.Skills != null)
+                                    {
+                                        foreach (var item in Model.GetUserDetail.Skills)
+                                        {
+                                            <li>@item.Name</li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <li>Burada heç bir məlumat qeyd olunmayıb</li>
+                                    }
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="experience">
+                            <div class="experienceHeader">
+                                <h2>Təcrübələr</h2>
+
+                            </div>
+
+                            @if (Model.GetUserDetail.Jobs != null)
+                            {
+                                foreach (var item in Model.GetUserDetail.Jobs)
+                                {
+                                    <div class="exp">
+                                        <h4>@item.JobName</h4>
+                                        <p><span>@item.InJob</span>-<span>@item.OutJob</span></p>
+                                        <h5>@item.JobDesc</h5>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="exp">
+                                    <p>Burada heç bir məlumat qeyd olunmayıb</p>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+
+                    <div id="myPosts" data-tab-content>
+                        <div class="mypostHeader">
+                            <h2>Postlarım</h2>
+                        </div>
+                        <div class="mypostContent">
+                            <div class="postBox">
+                                <div class="postUserInfo">
+                                    <div class="boxOfInfo">
+                                        <div class="imageBox">
+                                            <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/unnamed.jpg" alt="">
+                                        </div>
+                                        <div class="postUserName">
+                                            <p>Nurlan Hüseynov</p>
+                                            <span>27.12.2019</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="postUserContent">
+                                    <div class="boxOfContent">
+                                        <div class="posthead">
+                                            <h4>Təcili kömək lazımdır</h4>
+                                        </div>
+                                        <div class="postContent">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ipsam.</p>
+                                        </div>
+                                        <div class="postreadmore">
+                                            <a href="#">Davamı</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="postGrades">
+                                    <div class="boxOfGrades">
+                                        <div class="gradePlus">
+                                            <h3>0</h3>
+                                        </div>
+                                        <div class="LikeDisslike">
+                                            <div class="likebtn">
+                                                <a href=""><i class="fas fa-caret-up"></i></a>
+
+                                            </div>
+                                            <div class="disslikebtn">
+                                                <a href=""><i class="fas fa-caret-down"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="gradeMinus">
+                                            <h3>0</h3>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mySaves" data-tab-content>
+                        <h2>qeydlerim</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
