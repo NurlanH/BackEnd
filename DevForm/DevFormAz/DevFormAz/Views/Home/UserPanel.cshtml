@@ -33,16 +33,16 @@
                                     <input type="password" class="form-control" placeholder="Şifrənin təkrarı" name="repassword">
                                 </div>
                                 <div class="col-md-6 mb-1">
-                                    <input type="text" class="form-control" placeholder="İxtisas" name="specialty">
+                                    <input type="text" class="form-control" placeholder="İxtisas" value="@Model.Specialty" name="specialty">
                                 </div>
                                 <div class="col-md-6 mb-1">
-                                    <input type="text" class="form-control" placeholder="Ölkə" name="country">
+                                    <input type="text" class="form-control" placeholder="Ölkə" name="country" value="@Model.Country">
                                 </div>
                                 <div class="col-md-12 mb-1">
-                                    <input type="text" class="form-control" placeholder="Github link" name="githublink">
+                                    <input type="text" class="form-control" placeholder="Github link" name="githublink" value="@Model.GithubLink">
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <input type="text" class="form-control" placeholder="Linkedİn link" name="linkedinlink">
+                                    <input type="text" class="form-control" placeholder="Linkedİn link" name="linkedinlink" value="@Model.LinkedinLink">
                                 </div>
                                 <div class="col-md-12 mb-1">
                                     <input type="file" id="myFileBtn" class="form-control-file" name="image">
@@ -53,11 +53,20 @@
                             <div class="row">
                                 <div class="col-md-12 mb-1">
                                     <textarea class="form-control" placeholder="Biografiya"
-                                              id="exampleFormControlTextarea1" rows="3" name="biography"></textarea>
+                                              id="exampleFormControlTextarea1" rows="3" name="biography" >@Model.Biography</textarea>
                                 </div>
                                 <div class="col-md-12 mb-1">
-                                    <input type="text" class="form-control"
-                                           placeholder="Bacarıqlar məs: Javascript Css" name="skills">
+                                    @{
+                                        var skills = "";
+                                        foreach (var item in Model.Skills)
+                                        {
+                                            skills += item.Name + " ";
+                                        }
+                                    }
+                                    <input type="text" id="skillCreate" class="form-control"
+                                           placeholder="Bacarıqlar məs: Javascript Css" value="@skills">
+                                    <input id="skillarr" type="hidden" class="form-control"
+                                           name="skills" value="@skills">
                                 </div>
                                 <div class="col-md-12 mb-1">
                                     <input type="text" class="form-control" placeholder="İş yerinin adı">
@@ -84,3 +93,23 @@
     </div>
 </section>
 <!-- Main Content -->
+
+@section scripts{
+    <script>
+        var skills = $("#skillCreate").val().split(' ');
+        var skillsHidden = $("#skillarr").val().split(' ');
+        $("#skillCreate").keyup(function (e) {
+            if (e.keyCode == 32) {
+                var skills = $("#skillCreate").val().split(' ');
+                
+                var skillar = document.getElementById("skillarr");
+                for (let i = 0; i < skills.length; i++) {
+                    if (skills[i] == " ") break;
+                    skillar.value = skills.join(' ');
+                }
+
+                console.log(skillar.value)
+            } 
+        })
+    </script>
+}

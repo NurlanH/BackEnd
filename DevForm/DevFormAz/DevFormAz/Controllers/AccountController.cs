@@ -23,30 +23,32 @@ namespace DevFormAz.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string email,string password)
+        public ActionResult Login(string email, string password)
         {
             if (ModelState.IsValid)
             {
                 var reqUser = db.Users.Where(e => e.Email == email).SingleOrDefault();
-                if(reqUser != null)
+                if (reqUser != null)
                 {
-                    var secureUser = Crypto.VerifyHashedPassword(reqUser.Password, password);
-                    if (secureUser == true)
+                    if (reqUser.IsActive == true)
                     {
-                        if(reqUser.IsActive == true)
+                        var secureUser = Crypto.VerifyHashedPassword(reqUser.Password, password);
+                        if (secureUser == true)
                         {
+                            Session.Clear();
                             Session["UserId"] = reqUser.Id;
                             return RedirectToAction("FormPage", "Home");
+
+
                         }
                         else
                         {
-                            ViewBag.LoginMsg = "Hesabınız aktiv edilməyib. Zəhmət olmasa mailinizə nəzər yetirin (Qeyd: Əgər DevForm`dan hər hansı bir mail gəlməyibsə zəhmət olmasa spam bölümünə nəzər yetirin)";
+                            ViewBag.LoginMsg = "Şifrə yalnışdır";
                         }
-                       
                     }
                     else
                     {
-                        ViewBag.LoginMsg = "Şifrə yalnışdır";
+                        ViewBag.LoginMsg = "Hesabınız aktiv edilməyib. Zəhmət olmasa mailinizə nəzər yetirin (Qeyd: Əgər DevForm`dan hər hansı bir mail gəlməyibsə zəhmət olmasa spam bölümünə nəzər yetirin)";
                     }
                 }
                 else
@@ -69,7 +71,7 @@ namespace DevFormAz.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(User user,string rePassword)
+        public ActionResult Register(User user, string rePassword)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +89,7 @@ namespace DevFormAz.Controllers
                     return RedirectToAction("Login", "Account");
                 }
 
-                
+
             }
             return View();
         }
@@ -100,7 +102,7 @@ namespace DevFormAz.Controllers
 
 
         //Email send
-        public ActionResult EmailSend(Guid id,string email)
+        public ActionResult EmailSend(Guid id, string email)
         {
             try
             {
@@ -126,16 +128,16 @@ namespace DevFormAz.Controllers
                 ViewBag.EmailMsg = "Səhv baş verdi!";
                 return View("Login");
             }
-                
+
         }
 
         public ActionResult EmailAccept()
         {
             var token = Guid.Parse(Request.QueryString["token"]);
-            if(token != null)
+            if (token != null)
             {
                 var verifyUser = db.Users.Where(i => i.UserControlPoint == token).SingleOrDefault();
-                if(verifyUser != null)
+                if (verifyUser != null)
                 {
                     var userPass = verifyUser.Password;
                     verifyUser.Password = Crypto.HashPassword(verifyUser.Password);
@@ -151,7 +153,7 @@ namespace DevFormAz.Controllers
                     ViewBag.EmailMsg = "Əməliyyat zamanı səhv baş verdi. Zəhmət olmasa bir daha cəhd edin";
                     return View("Login");
                 }
-               
+
             }
             return View();
         }
@@ -160,10 +162,10 @@ namespace DevFormAz.Controllers
         //LogOut
         public ActionResult LogOut()
         {
-            
-                Session["UserId"] = null;
-                return RedirectToAction("Index", "Home");
-         
+
+            Session["UserId"] = null;
+            return RedirectToAction("Index", "Home");
+
         }
     }
 }

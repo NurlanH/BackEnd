@@ -166,3 +166,6 @@ C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevForm
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.changed_virtual_user_to_list_user.resources
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations._null.resources
 C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.removed_virtual_property_jobSkillTag.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.change_Skills_userid_to_UserDetailId.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_userdetail_virtual.resources
+C:\Users\Nurik\Desktop\github back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.updated_job_skill_userid_nullable.resources

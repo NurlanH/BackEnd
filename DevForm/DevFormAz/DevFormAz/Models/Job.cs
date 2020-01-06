@@ -12,6 +12,6 @@ namespace DevFormAz.Models
         public DateTime InJob { get; set; }
         public DateTime OutJob { get; set; }
         public string JobDesc { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
     }
 }

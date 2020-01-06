@@ -161,6 +161,18 @@
     <Compile Include="Migrations\202001041243118_removed_virtual_property_jobSkillTag.Designer.cs">
       <DependentUpon>202001041243118_removed_virtual_property_jobSkillTag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001042159510_change_Skills_userid_to_UserDetailId.cs" />
+    <Compile Include="Migrations\202001042159510_change_Skills_userid_to_UserDetailId.Designer.cs">
+      <DependentUpon>202001042159510_change_Skills_userid_to_UserDetailId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001042209492_added_userdetail_virtual.cs" />
+    <Compile Include="Migrations\202001042209492_added_userdetail_virtual.Designer.cs">
+      <DependentUpon>202001042209492_added_userdetail_virtual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001061101194_updated_job_skill_userid_nullable.cs" />
+    <Compile Include="Migrations\202001061101194_updated_job_skill_userid_nullable.Designer.cs">
+      <DependentUpon>202001061101194_updated_job_skill_userid_nullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Form.cs" />
@@ -1755,8 +1767,9 @@
     <Content Include="Public\Images\Brand\BrandWhite.png" />
     <Content Include="Public\Images\OtherImages\helping.jpg" />
     <Content Include="Public\Images\Preloader\loading.svg" />
+    <Content Include="Public\Images\UsersFolder\ProfilePic\2020_01_05_01_38_18a.jpg" />
+    <Content Include="Public\Images\UsersFolder\ProfilePic\a.jpg" />
     <Content Include="Public\Images\UsersFolder\ProfilePic\devAvatar.svg" />
-    <Content Include="Public\Images\UsersFolder\ProfilePic\unnamed.jpg" />
     <Content Include="Public\Jquery\jquery-3.4.1.min.js" />
     <Content Include="Public\OwlCarousel\owl.carousel.min.css" />
     <Content Include="Public\OwlCarousel\owl.carousel.min.js" />
@@ -1860,6 +1873,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001041243118_removed_virtual_property_jobSkillTag.resx">
       <DependentUpon>202001041243118_removed_virtual_property_jobSkillTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001042159510_change_Skills_userid_to_UserDetailId.resx">
+      <DependentUpon>202001042159510_change_Skills_userid_to_UserDetailId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001042209492_added_userdetail_virtual.resx">
+      <DependentUpon>202001042209492_added_userdetail_virtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001061101194_updated_job_skill_userid_nullable.resx">
+      <DependentUpon>202001061101194_updated_job_skill_userid_nullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

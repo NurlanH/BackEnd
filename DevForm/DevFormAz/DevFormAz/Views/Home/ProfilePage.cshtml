@@ -76,7 +76,7 @@
                                 {
                                     <a href="@Model.GetUserDetail.GithubLink"><i class="fab fa-github mr-1"></i>Github</a>
                                 }
-                                else if (Model.GetUserDetail.LinkedinLink != null)
+                                @if (Model.GetUserDetail.LinkedinLink != null)
                                 {
                                     <a href="@Model.GetUserDetail.LinkedinLink"><i class="fab fa-linkedin mr-1"></i>LinkedIn</a>
                                 }

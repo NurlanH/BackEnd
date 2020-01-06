@@ -51,7 +51,15 @@
                                 <li id="resProfile" class="dvBtn">
                                     <a href="/Home/Profile">
                                         Hesabım
-                                        <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                        @if (ViewBag.UserImage != null)
+                                        {
+                                            <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/@ViewBag.UserImage" alt="">
+                                        }
+                                        else
+                                        {
+                                            <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                        }
+
                                     </a>
                                 </li>
                                 <li class="dvBtn">
@@ -144,6 +152,7 @@
     <script src="~/Public/OwlCarousel/owl.carousel.min.js"></script>
     <script src="~/Public/Bootstrap/js/bootstrap.min.js"></script>
     <script src="~/Public/Script/MainScript.js"></script>
+    @RenderSection("scripts",false);
     <!-- End Scripts Section -->
 </body>
 

@@ -71,20 +71,21 @@ namespace DevFormAz.Controllers
             {
                 if (İmageControl.CheckImageSize(image, 8))
                 {
-                    var imgName = İmageControl.SaveImage("C:/Users/Nurik/Desktop/github back/DevForm/DevFormAz/DevFormAz/Public/Images/UsersFolder/ProfilePic", image);
+                    var imgName = İmageControl.SaveImage(Server.MapPath("~/Public/Images/UsersFolder/ProfilePic"), image);
                     user.Image = imgName;
                 }
             }
             
-            if(skills != null)
+            if(skills != null && skills != "")
             {
                 var skillarr = skills.Split(' ');
-                for(var i = 0; i<skillarr.Length;i++)
+
+
+
+                for (var i = 0; i<skillarr.Length;i++)
                 {
-                    user.Skills = new List<Skill>()
-                    {
-                        db.Skills.Add(new Skill() { Name = skillarr[i], UserId = user.User.Id })
-                    };
+                    if (skillarr[i] != " " && db.Skills.Find((int)Session["UserId"]).Name != skillarr[i])
+                    db.Skills.Add(new Skill() { Name = skillarr[i],UserDetailId = user.Id });
                 }
                 
             }
@@ -92,9 +93,14 @@ namespace DevFormAz.Controllers
             user.User.Lastname = lastname;
             user.User.Email = email;
             
-            user = userChanges;
+            user.Biography = userChanges.Biography;
+            user.Country = userChanges.Country;
+            user.GithubLink = userChanges.GithubLink;
+            user.Specialty = userChanges.Specialty;
+            user.LinkedinLink = userChanges.LinkedinLink;
+
             db.SaveChanges();
-            return View();
+            return RedirectToAction("ProfilePage","Home");
         }
 
 
