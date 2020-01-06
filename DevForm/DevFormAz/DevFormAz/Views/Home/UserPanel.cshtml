@@ -24,6 +24,7 @@
                                     <input type="text" class="form-control" placeholder="SoyAd" value="@Model.User.Lastname" name="lastname">
                                 </div>
                                 <div class="col-md-12 mb-1">
+                                    <span>@ViewBag.EmailErrorMsg</span>
                                     <input type="email" class="form-control" placeholder="Email" value="@Model.User.Email" name="email">
                                 </div>
                                 <div class="col-md-6 mb-1">
@@ -64,9 +65,9 @@
                                         }
                                     }
                                     <input type="text" id="skillCreate" class="form-control"
-                                           placeholder="Bacarıqlar məs: Javascript Css" value="@skills">
+                                           placeholder="Bacarıqlar məs: Javascript Css" name = "skills" value="@skills">
                                     <input id="skillarr" type="hidden" class="form-control"
-                                           name="skills" value="@skills">
+                                           name="checker" value="@skills">
                                 </div>
                                 <div class="col-md-12 mb-1">
                                     <input type="text" class="form-control" placeholder="İş yerinin adı">
@@ -94,22 +95,3 @@
 </section>
 <!-- Main Content -->
 
-@section scripts{
-    <script>
-        var skills = $("#skillCreate").val().split(' ');
-        var skillsHidden = $("#skillarr").val().split(' ');
-        $("#skillCreate").keyup(function (e) {
-            if (e.keyCode == 32) {
-                var skills = $("#skillCreate").val().split(' ');
-                
-                var skillar = document.getElementById("skillarr");
-                for (let i = 0; i < skills.length; i++) {
-                    if (skills[i] == " ") break;
-                    skillar.value = skills.join(' ');
-                }
-
-                console.log(skillar.value)
-            } 
-        })
-    </script>
-}
