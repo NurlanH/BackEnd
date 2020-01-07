@@ -82,7 +82,7 @@ $.each(document.getElementsByClassName("tags-input"),function(index,el){
         tags = [];
     
     hiddenInput.setAttribute('type', 'hidden');
-    hiddenInput.setAttribute('name', el.getAttribute('data-name'));
+    hiddenInput.setAttribute('name', 'tagname');
 
     mainInput.setAttribute('type', 'text');
     mainInput.classList.add('main-input');

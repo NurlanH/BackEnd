@@ -51,9 +51,9 @@
                                 <li id="resProfile" class="dvBtn">
                                     <a href="/Home/Profile">
                                         Hesabım
-                                        @if (ViewBag.UserImage != null)
+                                        @if (Session["UserImage"] != null)
                                         {
-                                            <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/@ViewBag.UserImage" alt="">
+                                            <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/@Session["UserImage"]" alt="">
                                         }
                                         else
                                         {
@@ -112,7 +112,7 @@
                                         <li id="forProfile" class="dvBtn">
                                             <a href="/Home/ProfilePage">
                                                 Hesabım
-                                                <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                                <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/@Session["UserImage"]" alt="">
                                             </a>
                                         </li>
                                         <li class="dvBtn">

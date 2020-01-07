@@ -9,6 +9,10 @@ namespace DevFormAz.DevFormData
 {
     public class DevFormAzDataBase :DbContext
     {
+        public DevFormAzDataBase():base("DevFormAz")
+        {
+
+        }
         public DbSet<User> Users { get; set; }
         public DbSet<UserDetail> UserDetails { get; set; }
         public DbSet<Comment> Comments { get; set; }

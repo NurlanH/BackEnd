@@ -11,9 +11,10 @@ namespace DevFormAz.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
-        public DateTime UpdateTime { get; set; } = DateTime.Now;
-
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public int LikeCount { get; set; }
+        public int DisslikeCount { get; set; }
+        public int UserDetailId { get; set; }
+        public virtual UserDetail UserDetail { get; set; }
+        public virtual ICollection<TagList> TagLists { get; set; }
     }
 }

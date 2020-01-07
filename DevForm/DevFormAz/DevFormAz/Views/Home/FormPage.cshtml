@@ -1,4 +1,5 @@
-﻿  <!-- Main Content -->
+﻿@model DevFormAz.Models.FormTagViewModel
+<!-- Main Content -->
 <section class="pageWrapperForIndex mt-3 mb-3">
     <div class="container">
 
@@ -38,31 +39,31 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form method="#" action="#" enctype="multipart/form-data">
+                                                <form method="post" action="/Home/FormPage" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">Başlıq</label>
-                                                        <input type="text" class="form-control" id="recipient-name">
+                                                        <input type="text" name="name" class="form-control" id="recipient-name">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="message-text" class="col-form-label">Mesaj</label>
-                                                        <textarea class="form-control" id="message-text"></textarea>
+                                                        <textarea class="form-control" name="description" id="message-text"></textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="upload-file" class="col-form-label">Şəkil yüklə</label>
-                                                        <input type="file" class="form-control fileinput" />
+                                                        <input type="file" name="image" multiple class="form-control fileinput" />
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="message-text" class="col-form-label">Tag əlavə et</label>
                                                         <div class="tags-input form-control" data-name="tags-input">
                                                         </div>
                                                     </div>
-
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ləğv et</button>
+                                                        <button id="sharebtn" type="submit" class="btn btn-primary">Paylaş</button>
+                                                    </div>
                                                 </form>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ləğv et</button>
-                                                <button id="sharebtn" type="button" class="btn btn-primary">Paylaş</button>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -70,54 +71,64 @@
                             <hr>
                             <br>
                             <div class="formlist">
-                                <div class="postBox">
-                                    <div class="postUserInfo">
-                                        <div class="boxOfInfo">
-                                            <div class="imageBox">
-                                                <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/unnamed.jpg" alt="">
-                                            </div>
-                                            <div class="postUserName">
-                                                <p>Nurlan Hüseynov</p>
-                                                <span>27.12.2019</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="postUserContent">
-                                        <div class="boxOfContent">
-                                            <div class="posthead">
-                                                <h4>Təcili kömək lazımdır</h4>
-                                            </div>
-                                            <div class="postContent">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ipsam.</p>
-                                            </div>
-                                            <div class="postreadmore">
-                                                <a href="#">Davamı</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="postGrades">
-                                        <div class="boxOfGrades">
-                                            <div class="gradePlus">
-                                                <h3>0</h3>
-                                            </div>
-                                            <div class="LikeDisslike">
-                                                <div class="likebtn">
-                                                    <a href=""><i class="fas fa-caret-up"></i></a>
-
+                                @foreach (var item in Model.Forms)
+                                {
+                                    <div class="postBox">
+                                        <div class="postUserInfo">
+                                            <div class="boxOfInfo">
+                                                <div class="imageBox">
+                                                    <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/@item.UserDetail.Image" alt="">
                                                 </div>
-                                                <div class="disslikebtn">
-                                                    <a href=""><i class="fas fa-caret-down"></i></a>
+                                                <div class="postUserName">
+                                                    <p>@item.UserDetail.User.FirstName @item.UserDetail.User.Lastname</p>
+                                                    <span>@item.CreatedDate</span>
                                                 </div>
                                             </div>
-                                            <div class="gradeMinus">
-                                                <h3>0</h3>
-                                            </div>
                                         </div>
+                                        <div class="postUserContent">
+                                            <div class="boxOfContent">
+                                                <div class="posthead">
+                                                    <h4>@item.Name</h4>
+                                                </div>
+                                                <div class="postContent">
+                                                    <p>@item.Description</p>
+                                                </div>
+                                                <div class="mb-2">
+                                                    @foreach(var tag in Model.TagLists.Where(i=>i.FormId == item.Id))
+                                                    {
+                                                        <span class="mr-1">@tag.TagName</span>
+                                                    }
+                                                </div>
+                                                <div class="postreadmore">
+                                                    <a href="#">Davamı</a>
+                                                </div>
+                                            </div>
 
+                                        </div>
+                                        <div class="postGrades">
+                                            <div class="boxOfGrades">
+                                                <div class="gradePlus">
+                                                    <h3>@item.LikeCount</h3>
+                                                </div>
+                                                <div class="LikeDisslike">
+                                                    <div class="likebtn">
+                                                        <a href=""><i class="fas fa-caret-up"></i></a>
+
+                                                    </div>
+                                                    <div class="disslikebtn">
+                                                        <a href=""><i class="fas fa-caret-down"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="gradeMinus">
+                                                    <h3>@item.DisslikeCount</h3>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                </div>
-                               
+                                }
+
+
                             </div>
                         </div>
                         <div class="paginationSec d-flex justify-content-center">
@@ -156,3 +167,14 @@
     </div>
 </section>
 <!-- Main Content -->
+
+
+@section scripts{
+       <script>
+           $("#sharebtn").click(function () {
+               console.log("salam");
+                
+           })
+          
+       </script>
+}

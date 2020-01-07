@@ -133,49 +133,34 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\DevAuth.cs" />
-    <Compile Include="Migrations\202001031402092_new.cs" />
-    <Compile Include="Migrations\202001031402092_new.Designer.cs">
-      <DependentUpon>202001031402092_new.cs</DependentUpon>
+    <Compile Include="Migrations\202001071052427_new.cs" />
+    <Compile Include="Migrations\202001071052427_new.Designer.cs">
+      <DependentUpon>202001071052427_new.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001040909464_added_in_UserDetail_virtual_Jobs.cs" />
-    <Compile Include="Migrations\202001040909464_added_in_UserDetail_virtual_Jobs.Designer.cs">
-      <DependentUpon>202001040909464_added_in_UserDetail_virtual_Jobs.cs</DependentUpon>
+    <Compile Include="Migrations\202001071338147_updated_form_taglist_added_virtual.cs" />
+    <Compile Include="Migrations\202001071338147_updated_form_taglist_added_virtual.Designer.cs">
+      <DependentUpon>202001071338147_updated_form_taglist_added_virtual.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001041201148_updated_userdetail_table_skills_list_to_array.cs" />
-    <Compile Include="Migrations\202001041201148_updated_userdetail_table_skills_list_to_array.Designer.cs">
-      <DependentUpon>202001041201148_updated_userdetail_table_skills_list_to_array.cs</DependentUpon>
+    <Compile Include="Migrations\202001071343246_change_form_userid_to_userdetailid.cs" />
+    <Compile Include="Migrations\202001071343246_change_form_userid_to_userdetailid.Designer.cs">
+      <DependentUpon>202001071343246_change_form_userid_to_userdetailid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001041208090_added_skill_table.cs" />
-    <Compile Include="Migrations\202001041208090_added_skill_table.Designer.cs">
-      <DependentUpon>202001041208090_added_skill_table.cs</DependentUpon>
+    <Compile Include="Migrations\202001071345013_deleted_updatedate_form.cs" />
+    <Compile Include="Migrations\202001071345013_deleted_updatedate_form.Designer.cs">
+      <DependentUpon>202001071345013_deleted_updatedate_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001041227249_changed_virtual_user_to_list_user.cs" />
-    <Compile Include="Migrations\202001041227249_changed_virtual_user_to_list_user.Designer.cs">
-      <DependentUpon>202001041227249_changed_virtual_user_to_list_user.cs</DependentUpon>
+    <Compile Include="Migrations\202001071346235_added_like_disslike_form.cs" />
+    <Compile Include="Migrations\202001071346235_added_like_disslike_form.Designer.cs">
+      <DependentUpon>202001071346235_added_like_disslike_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001041236534_null.cs" />
-    <Compile Include="Migrations\202001041236534_null.Designer.cs">
-      <DependentUpon>202001041236534_null.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001041243118_removed_virtual_property_jobSkillTag.cs" />
-    <Compile Include="Migrations\202001041243118_removed_virtual_property_jobSkillTag.Designer.cs">
-      <DependentUpon>202001041243118_removed_virtual_property_jobSkillTag.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001042159510_change_Skills_userid_to_UserDetailId.cs" />
-    <Compile Include="Migrations\202001042159510_change_Skills_userid_to_UserDetailId.Designer.cs">
-      <DependentUpon>202001042159510_change_Skills_userid_to_UserDetailId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001042209492_added_userdetail_virtual.cs" />
-    <Compile Include="Migrations\202001042209492_added_userdetail_virtual.Designer.cs">
-      <DependentUpon>202001042209492_added_userdetail_virtual.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001061101194_updated_job_skill_userid_nullable.cs" />
-    <Compile Include="Migrations\202001061101194_updated_job_skill_userid_nullable.Designer.cs">
-      <DependentUpon>202001061101194_updated_job_skill_userid_nullable.cs</DependentUpon>
+    <Compile Include="Migrations\202001071422130_update_taglist_name_to_tagname.cs" />
+    <Compile Include="Migrations\202001071422130_update_taglist_name_to_tagname.Designer.cs">
+      <DependentUpon>202001071422130_update_taglist_name_to_tagname.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Form.cs" />
+    <Compile Include="Models\FormTagViewModel.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\TagList.cs" />
@@ -1767,7 +1752,6 @@
     <Content Include="Public\Images\Brand\BrandWhite.png" />
     <Content Include="Public\Images\OtherImages\helping.jpg" />
     <Content Include="Public\Images\Preloader\loading.svg" />
-    <Content Include="Public\Images\UsersFolder\ProfilePic\2020_01_05_01_38_18a.jpg" />
     <Content Include="Public\Images\UsersFolder\ProfilePic\a.jpg" />
     <Content Include="Public\Images\UsersFolder\ProfilePic\devAvatar.svg" />
     <Content Include="Public\Jquery\jquery-3.4.1.min.js" />
@@ -1853,35 +1837,23 @@
     <Content Include="Views\Home\ProfilePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001031402092_new.resx">
-      <DependentUpon>202001031402092_new.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001071052427_new.resx">
+      <DependentUpon>202001071052427_new.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001040909464_added_in_UserDetail_virtual_Jobs.resx">
-      <DependentUpon>202001040909464_added_in_UserDetail_virtual_Jobs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001071338147_updated_form_taglist_added_virtual.resx">
+      <DependentUpon>202001071338147_updated_form_taglist_added_virtual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001041201148_updated_userdetail_table_skills_list_to_array.resx">
-      <DependentUpon>202001041201148_updated_userdetail_table_skills_list_to_array.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001071343246_change_form_userid_to_userdetailid.resx">
+      <DependentUpon>202001071343246_change_form_userid_to_userdetailid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001041208090_added_skill_table.resx">
-      <DependentUpon>202001041208090_added_skill_table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001071345013_deleted_updatedate_form.resx">
+      <DependentUpon>202001071345013_deleted_updatedate_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001041227249_changed_virtual_user_to_list_user.resx">
-      <DependentUpon>202001041227249_changed_virtual_user_to_list_user.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001071346235_added_like_disslike_form.resx">
+      <DependentUpon>202001071346235_added_like_disslike_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001041236534_null.resx">
-      <DependentUpon>202001041236534_null.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001041243118_removed_virtual_property_jobSkillTag.resx">
-      <DependentUpon>202001041243118_removed_virtual_property_jobSkillTag.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001042159510_change_Skills_userid_to_UserDetailId.resx">
-      <DependentUpon>202001042159510_change_Skills_userid_to_UserDetailId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001042209492_added_userdetail_virtual.resx">
-      <DependentUpon>202001042209492_added_userdetail_virtual.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001061101194_updated_job_skill_userid_nullable.resx">
-      <DependentUpon>202001061101194_updated_job_skill_userid_nullable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001071422130_update_taglist_name_to_tagname.resx">
+      <DependentUpon>202001071422130_update_taglist_name_to_tagname.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
