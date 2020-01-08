@@ -8,13 +8,15 @@ using DevFormAz.Models;
 using DevFormAz.DevFormData;
 using DevFormAz.Extentions;
 using System.Data.Entity.Validation;
+using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace DevFormAz.Controllers
 {
     public class HomeController : Controller
     {
         DevFormAzDataBase db = new DevFormAzDataBase();
-
+        
         //Home page
         public ActionResult Index()
         {
@@ -42,13 +44,10 @@ namespace DevFormAz.Controllers
                 Form newForm = new Form();
                 newForm.Name = form.Name;
                 newForm.Description = form.Description;
-                newForm.LikeCount = 0;
-                newForm.DisslikeCount = 0;
                 newForm.UserDetailId = (int)Session["UserId"];
                 db.Forms.Add(newForm);
                 db.SaveChanges();
-
-                if(tagArr != null)
+                if (tagArr != null)
                 {
                     for (int i = 0; i < tagArr.Length; i++)
                     {
@@ -65,6 +64,81 @@ namespace DevFormAz.Controllers
             return RedirectToAction("FormPage","Home");
         }
 
+      
+
+        public async Task<int>  AddLike(int id)
+        {
+            Form form =await  db.Forms.FirstOrDefaultAsync(c => c.Id == id);
+            int userId = (int)Session["UserId"];
+            var userIsLiked = db.FormLikes.Any(x=>x.FormId == form.Id && x.UserId == userId);
+            if (!userIsLiked)
+            {
+                FormLike like = new FormLike()
+                {
+                    FormId = form.Id,
+                    UserId = userId
+                };
+                db.FormLikes.Add(like);
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                var newCount = RemoveLike(form.Id);
+                return await newCount;
+            }
+            return form.FormLikes.Count();
+        }
+        public async Task<int> AddDissLike(int id)
+        {
+            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
+            int userId = (int)Session["UserId"];
+            var userIsLiked = db.FormDisslikes.Any(x => x.FormId == form.Id && x.UserId == userId);
+            if (!userIsLiked)
+            {
+                FormDisslike disslike = new FormDisslike()
+                {
+                    FormId = form.Id,
+                    UserId = userId
+                };
+                db.FormDisslikes.Add(disslike);
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                var newCount = RemoveDissLike(form.Id);
+                return await newCount;
+            }
+            return form.FormDisslikes.Count(); 
+        }
+
+        public async Task<int> RemoveLike(int id)
+        {
+            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
+            var userId = (int)Session["UserId"];
+            var removelike = await db.FormLikes.Where(x => x.UserId == userId && x.FormId == form.Id).SingleOrDefaultAsync();
+            if(removelike != null)
+            {
+                db.FormLikes.Remove(removelike);
+                await db.SaveChangesAsync();
+            }
+           
+            return form.FormLikes.Count();
+        }
+
+        public async Task<int> RemoveDissLike(int id)
+        {
+            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
+            var userId = (int)Session["UserId"];
+            var removedisslike = await db.FormDisslikes.Where(x => x.UserId == userId && x.FormId == form.Id).SingleOrDefaultAsync();
+            if(removedisslike != null)
+            {
+                db.FormDisslikes.Remove(removedisslike);
+                await db.SaveChangesAsync();
+            }
+            
+       
+            return form.FormDisslikes.Count();
+        }
 
         //Tag page
         public ActionResult TagPage()
@@ -79,8 +153,8 @@ namespace DevFormAz.Controllers
         {
             UserViewModel vm = new UserViewModel()
             {
-                //Forms = new List<Form>(),
-                GetUserDetail = db.UserDetails.Find((int)Session["UserId"])
+                GetUserDetail = db.UserDetails.Find((int)Session["UserId"]),
+                Forms = db.Forms.ToList()
             };
             Session["UserImage"] = vm.GetUserDetail.Image;
             return View(vm);
@@ -166,9 +240,6 @@ namespace DevFormAz.Controllers
                     return RedirectToAction("UserPanel", "Home");
                 }
             }
-
-
-
 
             user.Biography = userChanges.Biography;
                 user.Country = userChanges.Country;

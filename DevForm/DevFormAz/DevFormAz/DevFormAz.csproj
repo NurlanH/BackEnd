@@ -157,9 +157,27 @@
     <Compile Include="Migrations\202001071422130_update_taglist_name_to_tagname.Designer.cs">
       <DependentUpon>202001071422130_update_taglist_name_to_tagname.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001081016111_deleted_likeUnlike_from_added_like_from_formlike.cs" />
+    <Compile Include="Migrations\202001081016111_deleted_likeUnlike_from_added_like_from_formlike.Designer.cs">
+      <DependentUpon>202001081016111_deleted_likeUnlike_from_added_like_from_formlike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001081102227_delete_count_from_formlike.cs" />
+    <Compile Include="Migrations\202001081102227_delete_count_from_formlike.Designer.cs">
+      <DependentUpon>202001081102227_delete_count_from_formlike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001081420063_added_formdisslike.cs" />
+    <Compile Include="Migrations\202001081420063_added_formdisslike.Designer.cs">
+      <DependentUpon>202001081420063_added_formdisslike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001081432287_added_virtual_formdisslike_to_form.cs" />
+    <Compile Include="Migrations\202001081432287_added_virtual_formdisslike_to_form.Designer.cs">
+      <DependentUpon>202001081432287_added_virtual_formdisslike_to_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Form.cs" />
+    <Compile Include="Models\FormDisslike.cs" />
+    <Compile Include="Models\FormLike.cs" />
     <Compile Include="Models\FormTagViewModel.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Skill.cs" />
@@ -1854,6 +1872,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001071422130_update_taglist_name_to_tagname.resx">
       <DependentUpon>202001071422130_update_taglist_name_to_tagname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001081016111_deleted_likeUnlike_from_added_like_from_formlike.resx">
+      <DependentUpon>202001081016111_deleted_likeUnlike_from_added_like_from_formlike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001081102227_delete_count_from_formlike.resx">
+      <DependentUpon>202001081102227_delete_count_from_formlike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001081420063_added_formdisslike.resx">
+      <DependentUpon>202001081420063_added_formdisslike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001081432287_added_virtual_formdisslike_to_form.resx">
+      <DependentUpon>202001081432287_added_virtual_formdisslike_to_form.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

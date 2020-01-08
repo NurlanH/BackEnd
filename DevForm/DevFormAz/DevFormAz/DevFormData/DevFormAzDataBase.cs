@@ -20,6 +20,8 @@ namespace DevFormAz.DevFormData
         public DbSet<TagList> TagLists { get; set; }
         public DbSet<Form> Forms { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        public DbSet<FormLike> FormLikes { get; set; }
+        public DbSet<FormDisslike> FormDisslikes { get; set; }
 
     }
 }

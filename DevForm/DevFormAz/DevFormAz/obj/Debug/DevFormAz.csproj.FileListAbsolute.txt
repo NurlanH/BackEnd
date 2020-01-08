@@ -259,3 +259,7 @@ C:\Users\nurlanah\Desktop\backend\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormA
 C:\Users\nurlanah\Desktop\backend\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.deleted_updatedate_form.resources
 C:\Users\nurlanah\Desktop\backend\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_like_disslike_form.resources
 C:\Users\nurlanah\Desktop\backend\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.update_taglist_name_to_tagname.resources
+C:\Users\nurlanah\Desktop\backend\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.deleted_likeUnlike_from_added_like_from_formlike.resources
+C:\Users\nurlanah\Desktop\backend\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.delete_count_from_formlike.resources
+C:\Users\nurlanah\Desktop\backend\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_formdisslike.resources
+C:\Users\nurlanah\Desktop\backend\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_virtual_formdisslike_to_form.resources

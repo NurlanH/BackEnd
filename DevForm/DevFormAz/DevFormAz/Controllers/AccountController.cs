@@ -79,7 +79,6 @@ namespace DevFormAz.Controllers
 
                 if (!haveUser && user.Password == rePassword)
                 {
-
                     db.Users.Add(user);
                     UserDetail UDetail = new UserDetail();
                     UDetail.UserId = user.Id;

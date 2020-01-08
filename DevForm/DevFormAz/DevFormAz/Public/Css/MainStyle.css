@@ -1420,11 +1420,14 @@ footer p::selection {
   min-height: 680px;
   width: 100%;
 }
+    #mainFormContent .mainForm .formlist .postBox .postUserContent p{
+        margin:0;
+    }
 
-#mainFormContent .mainForm .forms .tags-input {
-  padding: 0.175rem .75rem;
-  height: auto;
-}
+    #mainFormContent .mainForm .forms .tags-input {
+        padding: 0.175rem .75rem;
+        height: auto;
+    }
 
 #mainFormContent .mainForm .forms .tags-input .tag {
   padding: 0.25em 0.75em;

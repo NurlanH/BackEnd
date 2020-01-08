@@ -106,7 +106,7 @@
                                             <i class="fas fa-globe"></i>
                                         </a>
                                     </li>
-                                 
+
                                     @if ((int?)Session["UserId"] != null)
                                     {
                                         <li id="forProfile" class="dvBtn">
@@ -147,12 +147,14 @@
 
 
     <!-- Scripts Section -->
+
     <script src="~/Public/Jquery/jquery-3.4.1.min.js"></script>
     <script src="~/Public/Particle/jquery.particleground.min.js"></script>
     <script src="~/Public/OwlCarousel/owl.carousel.min.js"></script>
     <script src="~/Public/Bootstrap/js/bootstrap.min.js"></script>
     <script src="~/Public/Script/MainScript.js"></script>
-    @RenderSection("scripts",false);
+
+    @RenderSection("scripts", false);
     <!-- End Scripts Section -->
 </body>
 
