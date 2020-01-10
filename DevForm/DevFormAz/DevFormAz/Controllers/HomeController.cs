@@ -65,6 +65,12 @@ namespace DevFormAz.Controllers
         }
 
       
+        //View Post
+        public ActionResult FormView(int id)
+        {
+
+            return View(db.Forms.Find(id));
+        }
 
         public async Task<int>  AddLike(int id)
         {
@@ -80,36 +86,15 @@ namespace DevFormAz.Controllers
                 };
                 db.FormLikes.Add(like);
                 await db.SaveChangesAsync();
+                return form.FormLikes.Count();
             }
             else
             {
                 var newCount = RemoveLike(form.Id);
                 return await newCount;
             }
-            return form.FormLikes.Count();
         }
-        public async Task<int> AddDissLike(int id)
-        {
-            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
-            int userId = (int)Session["UserId"];
-            var userIsLiked = db.FormDisslikes.Any(x => x.FormId == form.Id && x.UserId == userId);
-            if (!userIsLiked)
-            {
-                FormDisslike disslike = new FormDisslike()
-                {
-                    FormId = form.Id,
-                    UserId = userId
-                };
-                db.FormDisslikes.Add(disslike);
-                await db.SaveChangesAsync();
-            }
-            else
-            {
-                var newCount = RemoveDissLike(form.Id);
-                return await newCount;
-            }
-            return form.FormDisslikes.Count(); 
-        }
+       
 
         public async Task<int> RemoveLike(int id)
         {
@@ -125,20 +110,7 @@ namespace DevFormAz.Controllers
             return form.FormLikes.Count();
         }
 
-        public async Task<int> RemoveDissLike(int id)
-        {
-            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
-            var userId = (int)Session["UserId"];
-            var removedisslike = await db.FormDisslikes.Where(x => x.UserId == userId && x.FormId == form.Id).SingleOrDefaultAsync();
-            if(removedisslike != null)
-            {
-                db.FormDisslikes.Remove(removedisslike);
-                await db.SaveChangesAsync();
-            }
-            
-       
-            return form.FormDisslikes.Count();
-        }
+     
 
         //Tag page
         public ActionResult TagPage()

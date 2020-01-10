@@ -1649,8 +1649,25 @@ footer p::selection {
   color: #536DFE;
 }
 
+
+.readForm {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    background-color: #00000014;
+    padding:20px 0;
+}
+
+    .readForm .FormHeaderDesc h2 {
+       text-align:center;
+    }
+    .readForm .FormHeaderDesc p {
+        text-align: center;
+    }
+
+
 @media only screen and (min-width: 0px) and (max-width: 399px) {
-  #mainFormContent {
+    #mainFormContent {
     width: 100%;
   }
   #mainFormContent .devNavs {

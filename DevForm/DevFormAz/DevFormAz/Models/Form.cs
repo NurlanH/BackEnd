@@ -17,7 +17,7 @@ namespace DevFormAz.Models
         public virtual ICollection<TagList> TagLists { get; set; }
 
         public virtual ICollection<FormLike> FormLikes { get; set; }
-        public virtual ICollection<FormDisslike> FormDisslikes { get; set; }
+        public virtual ICollection<FormViewCount> FormViewCounts { get; set; }
 
     }
 }

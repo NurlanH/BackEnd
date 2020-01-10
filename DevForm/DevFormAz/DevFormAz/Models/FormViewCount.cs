@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DevFormAz.Models
 {
-    public class FormDisslike
+    public class FormViewCount
     {
         public int Id { get; set; }
         public int FormId { get; set; }

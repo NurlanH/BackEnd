@@ -108,27 +108,37 @@
                                                     }
                                                 </div>
                                                 <div class="postreadmore">
-                                                    <a href="#">Davamı</a>
+                                                    <a href="/Home/FormView/@item.Id" >Davamı</a>
                                                 </div>
                                             </div>
 
                                         </div>
                                         <div class="postGrades">
                                             <div class="boxOfGrades">
-                                                <div class="gradePlus">
-                                                    <h3>@item.FormLikes.Count()</h3>
+                                                <div class="viewIcon">
+                                                    <i class="far fa-eye"></i>
                                                 </div>
-                                                <div class="LikeDisslike">
-                                                    <div class="likebtn">
-                                                        <span class="Like" data-id="@item.Id"><i class="fas fa-caret-up"></i></span>
+                                                <div class="viewLikeCount">
+                                                    <div class="viewCount">
+                                                        <span class="view">0</span>
 
                                                     </div>
-                                                    <div class="disslikebtn">
-                                                        <span class="Disslike" data-id="@item.Id"><i class="fas fa-caret-down"></i></span>
+                                                    <div class="likeCount">
+                                                        @item.FormLikes.Count()
                                                     </div>
                                                 </div>
-                                                <div class="gradeMinus">
-                                                    <h3>@item.FormDisslikes.Count()</h3>
+                                                <div class="LikeBtn">
+                                                    <span class="Like" data-id="@item.Id">
+                                                        @if (item.FormLikes.Count() != 0)
+                                                        {
+                                                            <i class="fas fa-heart likeHeart" style="color:red;"></i>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="far fa-heart"></i>
+                                                        }
+                                                    </span> 
                                                 </div>
                                             </div>
 
@@ -180,59 +190,35 @@
 @section scripts{
     <script>
         $(document).ready(function () {
+               var isLiked = false;
               
             $(document).on("click", ".Like", function () {
-                var id = $(this).attr("data-id");
-                var currentcount = $(this).parent().parent().prev();
-                var isLiked = false;
-                var likeCount = currentcount.children()[0];
 
-                if (!isLiked) {
+                var id = $(this).attr("data-id");
+                var currentcount = $(this).parent().siblings(".viewLikeCount").children(".likeCount")[0];
+                var likeicon = $(this).children()[0]
+                var findClass = likeicon.classList
+                    isLiked = true;
                     $.ajax({
                         url: '/Home/AddLike?id=' + id,
                         type: 'Get',
                         success: function (res) {
-                            likeCount.innerHTML = res;
+                            currentcount.innerHTML = res;
+                            if (!findClass.contains('fas')) {
+                                findClass.remove('far');
+                                findClass.add("fas");
+                                likeicon.style.color = "Red";
+                            } else {
+                                findClass.remove('fas');
+                                findClass.add("far");
+                                likeicon.style.color = "black";
+
+                            }
+                            
                         }
                     });
-                }
-                else {
-                    $.ajax({
-                        url: '/Home/RemoveLike?id=' + id,
-                        type: 'Get',
-                        success: function (res) {
-                            likeCount.innerHTML = res;
-                        }
-                    });
-                }
-            });
-            $(document).on("click", ".Disslike", function () {
-                var id = $(this).attr("data-id");
-                var currentcount = $(this).parent().parent().next();
                 
-                var isDissLiked = false;
-                var disslikecount = currentcount.children()[0];
-
-                if (!isDissLiked) {
-                    $.ajax({
-                        url: '/Home/AddDisslike?id=' + id,
-                        type: 'Get',
-                        success: function (resDisslike) {
-                            disslikecount.innerHTML = resDisslike;
-                        }
-                    });
-                }
-                else {
-                    $.ajax({
-                        url: '/Home/RemoveDisslike?id=' + id,
-                        type: 'Get',
-                        success: function (resDisslike) {
-                            disslikecount.innerHTML = resDisslike;
-                        }
-                    });
-                }
             });
-
 
         })
 

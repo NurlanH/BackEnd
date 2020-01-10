@@ -173,12 +173,20 @@
     <Compile Include="Migrations\202001081432287_added_virtual_formdisslike_to_form.Designer.cs">
       <DependentUpon>202001081432287_added_virtual_formdisslike_to_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001101217261_deleted_formdisslike.cs" />
+    <Compile Include="Migrations\202001101217261_deleted_formdisslike.Designer.cs">
+      <DependentUpon>202001101217261_deleted_formdisslike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001101306378_added_formviewcount.cs" />
+    <Compile Include="Migrations\202001101306378_added_formviewcount.Designer.cs">
+      <DependentUpon>202001101306378_added_formviewcount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Form.cs" />
-    <Compile Include="Models\FormDisslike.cs" />
     <Compile Include="Models\FormLike.cs" />
     <Compile Include="Models\FormTagViewModel.cs" />
+    <Compile Include="Models\FormViewCount.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\TagList.cs" />
@@ -1853,6 +1861,7 @@
     <Content Include="Views\Account\Forgot.cshtml" />
     <Content Include="Views\Home\UserPanel.cshtml" />
     <Content Include="Views\Home\ProfilePage.cshtml" />
+    <Content Include="Views\Home\FormView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001071052427_new.resx">
@@ -1884,6 +1893,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001081432287_added_virtual_formdisslike_to_form.resx">
       <DependentUpon>202001081432287_added_virtual_formdisslike_to_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001101217261_deleted_formdisslike.resx">
+      <DependentUpon>202001101217261_deleted_formdisslike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001101306378_added_formviewcount.resx">
+      <DependentUpon>202001101306378_added_formviewcount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
