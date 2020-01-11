@@ -175,3 +175,36 @@ targetTabs.forEach(tabs=>{
         target.classList.add('active');
     })
 });
+
+
+//Like
+$(document).ready(function () {
+
+    $(document).on("click", ".Like", function () {
+
+        var id = $(this).attr("data-id");
+        var currentcount = $(this).parent().siblings(".viewLikeCount").children(".likeCount")[0];
+        var likeicon = $(this).children()[0]
+        var findClass = likeicon.classList
+        console.log(currentcount.innerHTML)
+        $.ajax({
+            url: '/Home/AddLike?id=' + id,
+            type: 'Get',
+            success: function (res) {
+                currentcount.innerHTML = res;
+                if (!findClass.contains('fas')) {
+                    findClass.remove('far');
+                    findClass.add("fas");
+                    likeicon.style.color = "#303F9F";
+                } else {
+                    findClass.remove('fas');
+                    findClass.add("far");
+                    likeicon.style.color = "black";
+                }
+
+            }
+        });
+
+    });
+
+})

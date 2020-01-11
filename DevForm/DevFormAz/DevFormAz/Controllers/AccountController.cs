@@ -37,7 +37,7 @@ namespace DevFormAz.Controllers
                         {
                             Session.Clear();
                             Session["UserId"] = reqUser.Id;
-                            return RedirectToAction("FormPage", "Home");
+                            return RedirectToAction("ProfilePage", "Home");
 
 
                         }

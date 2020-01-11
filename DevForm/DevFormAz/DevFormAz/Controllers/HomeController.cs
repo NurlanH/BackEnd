@@ -16,7 +16,7 @@ namespace DevFormAz.Controllers
     public class HomeController : Controller
     {
         DevFormAzDataBase db = new DevFormAzDataBase();
-        
+
         //Home page
         public ActionResult Index()
         {
@@ -27,6 +27,7 @@ namespace DevFormAz.Controllers
         //Form page
         public ActionResult FormPage()
         {
+            
             FormTagViewModel formVm = new FormTagViewModel()
             {
                 Forms = db.Forms.ToList(),
@@ -36,9 +37,10 @@ namespace DevFormAz.Controllers
         }
 
         [HttpPost]
-        public ActionResult FormPage(Form form ,string tagname)
+        public ActionResult FormPage(Form form, string tagname)
         {
-            if(form != null)
+            
+            if (form != null)
             {
                 var tagArr = tagname.Split(',');
                 Form newForm = new Form();
@@ -61,22 +63,23 @@ namespace DevFormAz.Controllers
                 }
                 db.SaveChanges();
             }
-            return RedirectToAction("FormPage","Home");
+            return RedirectToAction("FormPage", "Home");
         }
 
-      
+
         //View Post
         public ActionResult FormView(int? id)
         {
-            if(id != null)
+            if (id != null)
             {
-               var viewForm = db.Forms.Find(id);
-                if((int?)Session["UserId"] != null)
+                var viewForm = db.Forms.Find(id);
+                
+                if ((int?)Session["UserId"] != null)
                 {
                     var userId = (int)Session["UserId"];
-               
-               
-                   var checkUserView = db.FormViewCounts.Any(u => u.UserId ==userId  && u.FormId == id);
+
+
+                    var checkUserView = db.FormViewCounts.Any(u => u.UserId == userId && u.FormId == id);
                     if (!checkUserView)
                     {
                         FormViewCount Vcount = new FormViewCount()
@@ -95,48 +98,50 @@ namespace DevFormAz.Controllers
             {
                 return RedirectToAction("FormPage", "Home");
             }
+
+        }
+
+        public async Task<int> AddLike(int id)
+        {
+            
+                Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
+                int userId = (int)Session["UserId"];
+                var userIsLiked = db.FormLikes.Any(x => x.FormId == form.Id && x.UserId == userId);
+                if (!userIsLiked)
+                {
+                    FormLike like = new FormLike()
+                    {
+                        FormId = form.Id,
+                        UserId = userId
+                    };
+                    db.FormLikes.Add(like);
+                    await db.SaveChangesAsync();
+                    return form.FormLikes.Count();
+                }
+                else
+                {
+                    var newCount = RemoveLike(form.Id);
+                    return await newCount;
+                }
             
         }
 
-        public async Task<int>  AddLike(int id)
-        {
-            Form form =await  db.Forms.FirstOrDefaultAsync(c => c.Id == id);
-            int userId = (int)Session["UserId"];
-            var userIsLiked = db.FormLikes.Any(x=>x.FormId == form.Id && x.UserId == userId);
-            if (!userIsLiked)
-            {
-                FormLike like = new FormLike()
-                {
-                    FormId = form.Id,
-                    UserId = userId
-                };
-                db.FormLikes.Add(like);
-                await db.SaveChangesAsync();
-                return form.FormLikes.Count();
-            }
-            else
-            {
-                var newCount = RemoveLike(form.Id);
-                return await newCount;
-            }
-        }
-       
 
         public async Task<int> RemoveLike(int id)
         {
             Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
             var userId = (int)Session["UserId"];
             var removelike = await db.FormLikes.Where(x => x.UserId == userId && x.FormId == form.Id).SingleOrDefaultAsync();
-            if(removelike != null)
+            if (removelike != null)
             {
                 db.FormLikes.Remove(removelike);
                 await db.SaveChangesAsync();
             }
-           
+
             return form.FormLikes.Count();
         }
 
-     
+
 
         //Tag page
         public ActionResult TagPage()
@@ -159,7 +164,7 @@ namespace DevFormAz.Controllers
         }
 
         //Users page
-        
+
         public ActionResult UsersInspectPage()
         {
             return View();
@@ -175,58 +180,58 @@ namespace DevFormAz.Controllers
         }
 
         [HttpPost]
-        public ActionResult UserPanel([Bind(Exclude="Image")]UserDetail userChanges,string firstname,string lastname,string email,HttpPostedFileBase image,string skills,string checker)
+        public ActionResult UserPanel([Bind(Exclude = "Image")]UserDetail userChanges, string firstname, string lastname, string email, HttpPostedFileBase image, string skills, string checker)
         {
-            
-                var user = db.UserDetails.Find((int)Session["UserId"]);
-                if (image != null && İmageControl.CheckImageType(image))
+
+            var user = db.UserDetails.Find((int)Session["UserId"]);
+            if (image != null && İmageControl.CheckImageType(image))
+            {
+                if (İmageControl.CheckImageSize(image, 8))
                 {
-                    if (İmageControl.CheckImageSize(image, 8))
+                    if (user.Image != null)
                     {
-                        if(user.Image != null)
-                        {
-                            İmageControl.DeleteImage(Server.MapPath("~/Public/Images/UsersFolder/ProfilePic"), user.Image);
-                        }
-                        
-                        var imgName = İmageControl.SaveImage(Server.MapPath("~/Public/Images/UsersFolder/ProfilePic"), image);
-                        user.Image = imgName;
-                        Session["UserImage"] = user.Image;
-                     }
-                }
-
-
-                var skillarr = skills.Split(' ');
-
-                var userCustomSkills = checker.Split(' ').ToList(); // Bununla evvelki bacariqlarin saxlayiriq
-                var checkUserSkill = user.Skills.Select(u => u.Name).ToArray(); // bununla dbda userin daxil edilen bacariginin olub olmamasin yoxlayiriq
-
-                for (var i = 0; i < skillarr.Length; i++)
-                {
-                    if (!checkUserSkill.Contains(skillarr[i]) && skillarr[i] != " " && skillarr[i] != "")
-                    {
-                        db.Skills.Add(new Skill() { Name = skillarr[i].ToUpper(), UserDetailId = user.Id });
-                    }
-                    else
-                    {
-                        if (!userCustomSkills.Contains(null))
-                            userCustomSkills.Remove(skillarr[i]);
-                    }
-                }
-
-                foreach (var item in userCustomSkills)
-                {
-                    var deletedSkill = user.Skills.Where(n => n.Name == item).FirstOrDefault();
-                    if (deletedSkill != null)
-                    {
-                        db.Skills.Remove(deletedSkill);
+                        İmageControl.DeleteImage(Server.MapPath("~/Public/Images/UsersFolder/ProfilePic"), user.Image);
                     }
 
+                    var imgName = İmageControl.SaveImage(Server.MapPath("~/Public/Images/UsersFolder/ProfilePic"), image);
+                    user.Image = imgName;
+                    Session["UserImage"] = user.Image;
+                }
+            }
+
+
+            var skillarr = skills.Split(' ');
+
+            var userCustomSkills = checker.Split(' ').ToList(); // Bununla evvelki bacariqlarin saxlayiriq
+            var checkUserSkill = user.Skills.Select(u => u.Name).ToArray(); // bununla dbda userin daxil edilen bacariginin olub olmamasin yoxlayiriq
+
+            for (var i = 0; i < skillarr.Length; i++)
+            {
+                if (!checkUserSkill.Contains(skillarr[i]) && skillarr[i] != " " && skillarr[i] != "")
+                {
+                    db.Skills.Add(new Skill() { Name = skillarr[i].ToUpper(), UserDetailId = user.Id });
+                }
+                else
+                {
+                    if (!userCustomSkills.Contains(null))
+                        userCustomSkills.Remove(skillarr[i]);
+                }
+            }
+
+            foreach (var item in userCustomSkills)
+            {
+                var deletedSkill = user.Skills.Where(n => n.Name == item).FirstOrDefault();
+                if (deletedSkill != null)
+                {
+                    db.Skills.Remove(deletedSkill);
                 }
 
-                user.User.FirstName = firstname;
-                user.User.Lastname = lastname;
+            }
 
-            if(user.User.Email != email)
+            user.User.FirstName = firstname;
+            user.User.Lastname = lastname;
+
+            if (user.User.Email != email)
             {
                 if (!db.Users.Any(u => u.Email == email))
                 {
@@ -240,14 +245,14 @@ namespace DevFormAz.Controllers
             }
 
             user.Biography = userChanges.Biography;
-                user.Country = userChanges.Country;
-                user.GithubLink = userChanges.GithubLink;
-                user.Specialty = userChanges.Specialty;
-                user.LinkedinLink = userChanges.LinkedinLink;
+            user.Country = userChanges.Country;
+            user.GithubLink = userChanges.GithubLink;
+            user.Specialty = userChanges.Specialty;
+            user.LinkedinLink = userChanges.LinkedinLink;
 
-                db.SaveChanges();
-           
-            
+            db.SaveChanges();
+
+
             return RedirectToAction("UserPanel", "Home");
         }
 

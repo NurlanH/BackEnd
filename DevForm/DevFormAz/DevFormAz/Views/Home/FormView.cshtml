@@ -1,6 +1,14 @@
 ﻿@model DevFormAz.Models.Form
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
+        int userId = 0;
+        if ((int?)Session["UserId"] != null)
+        {
+            userId = (int)Session["UserId"];
+        }
+
+    
 }
 <!-- Main Content -->
 <section class="pageWrapperForIndex mt-3 mb-3">
@@ -74,20 +82,39 @@
                                     </div>
                                     <div class="likeIconCount">
                                         <div class="likeIcon mr-1">
-                                            @if (Model.FormLikes.Count() != 0)
+                                            @if (userId != 0)
                                             {
-                                                <i class="fas fa-heart likeHeart" style="color:red;"></i>
+                                                <span class="Like" data-id="@Model.Id">
+
+                                                    @if (Model.FormLikes.Any(u => u.UserId == userId && u.FormId == Model.Id))
+                                                    {
+                                                        <i class="fas fa-thumbs-up likeHeart" style="color:#303F9F;"></i>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="far fa-thumbs-up"></i>
+                                                    }
+
+                                                </span>
                                             }
                                             else
                                             {
-                                                <i class="far fa-heart"></i>
+                                                <span>
+                                                    <i class="far fa-thumbs-up" title="Bəyənmək üçün sistemə daxil olmalısınız"></i>
+                                                </span>
                                             }
                                         </div>
-                                        <div class="likeCount">@Model.FormLikes.Count()</div>
+                                        <div class="viewLikeCount">
+                                            <div class="likeCount">
+                                                @Model.FormLikes.Count()
+                                            </div>
+                                          
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                           
+
                         </div>
                         <hr />
                         <div class="FormHeaderDesc mb-2">
@@ -114,16 +141,16 @@
 
                         </div>
 
-                       <hr/>
+                        <hr />
                         <div class="commentBox">
-                           
+
                             <form id="shareComment">
                                 <div class="cmtBoxInput">
                                     <input type="text" class="form-control" />
                                     <input id="sendCmt" type="button" class="btn btn-success ml-2" value="Gonder" />
                                 </div>
                             </form>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -161,10 +188,10 @@
             if (clickedImg == false) {
                 clickedImg = true;
                 $(this)[0].style.transform = "scale(5)";
-                 $(this)[0].style.zIndex = "5";
+                $(this)[0].style.zIndex = "5";
                 console.log(clickedImg)
 
-            } else{
+            } else {
                 clickedImg = false;
                 $(this)[0].style.transform = "scale(1)";
                 $(this)[0].style.zIndex = "0";
@@ -172,5 +199,6 @@
 
             }
         })
-    </script>    
+        
+    </script>
 }

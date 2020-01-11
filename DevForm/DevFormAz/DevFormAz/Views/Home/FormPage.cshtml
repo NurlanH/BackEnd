@@ -1,4 +1,12 @@
 ﻿@model DevFormAz.Models.FormTagViewModel
+    @{ 
+        int userId = 0;
+        if((int?)Session["UserId"] != null)
+        {
+            userId = (int)Session["UserId"];
+        }
+
+    }
 <!-- Main Content -->
 <section class="pageWrapperForIndex mt-3 mb-3">
     <div class="container">
@@ -128,18 +136,29 @@
                                                     </div>
                                                 </div>
                                                 <div class="LikeBtn">
-                                                    <span class="Like" data-id="@item.Id">
-                                                        @if (item.FormLikes.Count() != 0)
-                                                        {
-                                                            <i class="fas fa-heart likeHeart" style="color:red;"></i>
+                                                    @if (userId != 0)
+                                                    {
+                                                        <span class="Like" data-id="@item.Id">
 
-                                                        }
-                                                        else
-                                                        {
-                                                            <i class="far fa-heart"></i>
-                                                        }
-                                                    </span> 
-                                                </div>
+                                                            @if (item.FormLikes.Any(u => u.UserId == userId && u.FormId == item.Id))
+                                                            {
+                                                            <i class="fas fa-thumbs-up likeHeart" style="color:#303F9F;"></i>
+
+                                                            }
+                                                            else
+                                                            {
+                                                            <i class="far fa-thumbs-up"></i>
+                                                            }
+
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>
+                                                           <i class="far fa-thumbs-up" title="Bəyənmək üçün sistemə daxil olmalısınız"></i>
+                                                         </span>
+                                                     }
+                                                    </div>
                                             </div>
 
                                         </div>
@@ -186,42 +205,3 @@
 </section>
 <!-- Main Content -->
 
-
-@section scripts{
-    <script>
-        $(document).ready(function () {
-               var isLiked = false;
-              
-            $(document).on("click", ".Like", function () {
-
-                var id = $(this).attr("data-id");
-                var currentcount = $(this).parent().siblings(".viewLikeCount").children(".likeCount")[0];
-                var likeicon = $(this).children()[0]
-                var findClass = likeicon.classList
-                    isLiked = true;
-                    $.ajax({
-                        url: '/Home/AddLike?id=' + id,
-                        type: 'Get',
-                        success: function (res) {
-                            currentcount.innerHTML = res;
-                            if (!findClass.contains('fas')) {
-                                findClass.remove('far');
-                                findClass.add("fas");
-                                likeicon.style.color = "Red";
-                            } else {
-                                findClass.remove('fas');
-                                findClass.add("far");
-                                likeicon.style.color = "black";
-
-                            }
-                            
-                        }
-                    });
-                
-            });
-
-        })
-
-
-    </script>
-}
