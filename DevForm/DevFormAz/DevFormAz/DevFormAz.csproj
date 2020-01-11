@@ -1777,6 +1777,7 @@
     <Content Include="Public\Images\Brand\BrandBlack.png" />
     <Content Include="Public\Images\Brand\BrandWhite.png" />
     <Content Include="Public\Images\OtherImages\helping.jpg" />
+    <Content Include="Public\Images\PostImgs\Capture.PNG" />
     <Content Include="Public\Images\Preloader\loading.svg" />
     <Content Include="Public\Images\UsersFolder\ProfilePic\a.jpg" />
     <Content Include="Public\Images\UsersFolder\ProfilePic\devAvatar.svg" />

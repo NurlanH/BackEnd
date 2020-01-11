@@ -66,10 +66,36 @@ namespace DevFormAz.Controllers
 
       
         //View Post
-        public ActionResult FormView(int id)
+        public ActionResult FormView(int? id)
         {
+            if(id != null)
+            {
+               var viewForm = db.Forms.Find(id);
+                if((int?)Session["UserId"] != null)
+                {
+                    var userId = (int)Session["UserId"];
+               
+               
+                   var checkUserView = db.FormViewCounts.Any(u => u.UserId ==userId  && u.FormId == id);
+                    if (!checkUserView)
+                    {
+                        FormViewCount Vcount = new FormViewCount()
+                        {
+                            FormId = (int)id,
+                            UserId = (int)Session["UserId"]
 
-            return View(db.Forms.Find(id));
+                        };
+                        db.FormViewCounts.Add(Vcount);
+                        db.SaveChanges();
+                    }
+                }
+                return View(viewForm);
+            }
+            else
+            {
+                return RedirectToAction("FormPage", "Home");
+            }
+            
         }
 
         public async Task<int>  AddLike(int id)
