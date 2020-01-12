@@ -19,5 +19,7 @@ namespace DevFormAz.Models
         public virtual ICollection<FormLike> FormLikes { get; set; }
         public virtual ICollection<FormViewCount> FormViewCounts { get; set; }
 
+        public virtual ICollection<FormImage> FormImages { get; set; }
+
     }
 }

@@ -2,6 +2,11 @@
 @{
     ViewBag.Title = "ProfilePage";
     Layout = "~/Views/Shared/_Layout.cshtml";
+     int userId = 0;
+        if((int?)Session["UserId"] != null)
+        {
+            userId = (int)Session["UserId"];
+        }
 }
 <!-- Main Content -->
 <section class="pageWrapperForIndex mt-3 mb-3">
@@ -182,7 +187,7 @@
                             <h2>Postlarım</h2>
                         </div>
                         <div class="mypostContent">
-                            @foreach (var item in Model.Forms.Where(uid=>uid.UserDetailId == Model.GetUserDetail.Id))
+                            @foreach (var item in Model.Forms.Where(uid => uid.UserDetailId == Model.GetUserDetail.Id))
                             {
                                 <div class="postBox">
                                     <div class="postUserInfo">
@@ -191,16 +196,16 @@
                                                 @if (item.UserDetail.Image != null)
                                                 {
                                                     <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/@item.UserDetail.Image" alt="">
-
                                                 }
                                                 else
                                                 {
                                                     <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
                                                 }
+
                                             </div>
                                             <div class="postUserName">
                                                 <p>@item.UserDetail.User.FirstName @item.UserDetail.User.Lastname</p>
-                                                <span>@item.CreatedDate</span>
+                                                <span>@item.CreatedDate.ToString("dd-MM-yyyy")</span>
                                             </div>
                                         </div>
                                     </div>
@@ -212,37 +217,55 @@
                                             <div class="postContent">
                                                 <p>@item.Description</p>
                                             </div>
-
-                                            <div class="mb-1">
-                                                @foreach(var postTag in item.TagLists.Where(tid=>tid.FormId == item.Id))
+                                            <div class="mb-2">
+                                                @foreach (var tag in Model.Tags.Where(i => i.FormId == item.Id))
                                                 {
-                                                    <span class="mr-1">@postTag.TagName</span>
+                                                    <span class="mr-1">@tag.TagName</span>
                                                 }
-                                                    
                                             </div>
-    
-                                                <div class="postreadmore">
-                                                <a href="#">Davamı</a>
+                                            <div class="postreadmore">
+                                                <a href="/Home/FormView/@item.Id">Davamı</a>
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="postGrades">
                                         <div class="boxOfGrades">
-                                            <div class="gradePlus">
-                                                <h3>0</h3>
+                                            <div class="viewIcon">
+                                                <i class="far fa-eye"></i>
                                             </div>
-                                            <div class="LikeDisslike">
-                                                <div class="likebtn">
-                                                    <a href=""><i class="fas fa-caret-up"></i></a>
+                                            <div class="viewLikeCount">
+                                                <div class="viewCount">
+                                                    <span class="view">@item.FormViewCounts.Count()</span>
 
                                                 </div>
-                                                <div class="disslikebtn">
-                                                    <a href=""><i class="fas fa-caret-down"></i></a>
+                                                <div class="likeCount">
+                                                    @item.FormLikes.Count()
                                                 </div>
                                             </div>
-                                            <div class="gradeMinus">
-                                                <h3>0</h3>
+                                            <div class="LikeBtn">
+                                                @if (userId != 0)
+                                                {
+                                                    <span class="Like" data-id="@item.Id">
+
+                                                        @if (item.FormLikes.Any(u => u.UserId == userId && u.FormId == item.Id))
+                                                        {
+                                                            <i class="fas fa-thumbs-up likeHeart" style="color:#303F9F;"></i>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="far fa-thumbs-up"></i>
+                                                        }
+
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span>
+                                                        <i class="far fa-thumbs-up" title="Bəyənmək üçün sistemə daxil olmalısınız"></i>
+                                                    </span>
+                                                }
                                             </div>
                                         </div>
 

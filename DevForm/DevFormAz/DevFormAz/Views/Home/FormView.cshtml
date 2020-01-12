@@ -1,4 +1,4 @@
-﻿@model DevFormAz.Models.Form
+﻿@model DevFormAz.Models.FormViewPageVM
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     
@@ -42,9 +42,9 @@
                         <div class="sharedUser mb-3">
                             <div class="userInfoDiv">
                                 <div class="userImg mr-3">
-                                    @if (Model.UserDetail.Image != null)
+                                    @if (Model.Form.UserDetail.Image != null)
                                     {
-                                        <img width="50" src="~/Public/Images/UsersFolder/ProfilePic/@Model.UserDetail.Image" />
+                                        <img width="50" src="~/Public/Images/UsersFolder/ProfilePic/@Model.Form.UserDetail.Image" />
                                     }
                                     else
                                     {
@@ -54,10 +54,10 @@
                                 </div>
                                 <div class="userInfo">
                                     <div class="userName">
-                                        <h5>@Model.UserDetail.User.FirstName @Model.UserDetail.User.Lastname</h5>
+                                        <h5>@Model.Form.UserDetail.User.FirstName @Model.Form.UserDetail.User.Lastname</h5>
                                     </div>
                                     <div class="sharedTime">
-                                        <span>@Model.CreatedDate.ToString("dd-MM-yyyy")</span>
+                                        <span>@Model.Form.CreatedDate.ToString("dd-MM-yyyy")</span>
                                     </div>
                                     <div class="userPopulation">
                                         <div class="sharedPostCount">
@@ -78,15 +78,15 @@
                                         <div class="viewIcon mr-1">
                                             <i class="far fa-eye"></i>
                                         </div>
-                                        <div class="viewCount">@Model.FormViewCounts.Count()</div>
+                                        <div class="viewCount">@Model.Form.FormViewCounts.Count()</div>
                                     </div>
                                     <div class="likeIconCount">
                                         <div class="likeIcon mr-1">
                                             @if (userId != 0)
                                             {
-                                                <span class="Like" data-id="@Model.Id">
+                                                <span class="Like" data-id="@Model.Form.Id">
 
-                                                    @if (Model.FormLikes.Any(u => u.UserId == userId && u.FormId == Model.Id))
+                                                    @if (Model.Form.FormLikes.Any(u => u.UserId == userId && u.FormId == Model.Form.Id))
                                                     {
                                                         <i class="fas fa-thumbs-up likeHeart" style="color:#303F9F;"></i>
 
@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="viewLikeCount">
                                             <div class="likeCount">
-                                                @Model.FormLikes.Count()
+                                                @Model.Form.FormLikes.Count()
                                             </div>
                                           
                                         </div>
@@ -119,24 +119,27 @@
                         <hr />
                         <div class="FormHeaderDesc mb-2">
                             <div class="formHead">
-                                <h2>@Model.Name</h2>
+                                <h2>@Model.Form.Name</h2>
                             </div>
                             <div class="tagsBox mb-2 mt-2">
-                                @foreach (var item in Model.TagLists.Where(u => u.FormId == Model.Id))
+                                @foreach (var item in Model.TagLists.Where(u => u.FormId == Model.Form.Id))
                                 {
                                     <span class="tags">@item.TagName</span>
                                 }
                             </div>
                             <div class="formDesc">
                                 <p>
-                                    @Model.Description
+                                    @Model.Form.Description
                                 </p>
                             </div>
                             <div id="errorImg" class="imgBox">
-                                <img class="errimgClick" width="200" src="~/Public/Images/PostImgs/Capture.png" />
-                                <img class="errimgClick" width="200" src="~/Public/Images/PostImgs/Capture.png" />
-                                <img class="errimgClick" width="200" src="~/Public/Images/PostImgs/Capture.png" />
-                                <img class="errimgClick" width="200" src="~/Public/Images/PostImgs/Capture.png" />
+                                @if (Model.FormImages != null)
+                                {
+                                    @foreach (var img in Model.FormImages)
+                                    {
+                                        <img class="errimgClick" width="200" src="~/Public/Images/PostImgs/@img.ImageName" />
+                                    }
+                                }
                             </div>
 
                         </div>

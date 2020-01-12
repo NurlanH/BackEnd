@@ -37,7 +37,7 @@ namespace DevFormAz.Controllers
         }
 
         [HttpPost]
-        public ActionResult FormPage(Form form, string tagname)
+        public ActionResult FormPage(Form form, string tagname, HttpPostedFileBase formImg)
         {
             
             if (form != null)
@@ -72,7 +72,12 @@ namespace DevFormAz.Controllers
         {
             if (id != null)
             {
-                var viewForm = db.Forms.Find(id);
+                FormViewPageVM frmVm = new FormViewPageVM()
+                {
+                    Form = db.Forms.Find(id),
+                    TagLists = db.TagLists.Where(fId => fId.FormId == id).ToList(),
+                    FormImages = db.FormImages.Where(imgId => imgId.FormId == id).ToList()
+                };
                 
                 if ((int?)Session["UserId"] != null)
                 {
@@ -92,7 +97,7 @@ namespace DevFormAz.Controllers
                         db.SaveChanges();
                     }
                 }
-                return View(viewForm);
+                return View(frmVm);
             }
             else
             {
@@ -154,10 +159,12 @@ namespace DevFormAz.Controllers
         [DevAuth]
         public ActionResult ProfilePage()
         {
+            int userId = (int)Session["UserId"];
             UserViewModel vm = new UserViewModel()
             {
-                GetUserDetail = db.UserDetails.Find((int)Session["UserId"]),
-                Forms = db.Forms.ToList()
+                GetUserDetail = db.UserDetails.Find(userId),
+                Forms = db.Forms.Where(u => u.UserDetailId == userId).ToList(),
+                Tags = db.TagLists.ToList()
             };
             Session["UserImage"] = vm.GetUserDetail.Image;
             return View(vm);

@@ -22,6 +22,8 @@ namespace DevFormAz.DevFormData
         public DbSet<Skill> Skills { get; set; }
         public DbSet<FormLike> FormLikes { get; set; }
         public DbSet<FormViewCount> FormViewCounts { get; set; }
+        public DbSet<FormImage> FormImages { get; set; }
+
 
 
     }

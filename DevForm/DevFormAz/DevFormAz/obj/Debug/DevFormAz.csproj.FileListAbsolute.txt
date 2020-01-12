@@ -361,3 +361,5 @@ C:\Users\NurlanAh\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\Dev
 C:\Users\NurlanAh\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.csproj.CopyComplete
 C:\Users\NurlanAh\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.dll
 C:\Users\NurlanAh\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.pdb
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_formimage.resources
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_imageName_to_formimage.resources

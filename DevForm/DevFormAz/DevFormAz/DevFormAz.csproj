@@ -181,12 +181,22 @@
     <Compile Include="Migrations\202001101306378_added_formviewcount.Designer.cs">
       <DependentUpon>202001101306378_added_formviewcount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001121003206_added_formimage.cs" />
+    <Compile Include="Migrations\202001121003206_added_formimage.Designer.cs">
+      <DependentUpon>202001121003206_added_formimage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121033547_added_imageName_to_formimage.cs" />
+    <Compile Include="Migrations\202001121033547_added_imageName_to_formimage.Designer.cs">
+      <DependentUpon>202001121033547_added_imageName_to_formimage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Form.cs" />
+    <Compile Include="Models\FormImage.cs" />
     <Compile Include="Models\FormLike.cs" />
     <Compile Include="Models\FormTagViewModel.cs" />
     <Compile Include="Models\FormViewCount.cs" />
+    <Compile Include="Models\FormViewPageVM.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\TagList.cs" />
@@ -1900,6 +1910,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001101306378_added_formviewcount.resx">
       <DependentUpon>202001101306378_added_formviewcount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121003206_added_formimage.resx">
+      <DependentUpon>202001121003206_added_formimage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121033547_added_imageName_to_formimage.resx">
+      <DependentUpon>202001121033547_added_imageName_to_formimage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

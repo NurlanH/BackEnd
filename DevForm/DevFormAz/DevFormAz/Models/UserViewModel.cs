@@ -9,5 +9,6 @@ namespace DevFormAz.Models
     {
         public UserDetail GetUserDetail { get; set; }
         public List<Form> Forms { get; set; }
+        public List<TagList> Tags { get; set; }
     }
 }
