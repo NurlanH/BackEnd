@@ -49,18 +49,7 @@
                             @if ((int?)Session["UserId"] != null)
                             {
                                 <li id="resProfile" class="dvBtn">
-                                    <a href="/Home/Profile">
-                                        Hesabım
-                                        @if (Session["UserImage"] != null)
-                                        {
-                                            <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/@Session["UserImage"]" alt="">
-                                        }
-                                        else
-                                        {
-                                            <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
-                                        }
-
-                                    </a>
+                                    <a href="/Home/Profile"></a>
                                 </li>
                                 <li class="dvBtn">
                                     <a href="/Account/LogOut">Çıxış</a>
@@ -112,7 +101,7 @@
                                         <li id="forProfile" class="dvBtn">
                                             <a href="/Home/ProfilePage">
                                                 Hesabım
-                                                <img width="20" src="~/Public/Images/UsersFolder/ProfilePic/@Session["UserImage"]" alt="">
+                                               
                                             </a>
                                         </li>
                                         <li class="dvBtn">

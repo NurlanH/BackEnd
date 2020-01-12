@@ -1756,7 +1756,6 @@ footer {
 .readForm {
     width: 100%;
     height: auto;
-    min-height: 400px;
     background-color: #00000014;
     padding: 20px 10px;
 }

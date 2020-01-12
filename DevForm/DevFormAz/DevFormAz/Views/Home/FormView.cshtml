@@ -57,7 +57,7 @@
                                         <h5>@Model.Form.UserDetail.User.FirstName @Model.Form.UserDetail.User.Lastname</h5>
                                     </div>
                                     <div class="sharedTime">
-                                        <span>@Model.Form.CreatedDate.ToString("dd-MM-yyyy")</span>
+                                        <span>@Model.Form.FormTime.ToString("dd.MM.yyyy")</span>
                                     </div>
                                     <div class="userPopulation">
                                         <div class="sharedPostCount">
@@ -135,7 +135,7 @@
                             <div id="errorImg" class="imgBox">
                                 @if (Model.FormImages != null)
                                 {
-                                    @foreach (var img in Model.FormImages)
+                                    foreach (var img in Model.FormImages)
                                     {
                                         <img class="errimgClick" width="200" src="~/Public/Images/PostImgs/@img.ImageName" />
                                     }

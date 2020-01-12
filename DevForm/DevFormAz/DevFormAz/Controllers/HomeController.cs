@@ -10,6 +10,7 @@ using DevFormAz.Extentions;
 using System.Data.Entity.Validation;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Web.Helpers;
 
 namespace DevFormAz.Controllers
 {
@@ -37,32 +38,59 @@ namespace DevFormAz.Controllers
         }
 
         [HttpPost]
-        public ActionResult FormPage(Form form, string tagname, HttpPostedFileBase formImg)
+        public ActionResult FormPage(Form form, string tagname, List<HttpPostedFileBase> formImg)
         {
-            
-            if (form != null)
+            if (ModelState.IsValid)
             {
-                var tagArr = tagname.Split(',');
-                Form newForm = new Form();
-                newForm.Name = form.Name;
-                newForm.Description = form.Description;
-                newForm.UserDetailId = (int)Session["UserId"];
-                db.Forms.Add(newForm);
-                db.SaveChanges();
-                if (tagArr != null)
+                if (form != null)
                 {
+                    var tagArr = tagname.Split(',');
+                    Form newForm = new Form();
+                    newForm.Name = form.Name;
+                    newForm.FormTime = DateTime.Now;
+                    newForm.Description = form.Description;
+                    newForm.UserDetailId = (int)Session["UserId"];
+                    db.Forms.Add(newForm);
+                    db.SaveChanges();
+
+
+                    // For tag list
                     for (int i = 0; i < tagArr.Length; i++)
                     {
-                        TagList tag = new TagList();
-                        tag.TagName = tagArr[i];
-                        tag.FormId = newForm.Id;
-                        tag.MonthlyUseCount = 0;
-                        tag.DailyUseCount = 0;
-                        db.TagLists.Add(tag);
+                        if (tagArr[i] != null && tagArr[i]!="" && tagArr[i] != " ")
+                        {
+                            TagList tag = new TagList();
+                            tag.TagName = tagArr[i];
+                            tag.FormId = newForm.Id;
+                            db.TagLists.Add(tag);
+                        }
                     }
+
+
+                    // For form image
+                    foreach (var img in formImg)
+                    {
+                        if (img != null)
+                        {
+                            if (İmageControl.CheckImageSize(img, 4))
+                            {
+
+                                var formImages = İmageControl.SaveImage(Server.MapPath("~/Public/Images/PostImgs"), img);
+                                FormImage fImg = new FormImage()
+                                {
+                                    FormId = newForm.Id,
+                                    ImageName = formImages
+                                };
+                                db.FormImages.Add(fImg);
+                            };
+
+                        }
+                    }
+                    db.SaveChanges();
+
                 }
-                db.SaveChanges();
             }
+          
             return RedirectToAction("FormPage", "Home");
         }
 
@@ -187,10 +215,12 @@ namespace DevFormAz.Controllers
         }
 
         [HttpPost]
-        public ActionResult UserPanel([Bind(Exclude = "Image")]UserDetail userChanges, string firstname, string lastname, string email, HttpPostedFileBase image, string skills, string checker)
+        public ActionResult UserPanel([Bind(Exclude = "Image")]UserDetail userChanges, string firstname, string lastname, string email,string newPassword,string rePassword, HttpPostedFileBase image, string skills, string checker)
         {
 
             var user = db.UserDetails.Find((int)Session["UserId"]);
+
+            //For user IMG
             if (image != null && İmageControl.CheckImageType(image))
             {
                 if (İmageControl.CheckImageSize(image, 8))
@@ -237,6 +267,17 @@ namespace DevFormAz.Controllers
 
             user.User.FirstName = firstname;
             user.User.Lastname = lastname;
+            if(newPassword != "" && newPassword != null )
+            {
+                var checkNewPass = newPassword.Length;
+
+                if (checkNewPass >= 6 && newPassword == rePassword)
+                {
+                    user.User.Password = Crypto.HashPassword(newPassword);
+                }
+            }
+           
+            
 
             if (user.User.Email != email)
             {

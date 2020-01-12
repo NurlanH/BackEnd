@@ -189,6 +189,34 @@
     <Compile Include="Migrations\202001121033547_added_imageName_to_formimage.Designer.cs">
       <DependentUpon>202001121033547_added_imageName_to_formimage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001121319274_nothing.cs" />
+    <Compile Include="Migrations\202001121319274_nothing.Designer.cs">
+      <DependentUpon>202001121319274_nothing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121321295_nothing1.cs" />
+    <Compile Include="Migrations\202001121321295_nothing1.Designer.cs">
+      <DependentUpon>202001121321295_nothing1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121321493_nothing2.cs" />
+    <Compile Include="Migrations\202001121321493_nothing2.Designer.cs">
+      <DependentUpon>202001121321493_nothing2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121323150_nothing3.cs" />
+    <Compile Include="Migrations\202001121323150_nothing3.Designer.cs">
+      <DependentUpon>202001121323150_nothing3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121327286_added_from_form_formtime.cs" />
+    <Compile Include="Migrations\202001121327286_added_from_form_formtime.Designer.cs">
+      <DependentUpon>202001121327286_added_from_form_formtime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121335490_deleted_datetimenow_from_comment.cs" />
+    <Compile Include="Migrations\202001121335490_deleted_datetimenow_from_comment.Designer.cs">
+      <DependentUpon>202001121335490_deleted_datetimenow_from_comment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121339362_deleted_mothly_dailyusecount_from_taglist.cs" />
+    <Compile Include="Migrations\202001121339362_deleted_mothly_dailyusecount_from_taglist.Designer.cs">
+      <DependentUpon>202001121339362_deleted_mothly_dailyusecount_from_taglist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Form.cs" />
@@ -1916,6 +1944,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001121033547_added_imageName_to_formimage.resx">
       <DependentUpon>202001121033547_added_imageName_to_formimage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121319274_nothing.resx">
+      <DependentUpon>202001121319274_nothing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121321295_nothing1.resx">
+      <DependentUpon>202001121321295_nothing1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121321493_nothing2.resx">
+      <DependentUpon>202001121321493_nothing2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121323150_nothing3.resx">
+      <DependentUpon>202001121323150_nothing3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121327286_added_from_form_formtime.resx">
+      <DependentUpon>202001121327286_added_from_form_formtime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121335490_deleted_datetimenow_from_comment.resx">
+      <DependentUpon>202001121335490_deleted_datetimenow_from_comment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121339362_deleted_mothly_dailyusecount_from_taglist.resx">
+      <DependentUpon>202001121339362_deleted_mothly_dailyusecount_from_taglist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
