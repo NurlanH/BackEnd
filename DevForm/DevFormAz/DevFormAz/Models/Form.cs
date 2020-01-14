@@ -13,7 +13,6 @@ namespace DevFormAz.Models
         public string Name { get; set; }
         [Required]
         public string Description { get; set; }
-
         public DateTime FormTime { get; set; }
         public int UserDetailId { get; set; }
         public virtual UserDetail UserDetail { get; set; }

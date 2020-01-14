@@ -134,6 +134,31 @@ namespace DevFormAz.Controllers
 
         }
 
+
+
+        //Edit user Form
+        public ActionResult EditForm(int? id)
+        {
+            if(id != null)
+            {
+                var checkUser = (int?)Session["UserId"];
+
+                if (db.Forms.Find(id).UserDetailId == checkUser)
+                {
+                    return View(db.Forms.Find(id));
+                }
+                else
+                {
+                    return RedirectToAction("FormPage", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("FormPage", "Home");
+            }
+          
+        }
+
         public async Task<int> AddLike(int id)
         {
             
@@ -237,36 +262,43 @@ namespace DevFormAz.Controllers
             }
 
 
-            var skillarr = skills.Split(' ');
-
-            var userCustomSkills = checker.Split(' ').ToList(); // Bununla evvelki bacariqlarin saxlayiriq
-            var checkUserSkill = user.Skills.Select(u => u.Name).ToArray(); // bununla dbda userin daxil edilen bacariginin olub olmamasin yoxlayiriq
-
-            for (var i = 0; i < skillarr.Length; i++)
+            //For user Skills
+            if(skills != null)
             {
-                if (!checkUserSkill.Contains(skillarr[i]) && skillarr[i] != " " && skillarr[i] != "")
+                var skillarr = skills.Split(' ');
+
+                var userCustomSkills = checker.Split(' ').ToList(); // Bununla evvelki bacariqlarin saxlayiriq
+                var checkUserSkill = user.Skills.Select(u => u.Name).ToArray(); // bununla dbda userin daxil edilen bacariginin olub olmamasin yoxlayiriq
+
+                for (var i = 0; i < skillarr.Length; i++)
                 {
-                    db.Skills.Add(new Skill() { Name = skillarr[i].ToUpper(), UserDetailId = user.Id });
+                    if (!checkUserSkill.Contains(skillarr[i]) && skillarr[i] != " " && skillarr[i] != "")
+                    {
+                        db.Skills.Add(new Skill() { Name = skillarr[i].ToUpper(), UserDetailId = user.Id });
+                    }
+                    else
+                    {
+                        if (!userCustomSkills.Contains(null))
+                            userCustomSkills.Remove(skillarr[i]);
+                    }
                 }
-                else
+
+                foreach (var item in userCustomSkills)
                 {
-                    if (!userCustomSkills.Contains(null))
-                        userCustomSkills.Remove(skillarr[i]);
+                    var deletedSkill = user.Skills.Where(n => n.Name == item).FirstOrDefault();
+                    if (deletedSkill != null)
+                    {
+                        db.Skills.Remove(deletedSkill);
+                    }
+
                 }
             }
 
-            foreach (var item in userCustomSkills)
-            {
-                var deletedSkill = user.Skills.Where(n => n.Name == item).FirstOrDefault();
-                if (deletedSkill != null)
-                {
-                    db.Skills.Remove(deletedSkill);
-                }
+            
 
-            }
+            
 
-            user.User.FirstName = firstname;
-            user.User.Lastname = lastname;
+            //For new password
             if(newPassword != "" && newPassword != null )
             {
                 var checkNewPass = newPassword.Length;
@@ -278,7 +310,7 @@ namespace DevFormAz.Controllers
             }
            
             
-
+            //For change email
             if (user.User.Email != email)
             {
                 if (!db.Users.Any(u => u.Email == email))
@@ -292,6 +324,8 @@ namespace DevFormAz.Controllers
                 }
             }
 
+            user.User.FirstName = firstname;
+            user.User.Lastname = lastname;
             user.Biography = userChanges.Biography;
             user.Country = userChanges.Country;
             user.GithubLink = userChanges.GithubLink;

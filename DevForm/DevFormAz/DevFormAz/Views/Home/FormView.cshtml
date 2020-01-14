@@ -59,17 +59,24 @@
                                     <div class="sharedTime">
                                         <span>@Model.Form.FormTime.ToString("dd.MM.yyyy")</span>
                                     </div>
-                                    <div class="userPopulation">
-                                        <div class="sharedPostCount">
-                                            <a href=""><i class="fas fa-bullhorn mr-2"></i>0</a>
+                                    @if ((int?)Session["UserId"] != null && Model.Form.UserDetailId == (int)Session["UserId"])
+                                    {
+                                        <div class="editIcon mt-2">
+                                            <a href="/Home/EditForm/@Model.Form.Id"><i class="fas fa-edit"></i></a>
                                         </div>
-                                        <div class="userFollowers ">
-                                            <a href=""><i class="fas fa-users mr-2"></i>0</a>
-                                        </div>
-                                        <div class="userFollows">
-                                            <a href=""><i class="fas fa-user mr-2"></i>0</a>
-                                        </div>
-                                    </div>
+                                    }
+
+                                    @*<div class="userPopulation">
+            <div class="sharedPostCount">
+                <a href=""><i class="fas fa-bullhorn mr-2"></i>0</a>
+            </div>
+            <div class="userFollowers ">
+                <a href=""><i class="fas fa-users mr-2"></i>0</a>
+            </div>
+            <div class="userFollows">
+                <a href=""><i class="fas fa-user mr-2"></i>0</a>
+            </div>
+        </div>*@
                                 </div>
                             </div>
                             <div class="postInfoDiv">
@@ -119,7 +126,7 @@
                         <hr />
                         <div class="FormHeaderDesc mb-2">
                             <div class="formHead">
-                                <h2>@Model.Form.Name</h2>
+                                <h1>@Model.Form.Name</h1>
                             </div>
                             <div class="tagsBox mb-2 mt-2">
                                 @foreach (var item in Model.TagLists.Where(u => u.FormId == Model.Form.Id))

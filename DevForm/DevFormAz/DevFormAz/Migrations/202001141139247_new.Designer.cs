@@ -7,13 +7,13 @@ namespace DevFormAz.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class deleted_likeUnlike_from_added_like_from_formlike : IMigrationMetadata
+    public sealed partial class _new : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(deleted_likeUnlike_from_added_like_from_formlike));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_new));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001081016111_deleted_likeUnlike_from_added_like_from_formlike"; }
+            get { return "202001141139247_new"; }
         }
         
         string IMigrationMetadata.Source

@@ -133,89 +133,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\DevAuth.cs" />
-    <Compile Include="Migrations\202001071052427_new.cs" />
-    <Compile Include="Migrations\202001071052427_new.Designer.cs">
-      <DependentUpon>202001071052427_new.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001071338147_updated_form_taglist_added_virtual.cs" />
-    <Compile Include="Migrations\202001071338147_updated_form_taglist_added_virtual.Designer.cs">
-      <DependentUpon>202001071338147_updated_form_taglist_added_virtual.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001071343246_change_form_userid_to_userdetailid.cs" />
-    <Compile Include="Migrations\202001071343246_change_form_userid_to_userdetailid.Designer.cs">
-      <DependentUpon>202001071343246_change_form_userid_to_userdetailid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001071345013_deleted_updatedate_form.cs" />
-    <Compile Include="Migrations\202001071345013_deleted_updatedate_form.Designer.cs">
-      <DependentUpon>202001071345013_deleted_updatedate_form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001071346235_added_like_disslike_form.cs" />
-    <Compile Include="Migrations\202001071346235_added_like_disslike_form.Designer.cs">
-      <DependentUpon>202001071346235_added_like_disslike_form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001071422130_update_taglist_name_to_tagname.cs" />
-    <Compile Include="Migrations\202001071422130_update_taglist_name_to_tagname.Designer.cs">
-      <DependentUpon>202001071422130_update_taglist_name_to_tagname.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001081016111_deleted_likeUnlike_from_added_like_from_formlike.cs" />
-    <Compile Include="Migrations\202001081016111_deleted_likeUnlike_from_added_like_from_formlike.Designer.cs">
-      <DependentUpon>202001081016111_deleted_likeUnlike_from_added_like_from_formlike.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001081102227_delete_count_from_formlike.cs" />
-    <Compile Include="Migrations\202001081102227_delete_count_from_formlike.Designer.cs">
-      <DependentUpon>202001081102227_delete_count_from_formlike.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001081420063_added_formdisslike.cs" />
-    <Compile Include="Migrations\202001081420063_added_formdisslike.Designer.cs">
-      <DependentUpon>202001081420063_added_formdisslike.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001081432287_added_virtual_formdisslike_to_form.cs" />
-    <Compile Include="Migrations\202001081432287_added_virtual_formdisslike_to_form.Designer.cs">
-      <DependentUpon>202001081432287_added_virtual_formdisslike_to_form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001101217261_deleted_formdisslike.cs" />
-    <Compile Include="Migrations\202001101217261_deleted_formdisslike.Designer.cs">
-      <DependentUpon>202001101217261_deleted_formdisslike.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001101306378_added_formviewcount.cs" />
-    <Compile Include="Migrations\202001101306378_added_formviewcount.Designer.cs">
-      <DependentUpon>202001101306378_added_formviewcount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001121003206_added_formimage.cs" />
-    <Compile Include="Migrations\202001121003206_added_formimage.Designer.cs">
-      <DependentUpon>202001121003206_added_formimage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001121033547_added_imageName_to_formimage.cs" />
-    <Compile Include="Migrations\202001121033547_added_imageName_to_formimage.Designer.cs">
-      <DependentUpon>202001121033547_added_imageName_to_formimage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001121319274_nothing.cs" />
-    <Compile Include="Migrations\202001121319274_nothing.Designer.cs">
-      <DependentUpon>202001121319274_nothing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001121321295_nothing1.cs" />
-    <Compile Include="Migrations\202001121321295_nothing1.Designer.cs">
-      <DependentUpon>202001121321295_nothing1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001121321493_nothing2.cs" />
-    <Compile Include="Migrations\202001121321493_nothing2.Designer.cs">
-      <DependentUpon>202001121321493_nothing2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001121323150_nothing3.cs" />
-    <Compile Include="Migrations\202001121323150_nothing3.Designer.cs">
-      <DependentUpon>202001121323150_nothing3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001121327286_added_from_form_formtime.cs" />
-    <Compile Include="Migrations\202001121327286_added_from_form_formtime.Designer.cs">
-      <DependentUpon>202001121327286_added_from_form_formtime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001121335490_deleted_datetimenow_from_comment.cs" />
-    <Compile Include="Migrations\202001121335490_deleted_datetimenow_from_comment.Designer.cs">
-      <DependentUpon>202001121335490_deleted_datetimenow_from_comment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001121339362_deleted_mothly_dailyusecount_from_taglist.cs" />
-    <Compile Include="Migrations\202001121339362_deleted_mothly_dailyusecount_from_taglist.Designer.cs">
-      <DependentUpon>202001121339362_deleted_mothly_dailyusecount_from_taglist.cs</DependentUpon>
+    <Compile Include="Migrations\202001141139247_new.cs" />
+    <Compile Include="Migrations\202001141139247_new.Designer.cs">
+      <DependentUpon>202001141139247_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -1815,7 +1735,6 @@
     <Content Include="Public\Images\Brand\BrandBlack.png" />
     <Content Include="Public\Images\Brand\BrandWhite.png" />
     <Content Include="Public\Images\OtherImages\helping.jpg" />
-    <Content Include="Public\Images\PostImgs\Capture.PNG" />
     <Content Include="Public\Images\Preloader\loading.svg" />
     <Content Include="Public\Images\UsersFolder\ProfilePic\a.jpg" />
     <Content Include="Public\Images\UsersFolder\ProfilePic\devAvatar.svg" />
@@ -1848,6 +1767,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Public\Images\PostImgs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -1901,70 +1821,11 @@
     <Content Include="Views\Home\UserPanel.cshtml" />
     <Content Include="Views\Home\ProfilePage.cshtml" />
     <Content Include="Views\Home\FormView.cshtml" />
+    <Content Include="Views\Home\EditForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001071052427_new.resx">
-      <DependentUpon>202001071052427_new.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001071338147_updated_form_taglist_added_virtual.resx">
-      <DependentUpon>202001071338147_updated_form_taglist_added_virtual.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001071343246_change_form_userid_to_userdetailid.resx">
-      <DependentUpon>202001071343246_change_form_userid_to_userdetailid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001071345013_deleted_updatedate_form.resx">
-      <DependentUpon>202001071345013_deleted_updatedate_form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001071346235_added_like_disslike_form.resx">
-      <DependentUpon>202001071346235_added_like_disslike_form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001071422130_update_taglist_name_to_tagname.resx">
-      <DependentUpon>202001071422130_update_taglist_name_to_tagname.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001081016111_deleted_likeUnlike_from_added_like_from_formlike.resx">
-      <DependentUpon>202001081016111_deleted_likeUnlike_from_added_like_from_formlike.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001081102227_delete_count_from_formlike.resx">
-      <DependentUpon>202001081102227_delete_count_from_formlike.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001081420063_added_formdisslike.resx">
-      <DependentUpon>202001081420063_added_formdisslike.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001081432287_added_virtual_formdisslike_to_form.resx">
-      <DependentUpon>202001081432287_added_virtual_formdisslike_to_form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001101217261_deleted_formdisslike.resx">
-      <DependentUpon>202001101217261_deleted_formdisslike.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001101306378_added_formviewcount.resx">
-      <DependentUpon>202001101306378_added_formviewcount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001121003206_added_formimage.resx">
-      <DependentUpon>202001121003206_added_formimage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001121033547_added_imageName_to_formimage.resx">
-      <DependentUpon>202001121033547_added_imageName_to_formimage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001121319274_nothing.resx">
-      <DependentUpon>202001121319274_nothing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001121321295_nothing1.resx">
-      <DependentUpon>202001121321295_nothing1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001121321493_nothing2.resx">
-      <DependentUpon>202001121321493_nothing2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001121323150_nothing3.resx">
-      <DependentUpon>202001121323150_nothing3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001121327286_added_from_form_formtime.resx">
-      <DependentUpon>202001121327286_added_from_form_formtime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001121335490_deleted_datetimenow_from_comment.resx">
-      <DependentUpon>202001121335490_deleted_datetimenow_from_comment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001121339362_deleted_mothly_dailyusecount_from_taglist.resx">
-      <DependentUpon>202001121339362_deleted_mothly_dailyusecount_from_taglist.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001141139247_new.resx">
+      <DependentUpon>202001141139247_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
