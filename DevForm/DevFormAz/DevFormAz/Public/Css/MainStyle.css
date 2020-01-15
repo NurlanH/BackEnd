@@ -13,29 +13,49 @@
 }
 
 
-
-
-
-.readForm .sharedUser  .userInfo .editIcon {
+.readForm .FormHeaderDesc  .EditDelete {
+    display: flex;
+    justify-content: flex-end;
+}
+.readForm .FormHeaderDesc .EditDelete .editIcon {
     padding: 3px 5px;
     background-color: #303F9F;
     border: 1px solid #303F9F;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     display: inline-block;
-    border-radius:3px;
+    border-radius: 3px;
 }
+    .readForm .FormHeaderDesc .EditDelete .deleteIcon {
+        padding: 3px 5px;
+        background-color: red;
+        border: 1px solid red;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        display: inline-block;
+        border-radius: 3px;
+    }
+    .readForm .FormHeaderDesc .EditDelete .editIcon a {
+        text-decoration: none;
+        color: white
+    }
 
-.readForm .sharedUser .userInfo .editIcon a{
-   text-decoration:none;
-   color:white
-}
+    .readForm .FormHeaderDesc .EditDelete .deleteIcon a {
+        text-decoration: none;
+        color: white
+    }
 
-.readForm .sharedUser .userInfo .editIcon:hover {
-    background-color: white;
-}
-    .readForm .sharedUser .userInfo .editIcon:hover a{
-        color: #303F9F;
+    .readForm .FormHeaderDesc .EditDelete .editIcon:hover {
+        background-color: white;
+    }
+    .readForm .FormHeaderDesc .EditDelete .deleteIcon:hover {
+        background-color: white;
+    }
+        .readForm .FormHeaderDesc .EditDelete .editIcon:hover a {
+            color: #303F9F;
+        }
+    .readForm .FormHeaderDesc .EditDelete .deleteIcon:hover a {
+        color: red;
     }
 
 .overlayBody{
@@ -3050,6 +3070,9 @@ footer {
 
             #usersList .userBox .userHead img {
                 margin-bottom: 5px;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
             }
 
             #usersList .userBox .userHead h5 a {

@@ -59,24 +59,6 @@
                                     <div class="sharedTime">
                                         <span>@Model.Form.FormTime.ToString("dd.MM.yyyy")</span>
                                     </div>
-                                    @if ((int?)Session["UserId"] != null && Model.Form.UserDetailId == (int)Session["UserId"])
-                                    {
-                                        <div class="editIcon mt-2">
-                                            <a href="/Home/EditForm/@Model.Form.Id"><i class="fas fa-edit"></i></a>
-                                        </div>
-                                    }
-
-                                    @*<div class="userPopulation">
-            <div class="sharedPostCount">
-                <a href=""><i class="fas fa-bullhorn mr-2"></i>0</a>
-            </div>
-            <div class="userFollowers ">
-                <a href=""><i class="fas fa-users mr-2"></i>0</a>
-            </div>
-            <div class="userFollows">
-                <a href=""><i class="fas fa-user mr-2"></i>0</a>
-            </div>
-        </div>*@
                                 </div>
                             </div>
                             <div class="postInfoDiv">
@@ -125,6 +107,17 @@
                         </div>
                         <hr />
                         <div class="FormHeaderDesc mb-2">
+                            <div class="EditDelete">
+                                @if ((int?)Session["UserId"] != null && Model.Form.UserDetailId == (int)Session["UserId"])
+                                {
+                                    <div class="editIcon mr-2">
+                                        <a href="/Home/EditForm/@Model.Form.Id"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                    <div class="deleteIcon ">
+                                        <a href="/Home/DeleteForm/@Model.Form.Id"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                }
+                            </div>
                             <div class="formHead">
                                 <h1>@Model.Form.Name</h1>
                             </div>

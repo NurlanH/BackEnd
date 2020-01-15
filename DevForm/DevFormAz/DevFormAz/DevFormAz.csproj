@@ -137,9 +137,27 @@
     <Compile Include="Migrations\202001141139247_new.Designer.cs">
       <DependentUpon>202001141139247_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001151308052_added_deletetime_to_form.cs" />
+    <Compile Include="Migrations\202001151308052_added_deletetime_to_form.Designer.cs">
+      <DependentUpon>202001151308052_added_deletetime_to_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001151335313_added_new_follow_follower_table.cs" />
+    <Compile Include="Migrations\202001151335313_added_new_follow_follower_table.Designer.cs">
+      <DependentUpon>202001151335313_added_new_follow_follower_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001151416464_deleted_follow_follower.cs" />
+    <Compile Include="Migrations\202001151416464_deleted_follow_follower.Designer.cs">
+      <DependentUpon>202001151416464_deleted_follow_follower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001151418352_added_subs.cs" />
+    <Compile Include="Migrations\202001151418352_added_subs.Designer.cs">
+      <DependentUpon>202001151418352_added_subs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\DevUsersVm.cs" />
     <Compile Include="Models\Form.cs" />
+    <Compile Include="Models\FormAndTags.cs" />
     <Compile Include="Models\FormImage.cs" />
     <Compile Include="Models\FormLike.cs" />
     <Compile Include="Models\FormTagViewModel.cs" />
@@ -147,6 +165,7 @@
     <Compile Include="Models\FormViewPageVM.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\Subscribe.cs" />
     <Compile Include="Models\TagList.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserDetail.cs" />
@@ -1826,6 +1845,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001141139247_new.resx">
       <DependentUpon>202001141139247_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001151308052_added_deletetime_to_form.resx">
+      <DependentUpon>202001151308052_added_deletetime_to_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001151335313_added_new_follow_follower_table.resx">
+      <DependentUpon>202001151335313_added_new_follow_follower_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001151416464_deleted_follow_follower.resx">
+      <DependentUpon>202001151416464_deleted_follow_follower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001151418352_added_subs.resx">
+      <DependentUpon>202001151418352_added_subs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

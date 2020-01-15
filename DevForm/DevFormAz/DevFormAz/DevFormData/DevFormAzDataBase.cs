@@ -19,12 +19,13 @@ namespace DevFormAz.DevFormData
         public DbSet<Job> Jobs { get; set; }
         public DbSet<TagList> TagLists { get; set; }
         public DbSet<Form> Forms { get; set; }
+        public int Id { get; set; }
+        public int UserDetailsId { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<FormLike> FormLikes { get; set; }
         public DbSet<FormViewCount> FormViewCounts { get; set; }
         public DbSet<FormImage> FormImages { get; set; }
-
-
+        public DbSet<Subscribe> Subscribes { get; set; }
 
     }
 }

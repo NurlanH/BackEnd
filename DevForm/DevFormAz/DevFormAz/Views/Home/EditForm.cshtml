@@ -1,4 +1,5 @@
-﻿@model DevFormAz.Models.Form
+﻿@model DevFormAz.Models.FormAndTags
+
 @{
     ViewBag.Title = "EditForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,32 +9,37 @@
     <section class="pageWrapperForIndex  mt-3 mb-3">
         <div class="container foreditForm">
             <div class="formBox">
-                <form action="/Home/FormEdit" method="Post" enctype="multipart/form-data">
-                    <input type="hidden" value="@DateTime.Now" name="formtime"/>
+                <form action="/Home/EditForm/@Model.Form.Id" method="Post" enctype="multipart/form-data">
+                    <input type="hidden" value="@DateTime.Now" name="formtime" />
                     <div class="formHead mb-2">
-                        <input class="form-control " name="name" value="@Model.Name" />
+                        <input class="form-control " name="name" value="@Model.Form.Name" />
                     </div>
                     <div class="formDesc mb-2">
-                        <input class="form-control" name="description" value="@Model.Description" />
+                        <textarea name="description" class="form-control">@Model.Form.Description</textarea>
                     </div>
 
                     <div class="formTagList mb-2">
                         @foreach (var tag in Model.TagLists)
                         {
-                            taglist += tag + " ";
+                            taglist += tag.TagName + " ";
                         }
                         <input class="form-control" placeholder="Tag" name="editTag" value="@taglist" />
+                        <input type="hidden" name="existTag" value="@taglist"/>
                     </div>
 
                     <div class="formImg mb-2">
-                        <input type="file" style="padding:4px;" class="form-control" name="editImg" value="" multiple/>
+                        <input type="file" style="padding:4px;" class="form-control" name="addImg" value="" multiple />
                         <div class="imgBox mt-2 d-flex justify-content-around flex-wrap">
-                            @foreach (var img in Model.FormImages.Where(fid=>fid.FormId == Model.Id))
+                            @foreach (var img in Model.Form.FormImages.Where(fid => fid.FormId == Model.Form.Id))
                             {
                                 <img class="clickfordelete" width="70" src="~/Public/Images/PostImgs/@img.ImageName" />
                             }
-                            <input id="deleteList" type="hidden" name="deleteimg"/>
+                            <input id="deleteList" type="hidden" name="deleteimg" />
                         </div>
+                    </div>
+                    <div class="forSubmit mb-2">
+                        <input type="submit"  class="btn btn-success" name="editImg" value="Deyish" multiple />
+                        <a href="/Home/FormPage" class="btn btn-danger">Legv et</a>
                     </div>
 
                 </form>
@@ -46,26 +52,24 @@
 @section scripts{
 
     <script>
+         var whishDeleteImg = [];
         $(document).on("click", ".clickfordelete", function () {
+          
             var clickedImgArr = $(this).attr("src").split("/");
-            if ($(this).css("opacity") != 0.5) {
-                $(this).css({ "opacity": "0.5" })
-                document.getElementById("deleteList").value += clickedImgArr[clickedImgArr.length-1] + ","
-            } else {
-                $(this).css({ "opacity": "1" })
+            var removeImg = clickedImgArr[clickedImgArr.length - 1];
 
-                $('#deleteList').each(function () {
-                    var removedeleteimg = $(this).val().split(",");
-                    console.log($(this).val() == clickedImgArr[clickedImgArr.length - 1] + ",")
-
-                    for (let i = 0; i < removedeleteimg.length; i++) {
-                        if (removedeleteimg[i] == clickedImgArr[i])
-                      // need to fix it!
-                    }
-                      });
+            if (!whishDeleteImg.includes(clickedImgArr[clickedImgArr.length - 1]))
+            {
+                whishDeleteImg.push(clickedImgArr[clickedImgArr.length - 1])
+                
             }
-            
-            console.log()
+            else
+            {
+                var index = whishDeleteImg.indexOf(removeImg);
+                whishDeleteImg.splice(index,1)
+            }
+
+            $("#deleteList").val(whishDeleteImg);
         })
     </script>
     

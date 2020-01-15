@@ -28,7 +28,7 @@ namespace DevFormAz.Controllers
         //Form page
         public ActionResult FormPage()
         {
-            
+
             FormTagViewModel formVm = new FormTagViewModel()
             {
                 Forms = db.Forms.ToList(),
@@ -47,6 +47,7 @@ namespace DevFormAz.Controllers
                     var tagArr = tagname.Split(',');
                     Form newForm = new Form();
                     newForm.Name = form.Name;
+                    newForm.WhenIsDeleted = DateTime.Now;
                     newForm.FormTime = DateTime.Now;
                     newForm.Description = form.Description;
                     newForm.UserDetailId = (int)Session["UserId"];
@@ -57,7 +58,7 @@ namespace DevFormAz.Controllers
                     // For tag list
                     for (int i = 0; i < tagArr.Length; i++)
                     {
-                        if (tagArr[i] != null && tagArr[i]!="" && tagArr[i] != " ")
+                        if (tagArr[i] != null && tagArr[i] != "" && tagArr[i] != " ")
                         {
                             TagList tag = new TagList();
                             tag.TagName = tagArr[i];
@@ -90,7 +91,7 @@ namespace DevFormAz.Controllers
 
                 }
             }
-          
+
             return RedirectToAction("FormPage", "Home");
         }
 
@@ -100,32 +101,43 @@ namespace DevFormAz.Controllers
         {
             if (id != null)
             {
-                FormViewPageVM frmVm = new FormViewPageVM()
+                var findForm = db.Forms.Find(id);
+                if ( findForm != null && findForm.isDeleted != true)
                 {
-                    Form = db.Forms.Find(id),
-                    TagLists = db.TagLists.Where(fId => fId.FormId == id).ToList(),
-                    FormImages = db.FormImages.Where(imgId => imgId.FormId == id).ToList()
-                };
-                
-                if ((int?)Session["UserId"] != null)
-                {
-                    var userId = (int)Session["UserId"];
-
-
-                    var checkUserView = db.FormViewCounts.Any(u => u.UserId == userId && u.FormId == id);
-                    if (!checkUserView)
+                    FormViewPageVM frmVm = new FormViewPageVM()
                     {
-                        FormViewCount Vcount = new FormViewCount()
-                        {
-                            FormId = (int)id,
-                            UserId = (int)Session["UserId"]
+                        Form = db.Forms.Find(id),
+                        TagLists = db.TagLists.Where(fId => fId.FormId == id).ToList(),
+                        FormImages = db.FormImages.Where(imgId => imgId.FormId == id).ToList()
+                    };
 
-                        };
-                        db.FormViewCounts.Add(Vcount);
-                        db.SaveChanges();
+                    if ((int?)Session["UserId"] != null)
+                    {
+                        var userId = (int)Session["UserId"];
+
+
+                        var checkUserView = db.FormViewCounts.Any(u => u.UserId == userId && u.FormId == id);
+                        if (!checkUserView)
+                        {
+                            FormViewCount Vcount = new FormViewCount()
+                            {
+                                FormId = (int)id,
+                                UserId = (int)Session["UserId"]
+
+                            };
+                            db.FormViewCounts.Add(Vcount);
+                            db.SaveChanges();
+                        }
                     }
+                    return View(frmVm);
+
                 }
-                return View(frmVm);
+                else
+                {
+                    return RedirectToAction("FormPage", "Home");
+                }
+
+
             }
             else
             {
@@ -139,13 +151,18 @@ namespace DevFormAz.Controllers
         //Edit user Form
         public ActionResult EditForm(int? id)
         {
-            if(id != null)
+            if (id != null)
             {
                 var checkUser = (int?)Session["UserId"];
 
                 if (db.Forms.Find(id).UserDetailId == checkUser)
                 {
-                    return View(db.Forms.Find(id));
+                    FormAndTags ftVm = new FormAndTags()
+                    {
+                        Form = db.Forms.Find(id),
+                        TagLists = db.TagLists.Where(t => t.FormId == id).ToList()
+                    };
+                    return View(ftVm);
                 }
                 else
                 {
@@ -156,35 +173,162 @@ namespace DevFormAz.Controllers
             {
                 return RedirectToAction("FormPage", "Home");
             }
-          
+
         }
 
-        public async Task<int> AddLike(int id)
+        //Edit user Form post
+        [HttpPost]
+        public ActionResult EditForm(Form form, List<HttpPostedFileBase> addImg, string deleteImg, int? id, string existTag, string editTag)
         {
-            
-                Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
-                int userId = (int)Session["UserId"];
-                var userIsLiked = db.FormLikes.Any(x => x.FormId == form.Id && x.UserId == userId);
-                if (!userIsLiked)
+            var userId = (int?)Session["UserId"];
+            if (userId != null && id != null)
+            {
+                var myForm = db.Forms.Where(f => f.Id == id && f.UserDetailId == userId).SingleOrDefault();
+                var delImg = deleteImg.Split(',');
+
+                var oldTag = existTag.Split(' ').ToList(); // Bununla evvelki Taglari saxlayiriq
+                var newTag = editTag.Split(' ');
+
+                var checkFormTag = db.TagLists.Where(u => u.FormId == myForm.Id).Select(n => n.TagName).ToList(); // bununla dbda userin daxil edilen bacariginin olub olmamasin yoxlayiriq
+
+                if (ModelState.IsValid && myForm.isDeleted == false)
                 {
-                    FormLike like = new FormLike()
+
+                    myForm.Name = form.Name;
+                    myForm.Description = form.Description;
+
+                    for (int i = 0; i < newTag.Length; i++)
                     {
-                        FormId = form.Id,
-                        UserId = userId
+
+                        //Add tag
+                        if (newTag[i] != "")
+                        {
+                            if (!checkFormTag.Contains(newTag[i]) && newTag[i] != " " && newTag[i] != null)
+                            {
+                                TagList tags = new TagList()
+                                {
+                                    TagName = newTag[i],
+                                    FormId = myForm.Id
+                                };
+                                db.TagLists.Add(tags);
+                            }
+                            else
+                            {
+                                oldTag.Remove(newTag[i]);
+                            }
+                        }
+
+
+
+                    }
+
+
+                    foreach (var item in oldTag)
+                    {
+                        var deletedTag = db.TagLists.Where(n => n.FormId == myForm.Id && n.TagName == item).FirstOrDefault();
+                        if (deletedTag != null)
+                        {
+                            db.TagLists.Remove(deletedTag);
+                        }
+                    }
+
+
+
+
+                    foreach (var item in addImg)
+                    {
+                        if (item != null)
+                        {
+                            if (İmageControl.CheckImageSize(item, 4))
+                            {
+                                var image = İmageControl.SaveImage(Server.MapPath("~/Public/Images/PostImgs"), item);
+                                FormImage fImg = new FormImage()
+                                {
+                                    FormId = myForm.Id,
+                                    ImageName = image
+                                };
+                                db.FormImages.Add(fImg);
+                            }
+
+                        };
+
                     };
-                    db.FormLikes.Add(like);
-                    await db.SaveChangesAsync();
-                    return form.FormLikes.Count();
+
+
+                    foreach (var item in delImg)
+                    {
+                        if (item != null && item != "")
+                        {
+                            db.FormImages.Remove(myForm.FormImages.Where(fd => fd.ImageName == item).SingleOrDefault());
+                            İmageControl.DeleteImage(Server.MapPath("~/Public/Images/PostImgs"), item);
+                        }
+                    }
+
+                    db.SaveChanges();
+                    return RedirectToAction("FormView", "Home", new { myForm.Id });
                 }
                 else
                 {
-                    var newCount = RemoveLike(form.Id);
-                    return await newCount;
+                    return RedirectToAction("EditForm", "Home", new { myForm.Id });
                 }
-            
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+
+        }
+
+        //DeleteForm
+        public ActionResult DeleteForm(int? id)
+        {
+            var userId = (int?)Session["UserId"];
+            if (id != null)
+            {
+                if (userId != null)
+                {
+                    var checkForm = db.Forms.Find(id);
+                    if (checkForm.UserDetailId == userId)
+                    {
+                        checkForm.isDeleted = true;
+                        checkForm.WhenIsDeleted = DateTime.Now;
+                        db.SaveChanges();
+                    }
+                }
+            }
+            return RedirectToAction("FormPage", "Home");
         }
 
 
+        //Add like
+        public async Task<int> AddLike(int id)
+        {
+
+            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
+            int userId = (int)Session["UserId"];
+            var userIsLiked = db.FormLikes.Any(x => x.FormId == form.Id && x.UserId == userId);
+            if (!userIsLiked)
+            {
+                FormLike like = new FormLike()
+                {
+                    FormId = form.Id,
+                    UserId = userId
+                };
+                db.FormLikes.Add(like);
+                await db.SaveChangesAsync();
+                return form.FormLikes.Count();
+            }
+            else
+            {
+                var newCount = RemoveLike(form.Id);
+                return await newCount;
+            }
+
+        }
+
+
+        //Remove like
         public async Task<int> RemoveLike(int id)
         {
             Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
@@ -227,7 +371,12 @@ namespace DevFormAz.Controllers
 
         public ActionResult UsersInspectPage()
         {
-            return View();
+            DevUsersVm vm = new DevUsersVm()
+            {
+                UserDetails = db.UserDetails.ToList(),
+                Subscribes = db.Subscribes.ToList()
+            };
+            return View(vm);
         }
 
         //UserPanel page
@@ -239,8 +388,9 @@ namespace DevFormAz.Controllers
             return View(userDetail);
         }
 
+        
         [HttpPost]
-        public ActionResult UserPanel([Bind(Exclude = "Image")]UserDetail userChanges, string firstname, string lastname, string email,string newPassword,string rePassword, HttpPostedFileBase image, string skills, string checker)
+        public ActionResult UserPanel([Bind(Exclude = "Image")]UserDetail userChanges, string firstname, string lastname, string email, string newPassword, string rePassword, HttpPostedFileBase image, string skills, string checker)
         {
 
             var user = db.UserDetails.Find((int)Session["UserId"]);
@@ -263,7 +413,7 @@ namespace DevFormAz.Controllers
 
 
             //For user Skills
-            if(skills != null)
+            if (skills != null)
             {
                 var skillarr = skills.Split(' ');
 
@@ -294,12 +444,12 @@ namespace DevFormAz.Controllers
                 }
             }
 
-            
 
-            
+
+
 
             //For new password
-            if(newPassword != "" && newPassword != null )
+            if (newPassword != "" && newPassword != null)
             {
                 var checkNewPass = newPassword.Length;
 
@@ -308,8 +458,8 @@ namespace DevFormAz.Controllers
                     user.User.Password = Crypto.HashPassword(newPassword);
                 }
             }
-           
-            
+
+
             //For change email
             if (user.User.Email != email)
             {
@@ -337,6 +487,8 @@ namespace DevFormAz.Controllers
 
             return RedirectToAction("UserPanel", "Home");
         }
+
+
 
 
     }

@@ -2,11 +2,11 @@
 @{
     ViewBag.Title = "ProfilePage";
     Layout = "~/Views/Shared/_Layout.cshtml";
-     int userId = 0;
-        if((int?)Session["UserId"] != null)
-        {
-            userId = (int)Session["UserId"];
-        }
+    int userId = 0;
+    if ((int?)Session["UserId"] != null)
+    {
+        userId = (int)Session["UserId"];
+    }
 }
 <!-- Main Content -->
 <section class="pageWrapperForIndex mt-3 mb-3">
@@ -35,7 +35,7 @@
 
                                     <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
                                         <div class="postCount">
-                                            <a href=""><i class="fas fa-bullhorn mr-2"></i>@Model.Forms.Count()</a>
+                                            <a href=""><i class="fas fa-bullhorn mr-2"></i>@Model.Forms.Where(f=>f.isDeleted == false).Count()</a>
                                             <p>Postlar</p>
                                         </div>
                                     </div>
@@ -189,88 +189,93 @@
                         <div class="mypostContent">
                             @foreach (var item in Model.Forms.Where(uid => uid.UserDetailId == Model.GetUserDetail.Id))
                             {
-                                <div class="postBox">
-                                    <div class="postUserInfo">
-                                        <div class="boxOfInfo">
-                                            <div class="imageBox">
-                                                @if (item.UserDetail.Image != null)
-                                                {
-                                                    <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/@item.UserDetail.Image" alt="">
-                                                }
-                                                else
-                                                {
-                                                    <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
-                                                }
-
-                                            </div>
-                                            <div class="postUserName">
-                                                <p>@item.UserDetail.User.FirstName @item.UserDetail.User.Lastname</p>
-                                                <span>@item.FormTime.ToString("dd.MM.yyyy")</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="postUserContent">
-                                        <div class="boxOfContent">
-                                            <div class="posthead">
-                                                <h4>@item.Name</h4>
-                                            </div>
-                                            <div class="postContent">
-                                                <p>@item.Description</p>
-                                            </div>
-                                            <div class="mb-2">
-                                                @foreach (var tag in Model.Tags.Where(i => i.FormId == item.Id))
-                                                {
-                                                    <span class="mr-1">@tag.TagName</span>
-                                                }
-                                            </div>
-                                            <div class="postreadmore">
-                                                <a href="/Home/FormView/@item.Id">Davamı</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="postGrades">
-                                        <div class="boxOfGrades">
-                                            <div class="viewIcon">
-                                                <i class="far fa-eye"></i>
-                                            </div>
-                                            <div class="viewLikeCount">
-                                                <div class="viewCount">
-                                                    <span class="view">@item.FormViewCounts.Count()</span>
+                                if (item.isDeleted == false)
+                                {
+                                    <div class="postBox">
+                                        <div class="postUserInfo">
+                                            <div class="boxOfInfo">
+                                                <div class="imageBox">
+                                                    @if (item.UserDetail.Image != null)
+                                                    {
+                                                        <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/@item.UserDetail.Image" alt="">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                                    }
 
                                                 </div>
-                                                <div class="likeCount">
-                                                    @item.FormLikes.Count()
+                                                <div class="postUserName">
+                                                    <p>@item.UserDetail.User.FirstName @item.UserDetail.User.Lastname</p>
+                                                    <span>@item.FormTime.ToString("dd.MM.yyyy")</span>
                                                 </div>
                                             </div>
-                                            <div class="LikeBtn">
-                                                @if (userId != 0)
-                                                {
-                                                    <span class="Like" data-id="@item.Id">
-
-                                                        @if (item.FormLikes.Any(u => u.UserId == userId && u.FormId == item.Id))
-                                                        {
-                                                            <i class="fas fa-thumbs-up likeHeart" style="color:#303F9F;"></i>
-
-                                                        }
-                                                        else
-                                                        {
-                                                            <i class="far fa-thumbs-up"></i>
-                                                        }
-
-                                                    </span>
-                                                }
-                                                else
-                                                {
-                                                    <span>
-                                                        <i class="far fa-thumbs-up" title="Bəyənmək üçün sistemə daxil olmalısınız"></i>
-                                                    </span>
-                                                }
-                                            </div>
                                         </div>
+                                        <div class="postUserContent">
+                                            <div class="boxOfContent">
+                                                <div class="posthead">
+                                                    <h4>@item.Name</h4>
+                                                </div>
+                                                <div class="postContent">
+                                                    <p>@item.Description</p>
+                                                </div>
+                                                <div class="mb-2">
+                                                    @foreach (var tag in Model.Tags.Where(i => i.FormId == item.Id))
+                                                    {
+                                                        <span class="mr-1">@tag.TagName</span>
+                                                    }
+                                                </div>
+                                                <div class="postreadmore">
+                                                    <a href="/Home/FormView/@item.Id">Davamı</a>
+                                                </div>
+                                            </div>
 
+                                        </div>
+                                        <div class="postGrades">
+                                            <div class="boxOfGrades">
+                                                <div class="viewIcon">
+                                                    <i class="far fa-eye"></i>
+                                                </div>
+                                                <div class="viewLikeCount">
+                                                    <div class="viewCount">
+                                                        <span class="view">@item.FormViewCounts.Count()</span>
+
+                                                    </div>
+                                                    <div class="likeCount">
+                                                        @item.FormLikes.Count()
+                                                    </div>
+                                                </div>
+                                                <div class="LikeBtn">
+                                                    @if (userId != 0)
+                                                    {
+                                                        <span class="Like" data-id="@item.Id">
+
+                                                            @if (item.FormLikes.Any(u => u.UserId == userId && u.FormId == item.Id))
+                                                            {
+                                                                <i class="fas fa-thumbs-up likeHeart" style="color:#303F9F;"></i>
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <i class="far fa-thumbs-up"></i>
+                                                            }
+
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>
+                                                            <i class="far fa-thumbs-up" title="Bəyənmək üçün sistemə daxil olmalısınız"></i>
+                                                        </span>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                </div>
+                                }
+
+
 
                             }
                         </div>

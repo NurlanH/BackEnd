@@ -15,6 +15,8 @@ namespace DevFormAz.Models
         public string Description { get; set; }
         public DateTime FormTime { get; set; }
         public int UserDetailId { get; set; }
+        public bool isDeleted { get; set; } = false;
+        public DateTime WhenIsDeleted { get; set; }
         public virtual UserDetail UserDetail { get; set; }
         public virtual ICollection<TagList> TagLists { get; set; }
 

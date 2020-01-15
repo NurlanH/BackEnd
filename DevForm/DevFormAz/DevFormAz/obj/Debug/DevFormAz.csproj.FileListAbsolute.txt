@@ -448,3 +448,7 @@ C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.p
 C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.csprojAssemblyReference.cache
 C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations._new.resources
 C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.csproj.GenerateResource.cache
+C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_deletetime_to_form.resources
+C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_new_follow_follower_table.resources
+C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.deleted_follow_follower.resources
+C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_subs.resources
