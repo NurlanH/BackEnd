@@ -21,15 +21,15 @@ $(document).ready(function () {
     }, 500)
 });
 // When scroll header is fixed
-$(document).scroll(function(){
-    $("header").css({"opacity":0});
-    if(window.pageYOffset >= 103){
+$(document).scroll(function () {
+    $("header").css({ "opacity": 0 });
+    if (window.pageYOffset >= 103) {
         $("header").addClass("headerFixed");
-        $("header").css({"opacity":1});
+        $("header").css({ "opacity": 1 });
 
-    }else if(window.pageYOffset <= 1){
+    } else if (window.pageYOffset <= 1) {
         $("header").removeClass("headerFixed");
-        $("header").css({"opacity":1});
+        $("header").css({ "opacity": 1 });
     }
 
 })
@@ -42,16 +42,16 @@ $(document).scroll(function(){
 
 //For navbar
 
-$("#resNavMenu").click(function(){
+$("#resNavMenu").click(function () {
     $(".resNavLayout").css({
-        "display":"block"
+        "display": "block"
     });
     document.body.style.overflow = "hidden";
 })
 
-$(".closeNav").click(function(){
+$(".closeNav").click(function () {
     $(".resNavLayout").css({
-        "display":"none"
+        "display": "none"
     });
     document.body.style.overflowY = "scroll";
 })
@@ -73,21 +73,21 @@ $('#particle').particleground({
 
 // end particle
 
-  
+
 
 // for share post tags input
-$.each(document.getElementsByClassName("tags-input"),function(index,el){
+$.each(document.getElementsByClassName("tags-input"), function (index, el) {
     let hiddenInput = document.createElement('input'),
         mainInput = document.createElement('input'),
         tags = [];
-    
+
     hiddenInput.setAttribute('type', 'hidden');
     hiddenInput.setAttribute('name', 'tagname');
 
     mainInput.setAttribute('type', 'text');
     mainInput.classList.add('main-input');
     mainInput.addEventListener('keyup', function (e) {
-        if(e.keyCode === 32){
+        if (e.keyCode === 32) {
             let enteredTags = mainInput.value.split(' ');
             if (enteredTags.length > 1) {
                 enteredTags.forEach(function (t) {
@@ -98,7 +98,7 @@ $.each(document.getElementsByClassName("tags-input"),function(index,el){
                 mainInput.value = '';
             }
         }
-        
+
     });
 
     mainInput.addEventListener('keydown', function (e) {
@@ -112,7 +112,7 @@ $.each(document.getElementsByClassName("tags-input"),function(index,el){
     el.appendChild(hiddenInput);
 
 
-    function addTag (text) {
+    function addTag(text) {
         let tag = {
             text: text,
             element: document.createElement('span'),
@@ -135,14 +135,14 @@ $.each(document.getElementsByClassName("tags-input"),function(index,el){
         refreshTags();
     }
 
-    function removeTag (index) {
+    function removeTag(index) {
         let tag = tags[index];
         tags.splice(index, 1);
         el.removeChild(tag.element);
         refreshTags();
     }
 
-    function refreshTags () {
+    function refreshTags() {
         let tagsList = [];
         tags.forEach(function (t) {
             tagsList.push(t.text);
@@ -150,7 +150,7 @@ $.each(document.getElementsByClassName("tags-input"),function(index,el){
         hiddenInput.value = tagsList.join(',');
     }
 
-    function filterTag (tag) {
+    function filterTag(tag) {
         return tag.replace(/[^\w #]/g, '').trim().replace(/\W+/g, '#');
     }
 });
@@ -161,13 +161,13 @@ $.each(document.getElementsByClassName("tags-input"),function(index,el){
 const targetTabs = document.querySelectorAll('[data-tab-target]');
 const contentTabs = document.querySelectorAll('[data-tab-content]');
 
-targetTabs.forEach(tabs=>{
-    tabs.addEventListener('click',function(){
+targetTabs.forEach(tabs => {
+    tabs.addEventListener('click', function () {
         const target = document.querySelector(tabs.dataset.tabTarget)
-        contentTabs.forEach(contentTab=>{
+        contentTabs.forEach(contentTab => {
             contentTab.classList.remove('active');
         });
-        targetTabs.forEach(tab=>{
+        targetTabs.forEach(tab => {
             tab.classList.remove('targetActive');
         });
 
@@ -207,4 +207,27 @@ $(document).ready(function () {
 
     });
 
+})
+
+
+
+$("#Subs").click(function () {
+    console.log();
+    var id = $(this).attr("data-id");
+    $.ajax({
+        url: "/Home/SubscribeUser",
+        type: 'POST',
+        data: { id: id },
+        success: function (res) {
+            $("#count").text(res);
+            if($("#Subs").text() == "Izle")
+            {
+                $("#Subs").text("Izlemenden cixart");
+            }
+            else {
+                $("#Subs").text("Izle");
+            };
+                    
+        }
+    });
 })

@@ -23,7 +23,7 @@
                                     <img  src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
 
                                 }
-                                <h5><a href="#">@item.User.FirstName @item.User.Lastname</a></h5>
+                                <h5><a href="/Home/ProfileViewPage/@item.Id">@item.User.FirstName @item.User.Lastname</a></h5>
                             </div>
                             <div class="userJob">
                                 @if (item.Specialty != null)
@@ -43,8 +43,6 @@
                         </div>
                     </div>
                 }
-
-
             </div>
         </div>
     </div>

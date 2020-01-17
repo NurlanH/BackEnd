@@ -15,10 +15,8 @@ namespace DevFormAz.Models
         public string  Biography { get; set; }
         public string Image { get; set; }
         public int UserId { get; set; }
-
         public virtual User User { get; set; }
         public virtual List<Job> Jobs { get; set; }
         public virtual List<Skill> Skills { get; set; }
-        public virtual List<Subscribe> Subscribes { get; set; }
     }
 }

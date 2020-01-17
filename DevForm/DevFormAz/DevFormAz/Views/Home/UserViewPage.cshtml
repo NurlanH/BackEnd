@@ -1,16 +1,12 @@
 ﻿@model DevFormAz.Models.UserViewModel
 @{
-    ViewBag.Title = "ProfilePage";
+    ViewBag.Title = "UserViewPage";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int userId = 0;
-    int currentUserId = Model.GetUserDetail.Id;
-    if ((int?)Session["UserId"] != null)
-    {
-        userId = (int)Session["UserId"];
-    }
 }
+
+
 <!-- Main Content -->
-<section class="pageWrapperForIndex mt-3 mb-3">
+@*<section class="pageWrapperForIndex mt-3 mb-3">
     <div class="container">
         <div class="profileBox">
             <div class="row">
@@ -36,19 +32,19 @@
 
                                     <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
                                         <div class="postCount">
-                                            <a href=""><i class="fas fa-bullhorn mr-2"></i>@Model.Forms.Where(f=>f.isDeleted == false).Count()</a>
+                                            <a href=""><i class="fas fa-bullhorn mr-2"></i>@Model.Forms.Where(f => f.isDeleted == false).Count()</a>
                                             <p>Postlar</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
                                         <div class="followersBox">
-                                            <a href=""><i class="fas fa-users mr-2"></i>@Model.Subscribes.Where(u => u.FollowerId == Model.GetUserDetail.Id).Count()</a>
+                                            <a href=""><i class="fas fa-users mr-2"></i>0</a>
                                             <p>Izləyici</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
                                         <div class="followingBox">
-                                            <a><i class="fas fa-user mr-2"></i><span id="count">@Model.Subscribes.Where(u => u.FollowId == Model.GetUserDetail.Id).Count()</span></a>
+                                            <a href=""><i class="fas fa-user mr-2"></i>0</a>
                                             <p>İzləyir</p>
                                         </div>
                                     </div>
@@ -59,27 +55,7 @@
 
                         <div class="userSetting">
                             <div class="settingBtn">
-                                @if (userId > 0)
-                                {
-                                    if (userId == Model.GetUserDetail.Id)
-                                    {
-                                        <a href="/Home/UserPanel">Düzəliş et <i class="fas fa-pen ml-1"></i></a>
-
-                                    }
-                                    else if (Model.Subscribes.Any(f => f.FollowerId == userId))
-                                    {
-                                        <a id="Subs" data-id="@Model.GetUserDetail.Id">Izlemeden cixart</a>
-                                    }
-                                    else
-                                    {
-                                        <a id="Subs" data-id="@Model.GetUserDetail.Id">Izle</a>
-                                    }
-                                }
-                                else
-                                {
-                                    <a href="/Account/Login">Izle</a>
-                                }
-
+                                <a href="/Home/UserPanel">Düzəliş et <i class="fas fa-pen ml-1"></i></a>
                             </div>
                         </div>
 
@@ -308,4 +284,4 @@
             </div>
         </div>
     </div>
-</section>
+</section>*@

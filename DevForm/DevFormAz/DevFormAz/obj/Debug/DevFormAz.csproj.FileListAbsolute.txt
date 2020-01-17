@@ -452,3 +452,5 @@ C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.M
 C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_new_follow_follower_table.resources
 C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.deleted_follow_follower.resources
 C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_subs.resources
+C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.deleted_virtual_subs_from_userdetail.resources
+C:\Users\nurlanah\Desktop\back\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.add_virtual_userdetail_from_job.resources

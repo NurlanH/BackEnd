@@ -153,6 +153,14 @@
     <Compile Include="Migrations\202001151418352_added_subs.Designer.cs">
       <DependentUpon>202001151418352_added_subs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001171224008_deleted_virtual_subs_from_userdetail.cs" />
+    <Compile Include="Migrations\202001171224008_deleted_virtual_subs_from_userdetail.Designer.cs">
+      <DependentUpon>202001171224008_deleted_virtual_subs_from_userdetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001171227052_add_virtual_userdetail_from_job.cs" />
+    <Compile Include="Migrations\202001171227052_add_virtual_userdetail_from_job.Designer.cs">
+      <DependentUpon>202001171227052_add_virtual_userdetail_from_job.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\DevUsersVm.cs" />
@@ -1841,6 +1849,7 @@
     <Content Include="Views\Home\ProfilePage.cshtml" />
     <Content Include="Views\Home\FormView.cshtml" />
     <Content Include="Views\Home\EditForm.cshtml" />
+    <Content Include="Views\Home\UserViewPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001141139247_new.resx">
@@ -1857,6 +1866,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001151418352_added_subs.resx">
       <DependentUpon>202001151418352_added_subs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171224008_deleted_virtual_subs_from_userdetail.resx">
+      <DependentUpon>202001171224008_deleted_virtual_subs_from_userdetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171227052_add_virtual_userdetail_from_job.resx">
+      <DependentUpon>202001171227052_add_virtual_userdetail_from_job.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

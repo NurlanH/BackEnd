@@ -1044,6 +1044,7 @@ footer {
                 color: #ffffff;
                 padding: 8px 15px;
                 font-weight: 700;
+                cursor:pointer;
             }
 
             .profileBox .profileInfo .userSetting .settingBtn:hover {
@@ -1053,6 +1054,7 @@ footer {
 
                 .profileBox .profileInfo .userSetting .settingBtn:hover a {
                     color: #212121;
+
                 }
 
     .profileBox .profileInfo .userDetail {

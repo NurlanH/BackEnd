@@ -102,7 +102,7 @@ namespace DevFormAz.Controllers
             if (id != null)
             {
                 var findForm = db.Forms.Find(id);
-                if ( findForm != null && findForm.isDeleted != true)
+                if (findForm != null && findForm.isDeleted != true)
                 {
                     FormViewPageVM frmVm = new FormViewPageVM()
                     {
@@ -301,47 +301,6 @@ namespace DevFormAz.Controllers
         }
 
 
-        //Add like
-        public async Task<int> AddLike(int id)
-        {
-
-            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
-            int userId = (int)Session["UserId"];
-            var userIsLiked = db.FormLikes.Any(x => x.FormId == form.Id && x.UserId == userId);
-            if (!userIsLiked)
-            {
-                FormLike like = new FormLike()
-                {
-                    FormId = form.Id,
-                    UserId = userId
-                };
-                db.FormLikes.Add(like);
-                await db.SaveChangesAsync();
-                return form.FormLikes.Count();
-            }
-            else
-            {
-                var newCount = RemoveLike(form.Id);
-                return await newCount;
-            }
-
-        }
-
-
-        //Remove like
-        public async Task<int> RemoveLike(int id)
-        {
-            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
-            var userId = (int)Session["UserId"];
-            var removelike = await db.FormLikes.Where(x => x.UserId == userId && x.FormId == form.Id).SingleOrDefaultAsync();
-            if (removelike != null)
-            {
-                db.FormLikes.Remove(removelike);
-                await db.SaveChangesAsync();
-            }
-
-            return form.FormLikes.Count();
-        }
 
 
 
@@ -361,10 +320,40 @@ namespace DevFormAz.Controllers
             {
                 GetUserDetail = db.UserDetails.Find(userId),
                 Forms = db.Forms.Where(u => u.UserDetailId == userId).ToList(),
-                Tags = db.TagLists.ToList()
+                Tags = db.TagLists.ToList(),
+                Subscribes = db.Subscribes.ToList()
             };
-            Session["UserImage"] = vm.GetUserDetail.Image;
             return View(vm);
+        }
+
+
+        [HttpGet]
+        public ActionResult ProfileViewPage(int? id)
+        {
+            if (id != null)
+            {
+                var checkUser = (int?)Session["UserId"];
+
+                if (checkUser != null && id == checkUser)
+                {
+                    return RedirectToAction(nameof(ProfilePage));
+                }
+                else
+                {
+                    UserViewModel vm = new UserViewModel()
+                    {
+                        GetUserDetail = db.UserDetails.Find(id),
+                        Forms = db.Forms.Where(u => u.UserDetailId == id).ToList(),
+                        Tags = db.TagLists.ToList(),
+                        Subscribes = db.Subscribes.ToList()
+                    };
+                    return View("ProfilePage", vm);
+                }
+            }
+            else
+            {
+                return RedirectToAction("UsersInspectPage", "Home");
+            }
         }
 
         //Users page
@@ -379,6 +368,8 @@ namespace DevFormAz.Controllers
             return View(vm);
         }
 
+
+
         //UserPanel page
         [DevAuth]
         public ActionResult UserPanel()
@@ -388,7 +379,7 @@ namespace DevFormAz.Controllers
             return View(userDetail);
         }
 
-        
+
         [HttpPost]
         public ActionResult UserPanel([Bind(Exclude = "Image")]UserDetail userChanges, string firstname, string lastname, string email, string newPassword, string rePassword, HttpPostedFileBase image, string skills, string checker)
         {
@@ -489,7 +480,75 @@ namespace DevFormAz.Controllers
         }
 
 
+        //Add like
+        public async Task<int> AddLike(int id)
+        {
 
+            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
+            int userId = (int)Session["UserId"];
+            var userIsLiked = db.FormLikes.Any(x => x.FormId == form.Id && x.UserId == userId);
+            if (!userIsLiked)
+            {
+                FormLike like = new FormLike()
+                {
+                    FormId = form.Id,
+                    UserId = userId
+                };
+                db.FormLikes.Add(like);
+                await db.SaveChangesAsync();
+                return form.FormLikes.Count();
+            }
+            else
+            {
+                var newCount = RemoveLike(form.Id);
+                return await newCount;
+            }
+
+        }
+
+
+        //Remove like
+        public async Task<int> RemoveLike(int id)
+        {
+            Form form = await db.Forms.FirstOrDefaultAsync(c => c.Id == id);
+            var userId = (int)Session["UserId"];
+            var removelike = await db.FormLikes.Where(x => x.UserId == userId && x.FormId == form.Id).SingleOrDefaultAsync();
+            if (removelike != null)
+            {
+                db.FormLikes.Remove(removelike);
+                await db.SaveChangesAsync();
+            }
+
+            return form.FormLikes.Count();
+        }
+
+
+        //Subscribe
+        [HttpPost]
+        public async Task<int> SubscribeUser(int? id)
+        {
+            var userId = (int?)Session["UserId"];
+
+            if (!db.Subscribes.Any(u => u.FollowerId == userId && u.FollowId == id))
+            {
+                Subscribe sb = new Subscribe()
+                {
+                    FollowerId = (int)userId,
+                    FollowId = (int)id
+                };
+                db.Subscribes.Add(sb);
+                await db.SaveChangesAsync();
+                List<Subscribe> count = await db.Subscribes.Where(s => s.FollowId == id).ToListAsync();
+                return count.Count;
+            }
+            else
+            {
+                var unfollow = await db.Subscribes.Where(unf => unf.FollowerId == userId).SingleOrDefaultAsync();
+                db.Subscribes.Remove(unfollow);
+                await db.SaveChangesAsync();
+                return db.Subscribes.Where(s => s.FollowId == id).Count();
+            }
+        }
 
     }
 }
