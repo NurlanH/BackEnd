@@ -42,13 +42,13 @@
                                     </div>
                                     <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
                                         <div class="followersBox">
-                                            <a href=""><i class="fas fa-users mr-2"></i>@Model.Subscribes.Where(u => u.FollowerId == Model.GetUserDetail.Id).Count()</a>
+                                            <a href=""><i class="fas fa-users mr-2"></i><span id="count">@Model.Subscribes.Where(u => u.FollowId == Model.GetUserDetail.Id).Count()</span></a>
                                             <p>Izləyici</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
                                         <div class="followingBox">
-                                            <a><i class="fas fa-user mr-2"></i><span id="count">@Model.Subscribes.Where(u => u.FollowId == Model.GetUserDetail.Id).Count()</span></a>
+                                            <a><i class="fas fa-user mr-2"></i><span >@Model.Subscribes.Where(u => u.FollowerId == Model.GetUserDetail.Id).Count()</span></a>
                                             <p>İzləyir</p>
                                         </div>
                                     </div>

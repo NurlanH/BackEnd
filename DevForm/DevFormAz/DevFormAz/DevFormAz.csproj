@@ -133,33 +133,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\DevAuth.cs" />
-    <Compile Include="Migrations\202001141139247_new.cs" />
-    <Compile Include="Migrations\202001141139247_new.Designer.cs">
-      <DependentUpon>202001141139247_new.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001151308052_added_deletetime_to_form.cs" />
-    <Compile Include="Migrations\202001151308052_added_deletetime_to_form.Designer.cs">
-      <DependentUpon>202001151308052_added_deletetime_to_form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001151335313_added_new_follow_follower_table.cs" />
-    <Compile Include="Migrations\202001151335313_added_new_follow_follower_table.Designer.cs">
-      <DependentUpon>202001151335313_added_new_follow_follower_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001151416464_deleted_follow_follower.cs" />
-    <Compile Include="Migrations\202001151416464_deleted_follow_follower.Designer.cs">
-      <DependentUpon>202001151416464_deleted_follow_follower.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001151418352_added_subs.cs" />
-    <Compile Include="Migrations\202001151418352_added_subs.Designer.cs">
-      <DependentUpon>202001151418352_added_subs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001171224008_deleted_virtual_subs_from_userdetail.cs" />
-    <Compile Include="Migrations\202001171224008_deleted_virtual_subs_from_userdetail.Designer.cs">
-      <DependentUpon>202001171224008_deleted_virtual_subs_from_userdetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001171227052_add_virtual_userdetail_from_job.cs" />
-    <Compile Include="Migrations\202001171227052_add_virtual_userdetail_from_job.Designer.cs">
-      <DependentUpon>202001171227052_add_virtual_userdetail_from_job.cs</DependentUpon>
+    <Compile Include="Helper\FormMethods.cs" />
+    <Compile Include="Helper\UserMethods.cs" />
+    <Compile Include="Migrations\202001211632531_new.cs" />
+    <Compile Include="Migrations\202001211632531_new.Designer.cs">
+      <DependentUpon>202001211632531_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -1852,26 +1830,8 @@
     <Content Include="Views\Home\UserViewPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001141139247_new.resx">
-      <DependentUpon>202001141139247_new.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001151308052_added_deletetime_to_form.resx">
-      <DependentUpon>202001151308052_added_deletetime_to_form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001151335313_added_new_follow_follower_table.resx">
-      <DependentUpon>202001151335313_added_new_follow_follower_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001151416464_deleted_follow_follower.resx">
-      <DependentUpon>202001151416464_deleted_follow_follower.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001151418352_added_subs.resx">
-      <DependentUpon>202001151418352_added_subs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001171224008_deleted_virtual_subs_from_userdetail.resx">
-      <DependentUpon>202001171224008_deleted_virtual_subs_from_userdetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001171227052_add_virtual_userdetail_from_job.resx">
-      <DependentUpon>202001171227052_add_virtual_userdetail_from_job.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001211632531_new.resx">
+      <DependentUpon>202001211632531_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

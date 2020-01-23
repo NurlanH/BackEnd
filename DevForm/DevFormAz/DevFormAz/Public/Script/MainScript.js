@@ -186,9 +186,8 @@ $(document).ready(function () {
         var currentcount = $(this).parent().siblings(".viewLikeCount").children(".likeCount")[0];
         var likeicon = $(this).children()[0]
         var findClass = likeicon.classList
-        console.log(currentcount.innerHTML)
         $.ajax({
-            url: '/Home/AddLike?id=' + id,
+            url: '/Home/Like?id=' + id,
             type: 'Get',
             success: function (res) {
                 currentcount.innerHTML = res;
@@ -212,12 +211,10 @@ $(document).ready(function () {
 
 
 $("#Subs").click(function () {
-    console.log();
     var id = $(this).attr("data-id");
     $.ajax({
-        url: "/Home/SubscribeUser",
-        type: 'POST',
-        data: { id: id },
+        url: `/Home/SubscribeUser/${id}`,
+        type: 'Get',
         success: function (res) {
             $("#count").text(res);
             if($("#Subs").text() == "Izle")
@@ -227,6 +224,7 @@ $("#Subs").click(function () {
             else {
                 $("#Subs").text("Izle");
             };
+            console.log(res)
                     
         }
     });
