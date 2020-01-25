@@ -8,13 +8,15 @@ using DevFormAz.DevFormData;
 using System.Web.Helpers;
 using System.Net.Mail;
 using System.Net;
+using System.Threading.Tasks;
+using System.Threading;
+using DevFormAz.Helper;
 
 namespace DevFormAz.Controllers
 {
     public class AccountController : Controller
     {
         DevFormAzDataBase db = new DevFormAzDataBase();
-
         // Login Page
         public ActionResult Login()
         {
@@ -28,6 +30,7 @@ namespace DevFormAz.Controllers
             if (ModelState.IsValid)
             {
                 var reqUser = db.Users.Where(e => e.Email == email).SingleOrDefault();
+
                 if (reqUser != null)
                 {
                     if (reqUser.IsActive == true)
@@ -38,8 +41,6 @@ namespace DevFormAz.Controllers
                             Session.Clear();
                             Session["UserId"] = reqUser.Id;
                             return RedirectToAction("ProfilePage", "Home");
-
-
                         }
                         else
                         {
@@ -53,7 +54,7 @@ namespace DevFormAz.Controllers
                 }
                 else
                 {
-                    ViewBag.LoginMsg = "Sistemdə belə bir istifadəçi tapılmadı";
+                        ViewBag.LoginMsg = "Sistemdə belə bir istifadəçi tapılmadı";
                 }
             }
             else
@@ -86,6 +87,7 @@ namespace DevFormAz.Controllers
                     db.SaveChanges();
                     EmailSend(user.UserControlPoint, user.Email);
                     return RedirectToAction("Login", "Account");
+
                 }
 
 

@@ -127,6 +127,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="DevFormData\DevFormAzDataBase.cs" />
     <Compile Include="Extentions\İmageControl.cs" />
     <Compile Include="Global.asax.cs">
@@ -138,6 +139,10 @@
     <Compile Include="Migrations\202001211632531_new.cs" />
     <Compile Include="Migrations\202001211632531_new.Designer.cs">
       <DependentUpon>202001211632531_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001251313183_n.cs" />
+    <Compile Include="Migrations\202001251313183_n.Designer.cs">
+      <DependentUpon>202001251313183_n.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -1773,6 +1778,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Public\Images\PostImgs\" />
+    <Folder Include="Views\Partial\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -1828,10 +1834,14 @@
     <Content Include="Views\Home\FormView.cshtml" />
     <Content Include="Views\Home\EditForm.cshtml" />
     <Content Include="Views\Home\UserViewPage.cshtml" />
+    <Content Include="Views\Shared\Partials\SendComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001211632531_new.resx">
       <DependentUpon>202001211632531_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001251313183_n.resx">
+      <DependentUpon>202001251313183_n.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

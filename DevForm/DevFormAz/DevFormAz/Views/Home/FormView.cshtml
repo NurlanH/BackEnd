@@ -1,14 +1,14 @@
 ﻿@model DevFormAz.Models.FormViewPageVM
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
-        int userId = 0;
-        if ((int?)Session["UserId"] != null)
-        {
-            userId = (int)Session["UserId"];
-        }
 
-    
+    int userId = 0;
+    if ((int?)Session["UserId"] != null)
+    {
+        userId = (int)Session["UserId"];
+    }
+
+
 }
 <!-- Main Content -->
 <section class="pageWrapperForIndex mt-3 mb-3">
@@ -98,7 +98,7 @@
                                             <div class="likeCount">
                                                 @Model.Form.FormLikes.Count()
                                             </div>
-                                          
+
                                         </div>
                                     </div>
                                 </div>
@@ -145,17 +145,60 @@
                         </div>
 
                         <hr />
-                        <div class="commentBox">
+                        @if (userId > 0)
+                        {
+                            <div class="commentBox">
 
-                            <form id="shareComment">
                                 <div class="cmtBoxInput">
-                                    <input type="text" class="form-control" />
+                                    <input id="cmtdesc" type="text" class="form-control" />
                                     <input id="sendCmt" type="button" class="btn btn-success ml-2" value="Gonder" />
                                 </div>
-                            </form>
 
-                        </div>
+                            </div>
+                        }
+
+
+
                     </div>
+
+                    @* User Comments *@
+
+                    <div id="usersCmtBox">
+                        @foreach (var item in Model.Comments)
+                        {
+                            <div class="userCmt mt-2">
+
+                                <div class="usercmtInfo">
+                                    <div class="usercmtImg">
+                                        @if (item.UserDetail.Image != null)
+                                        {
+                                            <img width="50" src="~/Public/Images/UsersFolder/ProfilePic/@item.UserDetail.Image" />
+
+                                        }
+                                        else
+                                        {
+                                            <img width="50" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" />
+                                        }
+                                    </div>
+                                    <div class="usercmtName">
+                                        <p>@item.UserDetail.User.FirstName @item.UserDetail.User.Lastname</p>
+                                        <span>@item.WritedTime.ToString("dd.MM.yyyy")</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="cmtBody">
+                                    <p>@item.Description</p>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+
+
+
+
+                    @* User Comments End *@
+
                 </div>
                 <!-- End ReadForm -->
                 <!-- Rightside -->
@@ -202,6 +245,22 @@
 
             }
         })
-        
+
+
+        $("#sendCmt").click(function () {
+            $.ajax({
+                url: "/Partial/SendComment",
+                data:
+                {
+                    formId:@Model.Form.Id,
+                    cmt: $("#cmtdesc").val()
+                },
+                success: function (res) {
+                    $("#usersCmtBox").prepend(res);
+                    $("#cmtdesc").val("")
+                }
+            })
+        })
+
     </script>
 }

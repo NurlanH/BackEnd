@@ -10,5 +10,6 @@ namespace DevFormAz.Models
         public Form Form { get; set; }
         public ICollection<TagList> TagLists { get; set; }
         public ICollection<FormImage> FormImages { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }

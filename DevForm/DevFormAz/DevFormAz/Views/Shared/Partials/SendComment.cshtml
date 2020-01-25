@@ -1,0 +1,27 @@
+﻿@model DevFormAz.Models.Comment
+
+<div class="userCmt mt-2">
+
+    <div class="usercmtInfo">
+        <div class="usercmtImg">
+            @if (Model.UserDetail.Image != null)
+            {
+                <img width="50" src="~/Public/Images/UsersFolder/ProfilePic/@Model.UserDetail.Image" />
+
+            }
+            else
+            {
+                <img width="50" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" />
+            }
+        </div>
+        <div class="usercmtName">
+            <p>@Model.UserDetail.User.FirstName @Model.UserDetail.User.Lastname</p>
+            <span>@Model.WritedTime.ToString("dd.MM.yyyy")</span>
+        </div>
+    </div>
+    <hr>
+    <div class="cmtBody">
+        <p>@Model.Description</p>
+    </div>
+
+</div>

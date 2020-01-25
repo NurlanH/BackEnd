@@ -36,7 +36,11 @@
                     <div class="mainForm">
                         <div class="forms">
                             <div class="postShareSec">
-                                <button id="formOpenBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Post Paylaş</button>
+                                @if ((int?)Session["UserId"] != null)
+                                {
+                                    <button id="formOpenBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Post Paylaş</button>
+
+                                }
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">

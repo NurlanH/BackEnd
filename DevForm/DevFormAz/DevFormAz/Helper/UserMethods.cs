@@ -6,18 +6,16 @@ using System.Web.Helpers;
 using DevFormAz.DevFormData;
 using DevFormAz.Models;
 using System.Web.Mvc;
+using System.Net;
+using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace DevFormAz.Helper
 {
 
-    public class UserMethods : Controller
+    public class UserMethods
     {
         DevFormAzDataBase db = new DevFormAzDataBase();
-
-
-
-
-
 
         //Add & remove skill for user
         public void AddRemoveSkills(UserDetail user, string skills, string checker)
@@ -72,10 +70,6 @@ namespace DevFormAz.Helper
             if (!db.Users.Any(u => u.Email == newEmail))
             {
                 user.User.Email = newEmail;
-            }
-            else
-            {
-                ViewBag.EmailErrorMsg = "Belə bir email artıq movcuddur";
             }
         }
     }

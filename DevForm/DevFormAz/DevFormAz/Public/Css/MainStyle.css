@@ -13,7 +13,33 @@
 }
 
 
-.readForm .FormHeaderDesc  .EditDelete {
+.userCmt {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background-color: #00000014;
+}
+
+
+   .userCmt .usercmtInfo {
+        display: flex;
+        align-items:center;
+        text-align:center;
+    }
+    .userCmt .usercmtInfo .usercmtName {
+        margin-left: 5px;
+    }
+    .userCmt .usercmtInfo p{
+       margin:0;
+    }
+    .userCmt .usercmtInfo span {
+        font-size:0.8em
+    }
+    .userCmt .cmtBody {
+        text-align:center;
+    }
+
+.readForm .FormHeaderDesc .EditDelete {
     display: flex;
     justify-content: flex-end;
 }

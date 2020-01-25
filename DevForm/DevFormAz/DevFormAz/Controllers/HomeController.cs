@@ -45,7 +45,11 @@ namespace DevFormAz.Controllers
             {
                 if (form != null)
                 {
+
+
                     var tagArr = tagname.Split(',');
+
+
                     Form newForm = new Form();
                     newForm.Name = form.Name;
                     newForm.WhenIsDeleted = DateTime.Now;
@@ -97,7 +101,7 @@ namespace DevFormAz.Controllers
         }
 
 
-        //View Post
+        //Forn view page
         public ActionResult FormView(int? id)
         {
             if (id != null)
@@ -110,7 +114,8 @@ namespace DevFormAz.Controllers
                     {
                         Form = db.Forms.Find(id),
                         TagLists = db.TagLists.Where(fId => fId.FormId == id).ToList(),
-                        FormImages = db.FormImages.Where(imgId => imgId.FormId == id).ToList()
+                        FormImages = db.FormImages.Where(imgId => imgId.FormId == id).ToList(),
+                        Comments = db.Comments.Where(c => c.FormId == id).OrderByDescending(u=>u.WritedTime).ToList()
                     };
 
                     if ((int?)Session["UserId"] != null)
@@ -131,6 +136,7 @@ namespace DevFormAz.Controllers
                             db.SaveChanges();
                         }
                     }
+                    
                     return View(frmVm);
 
                 }
@@ -147,8 +153,6 @@ namespace DevFormAz.Controllers
             }
 
         }
-
-
 
         //Edit user Form
         public ActionResult EditForm(int? id)
