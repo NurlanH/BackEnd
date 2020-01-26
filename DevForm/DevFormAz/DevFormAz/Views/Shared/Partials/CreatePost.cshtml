@@ -1,0 +1,87 @@
+﻿@model DevFormAz.Models.Form
+@{
+    var userId = (int?)Session["UserId"];
+}
+<div class="postBox">
+    <div class="postUserInfo">
+        <div class="boxOfInfo">
+            <div class="imageBox">
+                @if (Model.UserDetail.Image != null)
+                {
+                    <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/@Model.UserDetail.Image" alt="">
+                }
+                else
+                {
+                    <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                }
+
+            </div>
+            <div class="postUserName">
+                <p>@Model.UserDetail.User.FirstName @Model.UserDetail.User.Lastname</p>
+                <span>@Model.FormTime.ToString("dd.MM.yyyy")</span>
+            </div>
+        </div>
+    </div>
+    <div class="postUserContent">
+        <div class="boxOfContent">
+            <div class="posthead">
+                <h4>@Model.Name</h4>
+            </div>
+            <div class="postContent">
+                <p>@Model.Description</p>
+            </div>
+            <div class="mb-2">
+                @foreach (var tag in Model.TagLists.Where(i => i.FormId == Model.Id))
+                {
+                    <span class="mr-1">@tag.TagName</span>
+                }
+            </div>
+            <div class="postreadmore">
+                <a href="/Home/FormView/@Model.Id">Davamı</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="postGrades">
+        <div class="boxOfGrades">
+            <div class="viewIcon">
+                <i class="far fa-eye"></i>
+            </div>
+            <div class="viewLikeCount">
+                <div class="viewCount">
+                    <span class="view">@Model.FormViewCounts.Count()</span>
+
+                </div>
+                <div class="likeCount">
+                    @Model.FormLikes.Count()
+                </div>
+            </div>
+            <div class="LikeBtn">
+                @if (userId != null)
+                {
+                    <span class="Like" data-id="@Model.Id">
+
+                        @if (Model.FormLikes.Any(u => u.UserId == userId && u.FormId == Model.Id))
+                        {
+                            <i class="fas fa-thumbs-up likeHeart" style="color:#303F9F;"></i>
+
+                        }
+                        else
+                        {
+                            <i class="far fa-thumbs-up"></i>
+                        }
+
+                    </span>
+                }
+                else
+                {
+                    <span>
+                        <i class="far fa-thumbs-up" title="Bəyənmək üçün sistemə daxil olmalısınız"></i>
+                    </span>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+                                    }

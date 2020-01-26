@@ -32,7 +32,7 @@ namespace DevFormAz.Controllers
 
             FormTagViewModel formVm = new FormTagViewModel()
             {
-                Forms = db.Forms.ToList(),
+                Forms = db.Forms.OrderByDescending(i=>i.Id).ToList(),
                 TagLists = db.TagLists.ToList()
             };
             return View(formVm);
@@ -93,11 +93,10 @@ namespace DevFormAz.Controllers
                         }
                     }
                     db.SaveChanges();
-
+                    return PartialView("FormPage", newForm);
                 }
             }
-
-            return RedirectToAction("FormPage", "Home");
+            return View();
         }
 
 

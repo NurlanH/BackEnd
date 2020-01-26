@@ -5,17 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="~/Public/OwlCarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/Public/OwlCarousel/owl.theme.default.min.css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="~/Public/Bootstrap/css/bootstrap.min.css">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="~/Public/FontAwesome/css/all.css">
-    <!-- Main css -->
-    <link rel="stylesheet" href="~/Public/Css/MainStyle.css">
-    <!-- Animations -->
-    <link rel="stylesheet" href="~/Public/Animation/animate.css">
+    @Styles.Render("~/Content/css")
     <!-- My font -->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700,800&display=swap" rel="stylesheet">
     <title>@ViewBag.Title</title>
@@ -35,11 +25,7 @@
 
 
     <!-- Scripts Section -->
-    <script src="~/Public/Jquery/jquery-3.4.1.min.js"></script>
-    <script src="~/Public/Particle/jquery.particleground.min.js"></script>
-    <script src="~/Public/OwlCarousel/owl.carousel.min.js"></script>
-    <script src="~/Public/Bootstrap/js/bootstrap.min.js"></script>
-    <script src="~/Public/Script/MainScript.js"></script>
+    @Scripts.Render("~/Content/js")
     @RenderSection("scripts", false)
     <!-- End Scripts Section -->
 </body>

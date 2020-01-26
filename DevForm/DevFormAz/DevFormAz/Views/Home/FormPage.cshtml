@@ -51,7 +51,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form method="post" action="/Home/FormPage" enctype="multipart/form-data">
+                                                <form id="createPost" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <label for="recipient-name" class="col-form-label">Başlıq</label>
                                                         <input type="text" name="name" class="form-control" id="recipient-name">
@@ -62,7 +62,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="upload-file" class="col-form-label">Şəkil yüklə</label>
-                                                        <input type="file" name="formImg" multiple class="form-control fileinput" />
+                                                        <input id="imguploadpost" type="file" name="formImg" multiple class="form-control fileinput" />
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="message-text" class="col-form-label">Tag əlavə et</label>
@@ -71,7 +71,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Ləğv et</button>
-                                                        <button id="sharebtn" type="submit" class="btn btn-primary">Paylaş</button>
+                                                        <button id="sharebtn" type="button" class="btn btn-primary">Paylaş</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -212,3 +212,25 @@
     </div>
 </section>
 <!-- Main Content -->
+
+
+@section scripts{
+    
+    <script>
+        $("#sharebtn").click(function ()
+        {
+            $.ajax({
+                url: "/Home/FormPage",
+                data: {
+                    form: $("#createPost").serialize(),
+                    tagname: $("input[name='tagname']").val(),
+                    formImg: $("#imguploadpost").val()
+                },
+                type: "POST",
+                success: function (res) {
+                    console.log(res)
+                }
+            })
+        })
+    </script>
+    }

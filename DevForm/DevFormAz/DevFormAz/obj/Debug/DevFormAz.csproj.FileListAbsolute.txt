@@ -526,3 +526,16 @@ C:\Users\Nurik\Desktop\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.p
 C:\Users\Nurik\Desktop\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations._new.resources
 C:\Users\Nurik\Desktop\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.csproj.GenerateResource.cache
 C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.n.resources
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.Owin.dll
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.Owin.Security.dll
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Owin.dll
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.Owin.xml
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\nurlanah\Source\Repos\BackEnd\DevForm\DevFormAz\DevFormAz\bin\Microsoft.Owin.Security.xml

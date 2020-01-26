@@ -228,7 +228,34 @@
 
 @section scripts{
     <script>
-        var clickedImg = false;
+
+        $(document).ready(function () {
+
+            //Signal R
+               $("#sendCmt").click(function () {
+                    $.ajax({
+                        url: "/Partial/SendComment",
+                        data:
+                        {
+                            formId:@Model.Form.Id,
+                            cmt: $("#cmtdesc").val()
+                        },
+                        success: function (res) {
+                            $("#usersCmtBox").prepend(res);
+                            $("#cmtdesc").val("")
+                        }
+                    })
+               })
+            //End SignalR
+
+
+
+
+
+
+
+
+            var clickedImg = false;
         $("#errorImg img").click(function () {
 
             if (clickedImg == false) {
@@ -242,24 +269,9 @@
                 $(this)[0].style.transform = "scale(1)";
                 $(this)[0].style.zIndex = "0";
                 console.log(clickedImg)
-
             }
         })
 
-
-        $("#sendCmt").click(function () {
-            $.ajax({
-                url: "/Partial/SendComment",
-                data:
-                {
-                    formId:@Model.Form.Id,
-                    cmt: $("#cmtdesc").val()
-                },
-                success: function (res) {
-                    $("#usersCmtBox").prepend(res);
-                    $("#cmtdesc").val("")
-                }
-            })
         })
 
     </script>
