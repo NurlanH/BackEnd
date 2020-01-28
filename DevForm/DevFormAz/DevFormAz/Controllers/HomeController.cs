@@ -16,7 +16,7 @@ namespace DevFormAz.Controllers
 {
     public class HomeController : Controller
     {
-        DevFormAzDataBase db = new DevFormAzDataBase();
+        readonly DevFormAzDataBase db = new DevFormAzDataBase();
         FormMethods helperMethods = new FormMethods();
         UserMethods helperUserMethod = new UserMethods();
 
@@ -41,21 +41,23 @@ namespace DevFormAz.Controllers
         [HttpPost]
         public ActionResult FormPage(Form form, string tagname, List<HttpPostedFileBase> formImg)
         {
+
+            var userId = (int)Session["UserId"];
             if (ModelState.IsValid)
             {
                 if (form != null)
                 {
-
-
+                    
                     var tagArr = tagname.Split(',');
 
 
-                    Form newForm = new Form();
-                    newForm.Name = form.Name;
-                    newForm.WhenIsDeleted = DateTime.Now;
-                    newForm.FormTime = DateTime.Now;
-                    newForm.Description = form.Description;
-                    newForm.UserDetailId = (int)Session["UserId"];
+                    Form newForm = new Form() {
+                        Name = form.Name,
+                        WhenIsDeleted = DateTime.Now,
+                        FormTime = DateTime.Now,
+                        Description = form.Description,
+                        UserDetailId = (int)Session["UserId"]
+                    };
                     db.Forms.Add(newForm);
                     db.SaveChanges();
 
@@ -65,9 +67,12 @@ namespace DevFormAz.Controllers
                     {
                         if (tagArr[i] != null && tagArr[i] != "" && tagArr[i] != " ")
                         {
-                            TagList tag = new TagList();
-                            tag.TagName = tagArr[i];
-                            tag.FormId = newForm.Id;
+                            TagList tag = new TagList()
+                            {
+                                TagName = tagArr[i],
+                                FormId = newForm.Id
+                            };
+                           
                             db.TagLists.Add(tag);
                         }
                     }
@@ -92,8 +97,12 @@ namespace DevFormAz.Controllers
 
                         }
                     }
+
+                    var mySubs = db.Subscribes.Where(f => f.FollowId == userId).Select(fo => fo.FollowerId).ToList();
+                    var myInfo = db.Users.Find(userId);
                     db.SaveChanges();
-                    return PartialView("FormPage", newForm);
+                    helperMethods.SendNotificationAsync(mySubs, myInfo);
+                    return RedirectToAction("FormPage","Home");
                 }
             }
             return View();

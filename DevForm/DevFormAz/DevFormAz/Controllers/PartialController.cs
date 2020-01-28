@@ -12,10 +12,6 @@ namespace DevFormAz.Controllers
     {
         DevFormAzDataBase db = new DevFormAzDataBase();
         // GET: Partial
-      
-
-        
-
 
         public ActionResult SendComment(int? formId,string cmt)
         {

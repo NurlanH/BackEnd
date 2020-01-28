@@ -8,6 +8,8 @@ using DevFormAz.DevFormData;
 using System.Web.Mvc;
 using System.Data.Entity;
 using DevFormAz.Extentions;
+using System.Net;
+using System.Net.Mail;
 
 namespace DevFormAz.Helper
 {
@@ -83,6 +85,8 @@ namespace DevFormAz.Helper
             await db.SaveChangesAsync();
         }
 
+
+
         //Follow
         public async Task Follow(int followerId, int followId)
         {
@@ -102,6 +106,36 @@ namespace DevFormAz.Helper
             var unfollow = await db.Subscribes.Where(unf => unf.FollowerId == followerId && unf.FollowId == followId).SingleOrDefaultAsync();
             db.Subscribes.Remove(unfollow);
             await db.SaveChangesAsync();
+        }
+
+        public async Task SendNotificationAsync(List<int> followers , User user)
+        {
+            Task.Run(() =>
+            {
+                foreach (var item in followers)
+                {
+                    var userEmail = db.Users.Find(item).Email;
+
+                    NetworkCredential cred = new NetworkCredential("developerformaz@gmail.com", "Nurlan1998###");
+                    SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+                    {
+                        UseDefaultCredentials = false,
+                        Credentials = cred,
+                        EnableSsl = true
+                    };
+                    MailMessage msg = new MailMessage()
+                    {
+                        Body = $"<p>{user.FirstName + " " + user.Lastname } yeni post paylashdi</p>",
+                        Subject = "DevForm Bildirim",
+                        IsBodyHtml = true
+                    };
+
+                    MailAddress address = new MailAddress(userEmail);
+                    msg.To.Add(address);
+                    msg.From = new MailAddress("developerformaz@gmail.com");
+                    client.Send(msg);
+                }
+            });
         }
 
     }

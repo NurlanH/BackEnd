@@ -54,7 +54,7 @@ namespace DevFormAz.Controllers
                 }
                 else
                 {
-                        ViewBag.LoginMsg = "Sistemdə belə bir istifadəçi tapılmadı";
+                    ViewBag.LoginMsg = "Sistemdə belə bir istifadəçi tapılmadı";
                 }
             }
             else
@@ -81,8 +81,10 @@ namespace DevFormAz.Controllers
                 if (!haveUser && user.Password == rePassword)
                 {
                     db.Users.Add(user);
-                    UserDetail UDetail = new UserDetail();
-                    UDetail.UserId = user.Id;
+                    UserDetail UDetail = new UserDetail()
+                    {
+                        UserId = user.Id
+                    };
                     db.UserDetails.Add(UDetail);
                     db.SaveChanges();
                     EmailSend(user.UserControlPoint, user.Email);
@@ -103,31 +105,40 @@ namespace DevFormAz.Controllers
 
 
         //Email send
-        public ActionResult EmailSend(Guid id, string email)
+        public async Task EmailSend(Guid id, string email)
         {
             try
             {
-                NetworkCredential cred = new NetworkCredential("developerformaz@gmail.com", "Nurlan1998###");
-                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-                client.UseDefaultCredentials = false;
-                client.Credentials = cred;
-                client.EnableSsl = true;
+                Task.Run(() =>
+                {
 
-                MailMessage msg = new MailMessage();
-                msg.Body = $"<a href = 'https://localhost:44309/Account/EmailAccept?token={id}'>Hesabınızı təsdiq edin </a>";
-                msg.Subject = "Hesabın aktiv edilməsi";
-                msg.IsBodyHtml = true;
-                MailAddress address = new MailAddress(email);
-                msg.To.Add(address);
-                msg.From = new MailAddress("developerformaz@gmail.com");
-                client.Send(msg);
-                ViewBag.EmailMsg = "Hesabını aktiv etmək üçün sizə mail göndərdik!";
-                return View("Login");
+                    NetworkCredential cred = new NetworkCredential("developerformaz@gmail.com", "Nurlan1998###");
+                    SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+                    {
+                        UseDefaultCredentials = false,
+                        Credentials = cred,
+                        EnableSsl = true
+                    };
+
+                    MailMessage msg = new MailMessage()
+                    {
+                        Body = $"<a href = 'https://localhost:44309/Account/EmailAccept?token={id}'>Hesabınızı təsdiq edin </a>",
+                        Subject = "Hesabın aktiv edilməsi",
+                        IsBodyHtml = true
+                    };
+
+                    MailAddress address = new MailAddress(email);
+                    msg.To.Add(address);
+                    msg.From = new MailAddress("developerformaz@gmail.com");
+                    client.Send(msg);
+                    ViewBag.EmailMsg = "Hesabını aktiv etmək üçün sizə mail göndərdik!";
+
+                });
+               
             }
             catch
             {
                 ViewBag.EmailMsg = "Səhv baş verdi!";
-                return View("Login");
             }
 
         }
