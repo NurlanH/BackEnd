@@ -8,6 +8,8 @@
     {
         userId = (int)Session["UserId"];
     }
+
+    var savedForms = Model.SavedForms.Where(u=>u.UserDetailId == userId).Select(f => f.Form);
 }
 <!-- Main Content -->
 <section class="pageWrapperForIndex mt-3 mb-3">
@@ -36,7 +38,7 @@
 
                                     <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
                                         <div class="postCount">
-                                            <a href=""><i class="fas fa-bullhorn mr-2"></i>@Model.Forms.Where(f=>f.isDeleted == false).Count()</a>
+                                            <a href=""><i class="fas fa-bullhorn mr-2"></i>@Model.Forms.Where(f => f.isDeleted == false).Count()</a>
                                             <p>Postlar</p>
                                         </div>
                                     </div>
@@ -48,7 +50,7 @@
                                     </div>
                                     <div class="col-md-4 col-4 col-sm-4 d-flex justify-content-center">
                                         <div class="followingBox">
-                                            <a><i class="fas fa-user mr-2"></i><span >@Model.Subscribes.Where(u => u.FollowerId == Model.GetUserDetail.Id).Count()</span></a>
+                                            <a><i class="fas fa-user mr-2"></i><span>@Model.Subscribes.Where(u => u.FollowerId == Model.GetUserDetail.Id).Count()</span></a>
                                             <p>İzləyir</p>
                                         </div>
                                     </div>
@@ -118,12 +120,24 @@
                             <li data-tab-target="#UserInformation" class="targetActive">
                                 Məlumatlar
                             </li>
-                            <li data-tab-target="#myPosts">
-                                Postlarım
-                            </li>
-                            <li data-tab-target="#mySaves">
-                                Qeydlər
-                            </li>
+
+                            @if (Model.GetUserDetail.Id == userId)
+                            {
+                                <li data-tab-target="#myPosts">
+                                    Postlarım
+                                </li>
+                                <li data-tab-target="#mySaves">
+                                    Qeydlər
+                                </li>
+                            }
+                            else
+                            {
+
+                                <li data-tab-target="#myPosts">
+                                    Postlar
+                                </li>
+                            }
+
                         </ul>
                         <hr>
                     </div>
@@ -205,7 +219,15 @@
 
                     <div id="myPosts" data-tab-content>
                         <div class="mypostHeader">
-                            <h2>Postlarım</h2>
+                            @if (Model.GetUserDetail.Id == userId)
+                            {
+                                <h2>Postlarım</h2>
+
+                            }
+                            else
+                            {
+                                <h2>Postlar</h2>
+                            }
                         </div>
                         <div class="mypostContent">
                             @foreach (var item in Model.Forms.Where(uid => uid.UserDetailId == Model.GetUserDetail.Id))
@@ -238,12 +260,12 @@
                                                     <h4>@item.Name</h4>
                                                 </div>
                                                 <div class="postContent">
-                                                    <p>@item.Description</p>
+                                                    <p class="mb-0">@item.Description</p>
                                                 </div>
                                                 <div class="mb-2">
                                                     @foreach (var tag in Model.Tags.Where(i => i.FormId == item.Id))
                                                     {
-                                                        <span class="mr-1">@tag.TagName</span>
+                                                        <span class="mr-1 forPostTagsDesign">@tag.TagName</span>
                                                     }
                                                 </div>
                                                 <div class="postreadmore">
@@ -301,10 +323,106 @@
                             }
                         </div>
                     </div>
+                   
                     <div id="mySaves" data-tab-content>
-                        <h2>qeydlerim</h2>
+                        <h2>Qeydlərim</h2>
+
+                        <div class="mypostContent">
+                            @foreach (var frm in savedForms)
+                            {
+
+                                <div class="postBox">
+                                    <div class="postUserInfo">
+                                        <div class="boxOfInfo">
+                                            <div class="imageBox">
+                                                @if (frm.UserDetail.Image != null)
+                                                {
+                                                    <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/@frm.UserDetail.Image" alt="">
+                                                }
+                                                else
+                                                {
+                                                    <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                                }
+
+                                            </div>
+                                            <div class="postUserName">
+                                                <p>@frm.UserDetail.User.FirstName @frm.UserDetail.User.Lastname</p>
+                                                <span>@frm.FormTime.ToString("dd.MM.yyyy")</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="postUserContent">
+                                        <div class="boxOfContent">
+                                            <div class="posthead">
+                                                <h4>@frm.Name</h4>
+                                            </div>
+                                            <div class="postContent">
+                                                <p class="mb-0">@frm.Description</p>
+                                            </div>
+                                            <div class="mb-2">
+                                                @foreach (var tag in Model.Tags.Where(i => i.FormId == frm.Id))
+                                                {
+                                                    <span class="mr-1 forPostTagsDesign">@tag.TagName</span>
+                                                }
+                                            </div>
+                                            <div class="postreadmore">
+                                                <a href="/Home/FormView/@frm.Id">Davamı</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="postGrades">
+                                        <div class="boxOfGrades">
+                                            <div class="viewIcon">
+                                                <i class="far fa-eye"></i>
+                                            </div>
+                                            <div class="viewLikeCount">
+                                                <div class="viewCount">
+                                                    <span class="view">@frm.FormViewCounts.Count()</span>
+
+                                                </div>
+                                                <div class="likeCount">
+                                                    @frm.FormLikes.Count()
+                                                </div>
+                                            </div>
+                                            <div class="LikeBtn">
+                                                @if (userId != 0)
+                                                {
+                                                    <span class="Like" data-id="@frm.Id">
+
+                                                        @if (frm.FormLikes.Any(u => u.UserId == userId && u.FormId == frm.Id))
+                                                        {
+                                                            <i class="fas fa-thumbs-up likeHeart" style="color:#303F9F;"></i>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="far fa-thumbs-up"></i>
+                                                        }
+
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span>
+                                                        <i class="far fa-thumbs-up" title="Bəyənmək üçün sistemə daxil olmalısınız"></i>
+                                                    </span>
+                                                }
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+                            }
+
+                            </div>
+
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>

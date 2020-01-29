@@ -110,11 +110,18 @@
                             <div class="EditDelete">
                                 @if ((int?)Session["UserId"] != null && Model.Form.UserDetailId == (int)Session["UserId"])
                                 {
+
                                     <div class="editIcon mr-2">
-                                        <a href="/Home/EditForm/@Model.Form.Id"><i class="fas fa-edit"></i></a>
+                                        <a class="btn" href="/Home/EditForm/@Model.Form.Id"><i class="fas fa-edit"></i></a>
                                     </div>
                                     <div class="deleteIcon ">
-                                        <a href="/Home/DeleteForm/@Model.Form.Id"><i class="fas fa-trash"></i></a>
+                                        <a class="btn" href="/Home/DeleteForm/@Model.Form.Id"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                }
+                                else if((int?)Session["UserId"] != null)
+                                {
+                                    <div class="saveIcon  mr-2">
+                                        <a class="btn btn-success" href="/Home/SaveForm/@Model.Form.Id"><i class="fas fa-save"></i></a>
                                     </div>
                                 }
                             </div>
@@ -210,11 +217,15 @@
                                 <hr>
                             </div>
                             <div class="taglists">
-                                <a href="#">Html <span>×1500</span></a>
-                                <a href="#">Css <span>×1500</span></a>
+                                @foreach (var item in Model.TagLists)
+                                {
+                                    <a href="#">@item.TagName<span>×@item.TagName.Count()</span></a>
+                                }
+
+                                @*<a href="#">Css <span>×1500</span></a>
                                 <a href="#">Javascript <span>×1500</span></a>
                                 <a href="#">C# <span>×1500</span></a>
-                                <a href="#">Python <span>×1500</span></a>
+                                <a href="#">Python <span>×1500</span></a>*@
                             </div>
                         </div>
                     </div>

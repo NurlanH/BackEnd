@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DevFormAz</RootNamespace>
     <AssemblyName>DevFormAz</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -81,9 +81,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -166,6 +166,26 @@
     <Compile Include="Migrations\202001251313183_n.Designer.cs">
       <DependentUpon>202001251313183_n.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001282259277_added_new_savedform.cs" />
+    <Compile Include="Migrations\202001282259277_added_new_savedform.Designer.cs">
+      <DependentUpon>202001282259277_added_new_savedform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001282319284_added_virtual_SavedForm.cs" />
+    <Compile Include="Migrations\202001282319284_added_virtual_SavedForm.Designer.cs">
+      <DependentUpon>202001282319284_added_virtual_SavedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001282329086_added_virtual_SavedForm_without_list.cs" />
+    <Compile Include="Migrations\202001282329086_added_virtual_SavedForm_without_list.Designer.cs">
+      <DependentUpon>202001282329086_added_virtual_SavedForm_without_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001282333470_added_virtual_SavedForm_ne.cs" />
+    <Compile Include="Migrations\202001282333470_added_virtual_SavedForm_ne.Designer.cs">
+      <DependentUpon>202001282333470_added_virtual_SavedForm_ne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001282350241_added_virtual_SavedForm_without_list1.cs" />
+    <Compile Include="Migrations\202001282350241_added_virtual_SavedForm_without_list1.Designer.cs">
+      <DependentUpon>202001282350241_added_virtual_SavedForm_without_list1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\DevUsersVm.cs" />
@@ -177,6 +197,7 @@
     <Compile Include="Models\FormViewCount.cs" />
     <Compile Include="Models\FormViewPageVM.cs" />
     <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\SavedForm.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\Subscribe.cs" />
     <Compile Include="Models\TagList.cs" />
@@ -1867,6 +1888,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001251313183_n.resx">
       <DependentUpon>202001251313183_n.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001282259277_added_new_savedform.resx">
+      <DependentUpon>202001282259277_added_new_savedform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001282319284_added_virtual_SavedForm.resx">
+      <DependentUpon>202001282319284_added_virtual_SavedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001282329086_added_virtual_SavedForm_without_list.resx">
+      <DependentUpon>202001282329086_added_virtual_SavedForm_without_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001282333470_added_virtual_SavedForm_ne.resx">
+      <DependentUpon>202001282333470_added_virtual_SavedForm_ne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001282350241_added_virtual_SavedForm_without_list1.resx">
+      <DependentUpon>202001282350241_added_virtual_SavedForm_without_list1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

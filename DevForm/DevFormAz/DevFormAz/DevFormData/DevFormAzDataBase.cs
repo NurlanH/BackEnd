@@ -7,9 +7,9 @@ using System.Web;
 
 namespace DevFormAz.DevFormData
 {
-    public class DevFormAzDataBase :DbContext
+    public class DevFormAzDataBase : DbContext
     {
-        public DevFormAzDataBase():base("DevFormAz")
+        public DevFormAzDataBase() : base("DevFormAz")
         {
 
         }
@@ -26,6 +26,7 @@ namespace DevFormAz.DevFormData
         public DbSet<FormViewCount> FormViewCounts { get; set; }
         public DbSet<FormImage> FormImages { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
+        public DbSet<SavedForm> SavedForms { get; set; }
 
     }
 }

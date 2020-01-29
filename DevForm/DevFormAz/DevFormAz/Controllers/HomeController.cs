@@ -17,8 +17,8 @@ namespace DevFormAz.Controllers
     public class HomeController : Controller
     {
         readonly DevFormAzDataBase db = new DevFormAzDataBase();
-        FormMethods helperMethods = new FormMethods();
-        UserMethods helperUserMethod = new UserMethods();
+        readonly FormMethods helperMethods = new FormMethods();
+        readonly UserMethods helperUserMethod = new UserMethods();
 
         //Home page
         public ActionResult Index()
@@ -282,7 +282,8 @@ namespace DevFormAz.Controllers
                 GetUserDetail = db.UserDetails.Find(userId),
                 Forms = db.Forms.Where(u => u.UserDetailId == userId).ToList(),
                 Tags = db.TagLists.ToList(),
-                Subscribes = db.Subscribes.ToList()
+                Subscribes = db.Subscribes.ToList(),
+                SavedForms = db.SavedForms.ToList()
             };
             return View(vm);
         }
@@ -306,7 +307,8 @@ namespace DevFormAz.Controllers
                         GetUserDetail = db.UserDetails.Find(id),
                         Forms = db.Forms.Where(u => u.UserDetailId == id).ToList(),
                         Tags = db.TagLists.ToList(),
-                        Subscribes = db.Subscribes.ToList()
+                        Subscribes = db.Subscribes.ToList(),
+                        SavedForms = db.SavedForms.Where(u=>u.UserDetailId == id).ToList()
                     };
                     return View("ProfilePage", vm);
                 }
@@ -435,5 +437,28 @@ namespace DevFormAz.Controllers
             return await db.Subscribes.Where(f => f.FollowId == id).CountAsync();
         }
 
+
+        //Save Form
+        public async Task<ActionResult> SaveForm(int? id)
+        {
+            if (id != null)
+            {
+                var userId = (int)Session["UserId"];
+                var checkIfSaved = db.SavedForms.Any(u => u.UserDetailId == userId && u.FormId == id);
+                if (!checkIfSaved)
+                {
+                    SavedForm svForm = new SavedForm()
+                    {
+                        UserDetailId = userId,
+                        FormId = (int)id
+                    };
+                    db.SavedForms.Add(svForm);
+                    await db.SaveChangesAsync();
+                }
+               
+            }
+
+            return RedirectToAction("ProfilePage", "Home");
+        }
     }
 }

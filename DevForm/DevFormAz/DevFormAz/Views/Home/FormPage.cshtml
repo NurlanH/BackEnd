@@ -118,7 +118,7 @@
                                                     <div class="mb-2">
                                                         @foreach (var tag in Model.TagLists.Where(i => i.FormId == item.Id))
                                                         {
-                                                            <span class="mr-1">@tag.TagName</span>
+                                                            <span class="mr-1 forPostTagsDesign">@tag.TagName</span>
                                                         }
                                                     </div>
                                                     <div class="postreadmore">
@@ -197,11 +197,16 @@
                                 <hr>
                             </div>
                             <div class="taglists">
-                                <a href="#">Html <span>×1500</span></a>
+
+                                @foreach (var item in Model.TagLists.Select(s=>s.TagName))
+                                {
+                                    <a href="#">@item<span>×@Model.TagLists.Count(n=>n.TagName == item)</span></a>
+                                }
+                                @*<a href="#">Html <span>×1500</span></a>
                                 <a href="#">Css <span>×1500</span></a>
                                 <a href="#">Javascript <span>×1500</span></a>
                                 <a href="#">C# <span>×1500</span></a>
-                                <a href="#">Python <span>×1500</span></a>
+                                <a href="#">Python <span>×1500</span></a>*@
                             </div>
                         </div>
                     </div>

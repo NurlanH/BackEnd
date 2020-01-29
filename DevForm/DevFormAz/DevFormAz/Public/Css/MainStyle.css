@@ -1,5 +1,137 @@
 ﻿@charset "UTF-8";
 
+#mySaves h2{
+    text-align:center;
+    font-weight:700;
+}
+
+#mySaves .mypostContent .postBox {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding:20px 0;
+    background: #00000014;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.profileBox .userActivity #mySaves .mypostContent .postBox .postUserInfo {
+    width: 30%;
+    padding: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+    .profileBox .userActivity #mySaves .mypostContent .postBox .postUserInfo .imageBox {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .profileBox .userActivity #mySaves .mypostContent .postBox .postUserInfo .postUserName {
+        text-align: center;
+    }
+
+        .profileBox .userActivity #mySaves .mypostContent .postBox .postUserInfo .postUserName p {
+            margin-bottom: 1px;
+        }
+
+        .profileBox .userActivity #mySaves .mypostContent .postBox .postUserInfo .postUserName span {
+            display: block;
+            font-size: 0.7em;
+        }
+
+.profileBox .userActivity #mySaves .mypostContent .postBox .postUserContent {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+}
+
+    .profileBox .userActivity #mySaves .mypostContent .postBox .postUserContent p {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .profileBox .userActivity #mySaves .mypostContent .postBox .postUserContent .postreadmore a {
+        text-decoration: none;
+        padding: 5px 10px;
+        background-color: #303F9F;
+        color: #ffffff;
+        border-radius: 3px;
+        border: 1px solid #303F9F;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+        .profileBox .userActivity #mySaves .mypostContent .postBox .postUserContent .postreadmore a:hover {
+            background-color: #ffffff;
+            color: #303F9F;
+        }
+
+.profileBox .userActivity #mySaves .mypostContent .postBox .postGrades {
+    width: 20%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .profileBox .userActivity #mySaves .mypostContent .postBox .postGrades h3 {
+        margin-bottom: 0;
+    }
+
+    .profileBox .userActivity #mySaves .mypostContent .postBox .postGrades .LikeDisslike i {
+        font-size: 2em;
+        cursor: pointer;
+        color: #303F9F;
+        -webkit-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
+    }
+
+        .profileBox .userActivity #mySaves .mypostContent .postBox .postGrades .LikeDisslike i:hover {
+            color: #536DFE;
+        }
+
+
+.forPostTagsDesign {
+    background-color: #536DFE;
+    color: white;
+    font-size: 0.8em;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
 
 .foreditForm{
     display:flex;
@@ -11,6 +143,8 @@
     width: 50%;
     display:inline-block;
 }
+
+
 
 
 .userCmt {
@@ -1248,6 +1382,7 @@ footer {
         height: auto;
         min-height: 150px;
         border-radius: 3px;
+        padding: 20px 0;
         margin-bottom: 10px;
         background: #00000014;
         display: -webkit-box;
@@ -1304,11 +1439,10 @@ footer {
             align-items: center;
             -webkit-box-pack: center;
             -ms-flex-pack: center;
-            justify-content: center;
         }
 
             .profileBox .userActivity #myPosts .mypostContent .postBox .postUserContent p {
-                width: 361px;
+                width: 100%;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -1681,6 +1815,7 @@ footer {
             width: 100%;
             height: auto;
             min-height: 150px;
+            padding:20px 0;
             border-radius: 3px;
             margin-bottom: 10px;
             background: #00000014;
@@ -1924,6 +2059,7 @@ footer {
     .readForm .tagsBox{
         display:flex;
         justify-content:center;
+        flex-wrap:wrap;
     }
 
     .readForm .tagsBox span {
@@ -1933,6 +2069,7 @@ footer {
         border-radius: 3px;
         color: white;
         font-weight: 700;
+        margin-bottom:5px
     }
 
 @media only screen and (min-width: 0px) and (max-width: 399px) {

@@ -60,13 +60,15 @@
 
             if (!whishDeleteImg.includes(clickedImgArr[clickedImgArr.length - 1]))
             {
-                whishDeleteImg.push(clickedImgArr[clickedImgArr.length - 1])
-                
+                whishDeleteImg.push(clickedImgArr[clickedImgArr.length - 1]);
+                $(this).css({"opacity":"0.5"})
             }
             else
             {
                 var index = whishDeleteImg.indexOf(removeImg);
-                whishDeleteImg.splice(index,1)
+                whishDeleteImg.splice(index, 1)
+                $(this).css({"opacity":"1"})
+
             }
 
             $("#deleteList").val(whishDeleteImg);

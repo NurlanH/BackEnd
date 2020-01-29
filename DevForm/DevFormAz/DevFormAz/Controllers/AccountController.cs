@@ -16,7 +16,7 @@ namespace DevFormAz.Controllers
 {
     public class AccountController : Controller
     {
-        DevFormAzDataBase db = new DevFormAzDataBase();
+        readonly DevFormAzDataBase db = new DevFormAzDataBase();
         // Login Page
         public ActionResult Login()
         {
