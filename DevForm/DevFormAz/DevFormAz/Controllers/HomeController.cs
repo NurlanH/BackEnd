@@ -11,6 +11,8 @@ using System.Data.Entity.Validation;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Web.Helpers;
+using PagedList;
+using PagedList.Mvc;
 
 namespace DevFormAz.Controllers
 {
@@ -27,8 +29,9 @@ namespace DevFormAz.Controllers
         }
 
         //Form page
-        public ActionResult FormPage()
+        public ActionResult FormPage(int? page)
         {
+            
 
             FormTagViewModel formVm = new FormTagViewModel()
             {
@@ -269,7 +272,7 @@ namespace DevFormAz.Controllers
         //Tag page
         public ActionResult TagPage()
         {
-            return View();
+            return View(db.TagLists.ToList());
         }
 
         //Profile page
@@ -459,6 +462,18 @@ namespace DevFormAz.Controllers
             }
 
             return RedirectToAction("ProfilePage", "Home");
+        }
+
+
+        //Finding forms for tagname
+        public ActionResult FindPost(int? id)
+        {
+            if(id != null)
+            {
+                var data = db.TagLists.Find(id).Forms.ToList();
+                return View(data);
+            }
+            return RedirectToAction("FormPage","Home");
         }
     }
 }

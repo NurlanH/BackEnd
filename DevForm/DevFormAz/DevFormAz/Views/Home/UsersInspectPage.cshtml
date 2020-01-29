@@ -1,16 +1,15 @@
 ﻿@model DevFormAz.Models.DevUsersVm
-    <!-- Main Content -->
+<!-- Main Content -->
 <section class="pageWrapperForIndex mt-3 mb-3">
     <div class="container">
         <div id="usersList">
             <div class="userSearch">
-                <input class="form-control" type="search" placeholder="Axtar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Axtar</button>
+                <input id="searchPerson" onkeyup="SearchPerson()" class="form-control" type="search" placeholder="Axtar" aria-label="Search">
             </div>
             <div class="row">
                 @foreach (var item in Model.UserDetails)
                 {
-                    <div class="col-md-4 col-12 col-sm-6 col-lg-3">
+                    <div class="col-md-4 col-12 col-sm-6 col-lg-3 userMainBox">
                         <div class="userBox">
                             <div class="userHead">
                                 @if (item.Image != null)
@@ -20,7 +19,7 @@
                                 }
                                 else
                                 {
-                                    <img  src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                    <img src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
 
                                 }
                                 <h5><a href="/Home/ProfileViewPage/@item.Id">@item.User.FirstName @item.User.Lastname</a></h5>
@@ -37,7 +36,7 @@
 
                             </div>
                             <div class="userPopularity">
-                                <p class="userFollowers">İzləyici:<span>@Model.Subscribes.Where(f=>f.FollowId == item.Id).Count()</span></p>
+                                <p class="userFollowers">İzləyici:<span>@Model.Subscribes.Where(f => f.FollowId == item.Id).Count()</span></p>
                                 <p class="userFollowers">İzləyir: <span>@Model.Subscribes.Where(f => f.FollowerId == item.Id).Count()</span></p>
                             </div>
                         </div>
@@ -48,3 +47,28 @@
     </div>
 </section>
 <!-- Main Content -->
+
+
+
+@section scripts{
+    <script>
+        function SearchPerson() {
+            var input, h5,txtValue,filter,box;
+            input = document.getElementById("searchPerson");
+            filter = input.value.toLowerCase();
+            h5 = document.getElementsByTagName("h5");
+            box = document.getElementsByClassName("userMainBox");
+            for (i = 0; i < h5.length; i++) {
+                a = h5[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    box[i].style.display = "";
+                } else {
+                    box[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+
+}

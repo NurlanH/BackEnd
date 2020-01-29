@@ -1,7 +1,53 @@
-﻿
+﻿@model ICollection<DevFormAz.Models.TagList>
 @{
     ViewBag.Title = "TagPage";
 }
 
-<h2>TagPage</h2>
+<!-- Main Content -->
+<section class="pageWrapperForIndex mt-3 mb-3">
+    <div class="container">
+        <div id="tagLists">
+            <div class="tagSearch">
+                <input id="searchTag" onkeyup="SearchTag()" class="form-control" type="search" placeholder="Axtar" aria-label="Search">
+            </div>
+            <div class="row">
+                @foreach(var tags in Model.OrderBy(t => t.TagName).GroupBy(x=>x.TagName).Select(t=>t.FirstOrDefault()))
+                {
+                    <div class="col-md-4 col-12 col-sm-6 col-lg-3 tagMainBox">
+                        <div class="tagbox">
+                            <div class="taghead">
+                                <h5><a href="/Home/FindPost/@tags.Id">@tags.TagName<span>×@Model.Count(t => t.TagName == tags.TagName)</span></a></h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Main Content -->
 
+
+@section scripts{
+    <script>
+        function SearchTag() {
+            var input, h5,txtValue,filter,box;
+            input = document.getElementById("searchTag");
+            filter = input.value.toLowerCase();
+            h5 = document.getElementsByTagName("h5");
+            box = document.getElementsByClassName("tagMainBox");
+            for (i = 0; i < h5.length; i++) {
+                a = h5[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    box[i].style.display = "";
+                } else {
+                    box[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+
+    }

@@ -3156,7 +3156,6 @@ footer {
     #tagLists .tagbox {
         width: 100%;
         height: auto;
-        min-height: 120px;
         background-color: #cccccca9;
         border-radius: 3px;
         padding: 10px 0;

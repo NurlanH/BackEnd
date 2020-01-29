@@ -1,4 +1,6 @@
-﻿@model DevFormAz.Models.FormTagViewModel
+﻿
+
+@model DevFormAz.Models.FormTagViewModel
 @{
     int userId = 0;
     if ((int?)Session["UserId"] != null)
@@ -176,15 +178,6 @@
 
                             </div>
                         </div>
-                        <div class="paginationSec d-flex justify-content-center">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                </ul>
-                            </nav>
-                        </div>
 
                     </div>
                 </div>
@@ -198,15 +191,11 @@
                             </div>
                             <div class="taglists">
 
-                                @foreach (var item in Model.TagLists.Select(s=>s.TagName))
+                                @foreach(var item in Model.TagLists.OrderBy(t => t.TagName).GroupBy(x=>x.TagName).Select(t=>t.FirstOrDefault()).Take(10))
                                 {
-                                    <a href="#">@item<span>×@Model.TagLists.Count(n=>n.TagName == item)</span></a>
+                                    <a href="#">@item.TagName<span>×@Model.TagLists.Count(t=>t.TagName == item.TagName)</span></a>
                                 }
-                                @*<a href="#">Html <span>×1500</span></a>
-                                <a href="#">Css <span>×1500</span></a>
-                                <a href="#">Javascript <span>×1500</span></a>
-                                <a href="#">C# <span>×1500</span></a>
-                                <a href="#">Python <span>×1500</span></a>*@
+             
                             </div>
                         </div>
                     </div>
@@ -217,26 +206,3 @@
     </div>
 </section>
 <!-- Main Content -->
-
-
-@section scripts{
-    
-    <script>
-        //$("#sharebtn").click(function ()
-        //{
-          
-        //    $.ajax({
-        //        url: "/Home/FormPage",
-        //        type: "POST",
-        //        contentType: 'multipart/form-data',
-        //        data: {
-        //            name: $("#formTitle").val(),
-        //            description: $("#formDesc").val()
-        //        },
-        //        success: function (res) {
-        //            console.log(res)
-        //        }
-        //    })
-        //})
-    </script>
-    }

@@ -1,0 +1,140 @@
+﻿@model ICollection<DevFormAz.Models.Form>
+
+@{
+    ViewBag.Title = "FindPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int userId = 0;
+    if ((int?)Session["UserId"] != null)
+    {
+        userId = (int)Session["UserId"];
+    }
+}
+
+
+
+<!-- Main Content -->
+<section class="pageWrapperForIndex mt-3 mb-3">
+    <div class="container">
+
+        <div id="mainFormContent">
+            <div class="row">
+                <!-- Left side -->
+                <div class="col-md-12 col-lg-2 col-12  col-sm-12">
+                    <div class="devNavs">
+                        <div class="navs">
+                            <ul>
+                                <li>
+                                    <a href="/Home/TagPage">Taglar</a>
+                                </li>
+                                <li>
+                                    <a href="/Home/UsersInspectPage">İstifadəçilər</a>
+                                </li>
+                                <li>
+                                    <a href="#">Proyektlər</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Main form -->
+                <div class="col-md-12 col-lg-8 col-12 col-sm-12">
+                    <div class="mainForm">
+                        <div class="forms">
+                            <div class="formlist">
+                                @foreach (var frm in Model)
+                                {
+
+                                    if (frm.isDeleted == false)
+                                    {
+                                        <div class="postBox">
+                                            <div class="postUserInfo">
+                                                <div class="boxOfInfo">
+                                                    <div class="imageBox">
+                                                        @if (frm.UserDetail.Image != null)
+                                                        {
+                                                            <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/@frm.UserDetail.Image" alt="">
+                                                        }
+                                                        else
+                                                        {
+                                                            <img width="60" src="~/Public/Images/UsersFolder/ProfilePic/devAvatar.svg" alt="">
+                                                        }
+
+                                                    </div>
+                                                    <div class="postUserName">
+                                                        <p>@frm.UserDetail.User.FirstName @frm.UserDetail.User.Lastname</p>
+                                                        <span>@frm.FormTime.ToString("dd.MM.yyyy")</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="postUserContent">
+                                                <div class="boxOfContent">
+                                                    <div class="posthead">
+                                                        <h4>@frm.Name</h4>
+                                                    </div>
+                                                    <div class="postContent">
+                                                        <p>@frm.Description</p>
+                                                    </div>
+                                                    <div class="postreadmore">
+                                                        <a href="/Home/FormView/@frm.Id">Davamı</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="postGrades">
+                                                <div class="boxOfGrades">
+                                                    <div class="viewIcon">
+                                                        <i class="far fa-eye"></i>
+                                                    </div>
+                                                    <div class="viewLikeCount">
+                                                        <div class="viewCount">
+                                                            <span class="view">@frm.FormViewCounts.Count()</span>
+
+                                                        </div>
+                                                        <div class="likeCount">
+                                                            @frm.FormLikes.Count()
+                                                        </div>
+                                                    </div>
+                                                    <div class="LikeBtn">
+                                                        @if (userId != 0)
+                                                        {
+                                                            <span class="Like" data-id="@frm.Id">
+
+                                                                @if (frm.FormLikes.Any(u => u.UserId == userId && u.FormId == frm.Id))
+                                                                {
+                                                                    <i class="fas fa-thumbs-up likeHeart" style="color:#303F9F;"></i>
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    <i class="far fa-thumbs-up"></i>
+                                                                }
+
+                                                            </span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>
+                                                                <i class="far fa-thumbs-up" title="Bəyənmək üçün sistemə daxil olmalısınız"></i>
+                                                            </span>
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                }
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Main Content -->

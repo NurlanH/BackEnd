@@ -188,33 +188,6 @@
                                 </ul>
                             </div>
                         </div>
-
-
-                        <div class="experience">
-                            <div class="experienceHeader">
-                                <h2>Təcrübələr</h2>
-
-                            </div>
-
-                            @if (Model.GetUserDetail.Jobs != null)
-                            {
-                                foreach (var item in Model.GetUserDetail.Jobs)
-                                {
-                                    <div class="exp">
-                                        <h4>@item.JobName</h4>
-                                        <p><span>@item.InJob</span>-<span>@item.OutJob</span></p>
-                                        <h5>@item.JobDesc</h5>
-                                    </div>
-                                }
-                            }
-                            else
-                            {
-                                <div class="exp">
-                                    <p>Burada heç bir məlumat qeyd olunmayıb</p>
-                                </div>
-                            }
-
-                        </div>
                     </div>
 
                     <div id="myPosts" data-tab-content>

@@ -729,7 +729,6 @@ C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\bin\System.Web.WebPa
 C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\bin\Newtonsoft.Json.xml
 C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\bin\Antlr3.Runtime.pdb
 C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.csprojAssemblyReference.cache
 C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations._new.resources
 C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.n.resources
 C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.csproj.GenerateResource.cache
@@ -741,3 +740,7 @@ C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.
 C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_virtual_SavedForm_without_list.resources
 C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_virtual_SavedForm_ne.resources
 C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\obj\Debug\DevFormAz.Migrations.added_virtual_SavedForm_without_list1.resources
+C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\bin\PagedList.dll
+C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\bin\PagedList.Mvc.dll
+C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\bin\PagedList.xml
+C:\Users\Nurik\Desktop\Back new\DevForm\DevFormAz\DevFormAz\bin\PagedList.Mvc.xml
