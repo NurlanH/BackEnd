@@ -27,6 +27,8 @@ namespace DevFormAz.Models
 
         public bool IsActive { get; set; } = false;
 
+        public string Role { get; set; }
+
         public virtual ICollection<FormLike> FormLikes { get; set; }
         public virtual ICollection<FormViewCount> FormViews { get; set; }
 
