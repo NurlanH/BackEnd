@@ -52,7 +52,7 @@ namespace DevFormAz.Areas.AdminPanel.Controllers
                 }
 
             }
-            return View();
+            return RedirectToAction("Login", "AdminHome", new { area = "AdminPanel" });
         }
 
 

@@ -65,6 +65,7 @@
                                 <div class="table-responsive">
                                     <table class="table dashboard-table">
                                         <tbody>
+
                                             @foreach (var users in Model.Users.OrderByDescending(i => i.Id).Take(10))
                                             {
                                                 <tr>
@@ -73,8 +74,8 @@
                                                     </td>
                                                     <td>Postlar: @Model.Forms.Where(u => u.UserDetailId == users.Id).Count()</td>
                                                 </tr>
-                                            }
 
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
@@ -100,7 +101,7 @@
                                             {
                                                 <tr>
                                                     <td>
-                                                        <a href="/Home/FormView/@posts.Id"><i class="fas fa-user mr-2"></i>@posts.Name</a>
+                                                        <a href="/Home/FormView/@posts.Id">@posts.Name</a>
                                                     </td>
                                                     <td>Izlənmə:@posts.FormViewCounts.Where(f => f.FormId == posts.Id).Count()</td>
                                                     <td>Bəyənmə:@posts.FormLikes.Where(f => f.FormId == posts.Id).Count()</td>
@@ -117,8 +118,39 @@
 
                         </div>
                     </div>
+                    <div class="mdc-card ml-2">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mb-0">Ən son taglar</h4>
+                        </div>
+                        <div class="mdc-layout-grid__inner mt-2">
+
+                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-layout-grid__cell--span-12-tablet">
+                                <div class="table-responsive">
+                                    <table class="table dashboard-table">
+                                        <tbody>
+                                            @foreach (var tags in Model.TagLists.GroupBy(x => x.TagName).Select(t => t.FirstOrDefault()))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                      @tags.TagName
+                                                    </td>
+                                                    <td>Istifadə sayı:@Model.TagLists.Where(t=>t.TagName == tags.TagName).Count()</td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
-                 
-                  
+
+            </div>
+        </div>
     </main>
 </div>
