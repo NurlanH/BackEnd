@@ -172,7 +172,7 @@ namespace DevFormAz.Controllers
             {
                 var checkUser = (int?)Session["UserId"];
 
-                if (db.Forms.Find(id).UserDetailId == checkUser)
+                if (db.Forms.Find(id).UserDetailId == checkUser || db.Users.Find(checkUser).Role == "admin")
                 {
                     FormAndTags ftVm = new FormAndTags()
                     {

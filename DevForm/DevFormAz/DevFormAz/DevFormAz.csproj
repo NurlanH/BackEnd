@@ -200,6 +200,7 @@
       <DependentUpon>202001301347286_added_user_role.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdminAccessControl.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\DevUsersVm.cs" />
     <Compile Include="Models\Form.cs" />
@@ -2449,7 +2450,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\AdminPanel\Views\web.config" />
-    <Content Include="Areas\AdminPanel\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\AdminPanel\Public\assets\css\maps\demo\style.css.map" />
     <Content Include="Areas\AdminPanel\Public\assets\css\maps\demo_1\style.css.map" />
     <Content Include="Areas\AdminPanel\Public\assets\fonts\roboto\Roboto-Bold.eot" />
@@ -2602,6 +2602,7 @@
     <Content Include="Areas\AdminPanel\Public\LoginAsset\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Areas\AdminPanel\Public\LoginAsset\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Areas\AdminPanel\Public\LoginAsset\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Areas\AdminPanel\Views\AdminHome\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Public\Bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Public\Bootstrap\css\bootstrap-grid.min.css.map" />

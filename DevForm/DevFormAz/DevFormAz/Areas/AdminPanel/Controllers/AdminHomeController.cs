@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -12,12 +14,18 @@ namespace DevFormAz.Areas.AdminPanel.Controllers
 {
     public class AdminHomeController : Controller
     {
-        readonly DevFormAzDataBase db = new DevFormAzDataBase();
-        
+        DevFormAzDataBase db = new DevFormAzDataBase();
+
         [AdminAccess]
         public ActionResult Index()
         {
-            return View();
+            AdminAccessControl vm = new AdminAccessControl()
+            {
+                Forms = db.Forms.ToList(),
+                TagLists = db.TagLists.ToList(),
+                Users = db.Users.ToList()
+            };
+            return View("Index",vm);
         }
 
 
@@ -27,18 +35,32 @@ namespace DevFormAz.Areas.AdminPanel.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(User user)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(string email, string password)
         {
-            if (user != null && user.Role == "admin")
+            if (ModelState.IsValid)
             {
-                var checkManager = db.Users.Where(e => e.Email == user.Email).SingleOrDefault();
-                if (Crypto.VerifyHashedPassword(checkManager.Password, user.Password))
+                var checkManager = await db.Users.Where(e => e.Email == email).SingleOrDefaultAsync();
+                if (checkManager != null && checkManager.Role == "admin")
                 {
-                    Session["AdminId"] = checkManager.Id;
-                    return RedirectToAction("Index", "AdminHome");
+                    if (Crypto.VerifyHashedPassword(checkManager.Password, password))
+                    {
+                        Session["AdminId"] = checkManager.Id;
+                        Session["UserId"] = checkManager.Id;
+                        return RedirectToAction("Index", "AdminHome", new { area = "AdminPanel" });
+                    }
                 }
+
             }
             return View();
+        }
+
+
+        public ActionResult LogOut()
+        {
+            Session.Clear();
+            return RedirectToAction("Login", "AdminHome",new { area="AdminPanel"});
+
         }
     }
 }

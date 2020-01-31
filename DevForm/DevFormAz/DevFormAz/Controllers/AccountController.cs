@@ -174,7 +174,6 @@ namespace DevFormAz.Controllers
         //LogOut
         public ActionResult LogOut()
         {
-            Session["UserImage"] = null;
             Session["UserId"] = null;
             return RedirectToAction("Index", "Home");
 

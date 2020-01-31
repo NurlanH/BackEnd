@@ -1,11 +1,10 @@
-﻿
+﻿@model DevFormAz.Models.AdminAccessControl
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutPage.cshtml";
 }
 
 
-<!-- partial -->
 <div class="page-wrapper mdc-toolbar-fixed-adjust">
     <main class="content-wrapper">
         <div class="mdc-layout-grid">
@@ -13,36 +12,113 @@
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
                     <div class="mdc-card info-card info-card--success">
                         <div class="card-inner">
-                            <h5 class="card-title">Istifadəçi Sayı</h5>
-                            <h5 class="font-weight-light pb-2 mb-1 border-bottom">0</h5>
+                            <h5 class="card-title">İstifadəçilər</h5>
+                            <h5 class="font-weight-light pb-2 mb-1 border-bottom">@Model.Users.Count()</h5>
+                            <div class="card-icon-wrapper">
+                                <i class="fas fa-user"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
                     <div class="mdc-card info-card info-card--success">
                         <div class="card-inner">
-                            <h5 class="card-title">Post Sayı</h5>
-                            <h5 class="font-weight-light pb-2 mb-1 border-bottom">0</h5>
+                            <h5 class="card-title">Postlar</h5>
+                            <h5 class="font-weight-light pb-2 mb-1 border-bottom">@Model.Forms.Count()</h5>
+                            <div class="card-icon-wrapper">
+                                <i class="fas fa-clipboard"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
                     <div class="mdc-card info-card info-card--success">
                         <div class="card-inner">
-                            <h5 class="card-title">Rəy sayı</h5>
-                            <h5 class="font-weight-light pb-2 mb-1 border-bottom">0</h5>
+                            <h5 class="card-title">Taglar</h5>
+                            <h5 class="font-weight-light pb-2 mb-1 border-bottom">@Model.TagLists.GroupBy(x => x.TagName).Select(t => t.FirstOrDefault()).Count()</h5>
+                            <div class="card-icon-wrapper">
+                                <i class="fas fa-tags"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+                <div style="opacity: 0.4" class=" mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
                     <div class="mdc-card info-card info-card--success">
                         <div class="card-inner">
-                            <h5 class="card-title">Tag Sayı</h5>
+                            <h5 class="card-title">Proyektlər</h5>
                             <h5 class="font-weight-light pb-2 mb-1 border-bottom">0</h5>
+                            <div class="card-icon-wrapper">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 ">
+                    <div class="mdc-card stretch-card mdc-layout-grid__cell--span-5 mr-2">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mb-0">Ən son istifadəçilər</h4>
+                        </div>
+                        <div class="mdc-layout-grid__inner mt-2">
+
+                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-layout-grid__cell--span-12-tablet">
+                                <div class="table-responsive">
+                                    <table class="table dashboard-table">
+                                        <tbody>
+                                            @foreach (var users in Model.Users.OrderByDescending(i => i.Id).Take(10))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <a href="/Home/ProfileViewPage/@users.Id"><i class="fas fa-user mr-2"></i>@users.FirstName @users.Lastname</a>
+                                                    </td>
+                                                    <td>Postlar: @Model.Forms.Where(u => u.UserDetailId == users.Id).Count()</td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="mdc-card">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mb-0">Ən son postlar</h4>
+                        </div>
+                        <div class="mdc-layout-grid__inner mt-2">
+
+                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-layout-grid__cell--span-12-tablet">
+                                <div class="table-responsive">
+                                    <table class="table dashboard-table">
+                                        <tbody>
+                                            @foreach (var posts in Model.Forms.OrderByDescending(i => i.Id).Take(10))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <a href="/Home/FormView/@posts.Id"><i class="fas fa-user mr-2"></i>@posts.Name</a>
+                                                    </td>
+                                                    <td>Izlənmə:@posts.FormViewCounts.Where(f => f.FormId == posts.Id).Count()</td>
+                                                    <td>Bəyənmə:@posts.FormLikes.Where(f => f.FormId == posts.Id).Count()</td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                 
+                  
     </main>
 </div>
